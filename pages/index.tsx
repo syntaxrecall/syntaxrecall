@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default function Home() {
+export default function Home(): React.ReactElement {
   return (
     <div className="container">
       <Head>
