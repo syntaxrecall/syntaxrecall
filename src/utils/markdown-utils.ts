@@ -4,6 +4,7 @@ import prism from 'remark-prism';
 import externalLinks from 'remark-external-links';
 import gfm from 'remark-gfm';
 import toc from 'remark-toc';
+import slug from 'remark-slug';
 
 export default async function markdownToHtml(markdown) {
   const result = await remark()
@@ -12,6 +13,7 @@ export default async function markdownToHtml(markdown) {
     .use(prism)
     .use(gfm)
     .use(toc)
+    .use(slug)
     .process(markdown);
   return result.toString();
 }
