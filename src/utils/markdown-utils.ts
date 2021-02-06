@@ -6,7 +6,7 @@ import gfm from 'remark-gfm';
 import toc from 'remark-toc';
 import slug from 'remark-slug';
 
-export default async function markdownToHtml(markdown) {
+export default async function markdownToHtml(markdown: string) {
   const result = await remark()
     .use(externalLinks, { target: '_blank' })
     .use(html)
