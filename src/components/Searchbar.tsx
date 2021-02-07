@@ -1,13 +1,21 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 export default function SearchBar(): React.ReactElement {
   return (
-    <input
-      type="text"
-      name="search"
-      className="px-6 py-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm text-xl border-gray-300 rounded-md"
-      placeholder="Search for a topic..."
-      autoComplete="off"
-    />
+    <div className="rounded-full py-3 px-6 shadow-sm text-xl border-gray-300 flex items-center bg-white">
+      <FontAwesomeIcon
+        icon={faSearch}
+        className="mr-6"
+      />
+      <input
+        type="text"
+        name="search"
+        className="focus:outline-none flex-grow"
+        placeholder="Search..."
+        autoComplete="off"
+      />
+    </div>
   );
 }
