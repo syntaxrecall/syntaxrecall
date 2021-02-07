@@ -12,7 +12,7 @@ export default function SearchBar(): React.ReactElement {
       <input
         type="text"
         name="search"
-        className="focus:outline-none flex-grow"
+        className="focus:outline-none w-full"
         placeholder="Search..."
         autoComplete="off"
       />
