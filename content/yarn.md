@@ -14,15 +14,15 @@ keywords: ['npm', 'yarn']
 
 | Command                                                  | Description                                                                       |
 | -------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| yarn add <package>                                       | This will install one or more packages in your dependencies                       |
-| yarn add <package> [--dev/-D]                            | Installs a package and any packages that it depends on                            |
-| yarn add <package> [--peer/-P]                           | Installs one or more packages in your peerDependencies                            |
-| yarn add <package> [--optional/-O]                       | Installs one or more packages in your optionalDependencies                        |
-| yarn add <package> [--exact/-E]                          | Installs the packages as exact versions                                           |
+| yarn add [package]                                       | This will install one or more packages in your dependencies                       |
+| yarn add [package] [--dev/-D]                            | Installs a package and any packages that it depends on                            |
+| yarn add [package] [--peer/-P]                           | Installs one or more packages in your peerDependencies                            |
+| yarn add [package] [--optional/-O]                       | Installs one or more packages in your optionalDependencies                        |
+| yarn add [package] [--exact/-E]                          | Installs the packages as exact versions                                           |
 | yarn add <package...> [--tilde/-T]                       | Installs the most recent release of the packages that have the same minor version |
 | yarn add <package...> [--ignore-workspace-root-check/-W] | Allows a package to be installed at the workspaces root                           |
-| yarn add <alias-package>@npm:<package>                   | Installs a package under a custom alias                                           |
-| yarn add <package> --audit                               | Checks for known security issues with the installed packages                      |
+| yarn add <alias-package>@npm:[package]                   | Installs a package under a custom alias                                           |
+| yarn add [package] --audit                               | Checks for known security issues with the installed packages                      |
 
 ### yarn install
 
