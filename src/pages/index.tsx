@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from "react";
+import Link from "next/link";
 import Searchbar from "../components/Searchbar";
 import { getAllTopics } from "../api/api";
 import { Topic } from "../types";
@@ -47,7 +48,11 @@ export default function Page({ topics }: Props): React.ReactElement {
               {`Found ${filteredItems.length} results`}
             </h2>
             {filteredItems.map((item) => (
-              <div key={item.slug}>{item.title}</div>
+              <Link key={item.slug} href={item.slug}>
+                <div className="cursor-pointer hover:text-gray-600">
+                  {item.title}
+                </div>
+              </Link>
             ))}
           </div>
         )}
