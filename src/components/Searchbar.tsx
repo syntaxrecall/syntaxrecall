@@ -22,7 +22,12 @@ export default function SearchBar({ onChange }: Props): React.ReactElement {
   return (
     <>
       <div className="rounded-full py-3 px-6 shadow-sm text-xl border-gray-300 flex items-center bg-white">
-        <FontAwesomeIcon icon={faSearch} className="mr-6" />
+        <FontAwesomeIcon
+          icon={faSearch}
+          className="mr-6"
+          width="20"
+          height="20"
+        />
         <input
           type="text"
           name="search"

@@ -14,7 +14,7 @@ export default function Page({ children }: PageProps): React.ReactElement {
         <div className="mt-4">
           <Link href="/">
             <div className="rounded-full h-16 w-16 flex items-center justify-center hover:bg-gray-200 cursor-pointer">
-              <FontAwesomeIcon icon={faChevronLeft} />
+              <FontAwesomeIcon icon={faChevronLeft} width="10" height="16" />
             </div>
           </Link>
         </div>
