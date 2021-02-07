@@ -1,33 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { useDebounce } from '../hooks';
-import { Topic } from '../types';
+import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useDebounce } from "../hooks";
 
 interface Props {
-  items: Topic[];
-  onChange: (items: Topic[]) => void
+  onChange: (searchTerm: string) => void;
 }
 
-function getFilteredItems(searchText: string, topics: Topic[]) {
-  let results: Topic[] = [];
-  if (searchText) {
-    results = topics.filter((topic) => topic.keywords.includes(searchText.toLowerCase()));
-  }
-  return results;
-}
-
-export default function SearchBar({ items, onChange }: Props): React.ReactElement {
-  const [searchText, setSearchText] = useState('');
+export default function SearchBar({ onChange }: Props): React.ReactElement {
+  const [searchText, setSearchText] = useState("");
   const debouncedSearchTerm = useDebounce(searchText, 500);
 
   useEffect(() => {
     if (debouncedSearchTerm) {
-      onChange(getFilteredItems(debouncedSearchTerm, items));
+      onChange(debouncedSearchTerm);
     } else {
       onChange(null);
     }
-  }, [debouncedSearchTerm]);
+  }, [debouncedSearchTerm, onChange]);
 
   return (
     <>

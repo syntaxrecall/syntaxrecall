@@ -1,5 +1,6 @@
 export interface Topic {
-  title: string,
-  slug: string
-  keywords: string[];
+  title?: string;
+  slug?: string;
+  keywords?: string[];
+  content?: string;
 }

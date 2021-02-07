@@ -1,8 +1,8 @@
-import React from 'react';
-import { getAllTopics, getTopicBySlug } from '../../lib/api';
-import markdownToHtml from '../utils/markdown-utils';
-import Markdown from '../components/Markdown';
-import Layout from '../components/layouts/MainLayout';
+import React from "react";
+import { getAllTopics, getTopicBySlug } from "../api/api";
+import markdownToHtml from "../utils/markdown-utils";
+import Markdown from "../components/Markdown";
+import Layout from "../components/layouts/MainLayout";
 
 interface PageProps {
   content: string;
@@ -16,19 +16,20 @@ export default function Page({ content }: PageProps): React.ReactElement {
   );
 }
 
-export async function getStaticProps({ params }) {
-  const topic = getTopicBySlug(params.slug, ['content']);
+export async function getStaticProps({
+  params,
+}: PageParams): Promise<StaticProps> {
+  const topic = getTopicBySlug(params.slug, ["content"]);
   const content = await markdownToHtml(topic.content);
   return {
     props: {
-      ...topic,
       content,
     },
   };
 }
 
-export async function getStaticPaths() {
-  const topics = getAllTopics(['slug']);
+export function getStaticPaths(): StaticPaths {
+  const topics = getAllTopics(["slug"]);
   return {
     paths: topics.map((topic) => ({
       params: {
@@ -37,4 +38,25 @@ export async function getStaticPaths() {
     })),
     fallback: false,
   };
+}
+
+interface StaticProps {
+  props: StaticProp;
+}
+
+interface StaticProp {
+  content: string;
+}
+
+interface StaticPaths {
+  paths: PageParams[];
+  fallback: boolean;
+}
+
+interface PageParams {
+  params: Slug;
+}
+
+interface Slug {
+  slug: string;
 }

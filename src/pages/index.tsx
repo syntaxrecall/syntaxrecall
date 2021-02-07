@@ -1,26 +1,43 @@
-import React, { useState } from 'react';
-import Searchbar from '../components/Searchbar';
-import { getAllTopics } from '../../lib/api';
-import { Topic } from '../types';
+import React, { useState, useCallback } from "react";
+import Searchbar from "../components/Searchbar";
+import { getAllTopics } from "../api/api";
+import { Topic } from "../types";
 
 interface Props {
-  topics: Topic[]
+  topics: Topic[];
+}
+
+function getFilteredItems(searchText: string, topics: Topic[]) {
+  let results: Topic[] = [];
+  if (searchText) {
+    results = topics.filter((topic) =>
+      topic.keywords.includes(searchText.toLowerCase())
+    );
+  }
+  return results;
 }
 
 export default function Page({ topics }: Props): React.ReactElement {
-  const [filteredItems, setFilteredItems] = useState(null);
-
-  function onSearchChange(items: Topic[]) {
-    setFilteredItems(items);
-  }
-
+  const [filteredItems, setFilteredItems] = useState<Topic[] | null>(null);
+  const onSearchChange = useCallback(
+    (searchText) => {
+      if (searchText) {
+        setFilteredItems(getFilteredItems(searchText, topics));
+      } else {
+        setFilteredItems(null);
+      }
+    },
+    [topics, setFilteredItems]
+  );
   return (
     <div className="grid grid-cols-12 min-h-screen">
       <div className="col-start-5 col-span-4 min-h-screen">
-        <div className="flex items-end" style={{ minHeight: '40%' }}>
+        <div className="flex items-end" style={{ minHeight: "40%" }}>
           <div className="w-full">
-            <h1 className="text-4xl text-center font-bold mb-4">Syntax Recall</h1>
-            <Searchbar items={topics} onChange={onSearchChange} />
+            <h1 className="text-4xl text-center font-bold mb-4">
+              Syntax Recall
+            </h1>
+            <Searchbar onChange={onSearchChange} />
           </div>
         </div>
 
@@ -30,9 +47,7 @@ export default function Page({ topics }: Props): React.ReactElement {
               {`Found ${filteredItems.length} results`}
             </h2>
             {filteredItems.map((item) => (
-              <div key={item.slug}>
-                {item.title}
-              </div>
+              <div key={item.slug}>{item.title}</div>
             ))}
           </div>
         )}
@@ -41,8 +56,16 @@ export default function Page({ topics }: Props): React.ReactElement {
   );
 }
 
-export async function getStaticProps() {
-  const topics = getAllTopics(['title', 'slug', 'keywords']);
+interface StaticProps {
+  props: StaticProp;
+}
+
+interface StaticProp {
+  topics: Topic[];
+}
+
+export function getStaticProps(): StaticProps {
+  const topics = getAllTopics(["title", "slug", "keywords"]) as Topic[];
   return {
     props: {
       topics,
