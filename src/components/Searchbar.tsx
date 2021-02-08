@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useDebounce } from "../hooks";
 
 interface Props {
@@ -36,6 +37,19 @@ export default function SearchBar({ onChange }: Props): React.ReactElement {
           autoComplete="off"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
+        />
+
+        <FontAwesomeIcon
+          icon={faTimes}
+          className={clsx(
+            "cursor-pointer",
+            "ml-6",
+            { block: !!searchText },
+            { hidden: !searchText }
+          )}
+          width="13.75"
+          height="20"
+          onClick={() => setSearchText("")}
         />
       </div>
     </>
