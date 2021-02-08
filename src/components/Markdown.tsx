@@ -15,7 +15,10 @@ export default function Markdown({
   return (
     <>
       <article
-        className={clsx("prose lg:prose-xl m-auto px-8 my-16", className)}
+        className={clsx(
+          "prose lg:prose-xl m-auto px-2 sm:px-0 my-16",
+          className
+        )}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
