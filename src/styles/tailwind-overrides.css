@@ -1,0 +1,37 @@
+@layer base {
+  @media (min-width: 1024px) {
+    article.lg\:prose-xl thead th:first-child {
+      @apply pl-4;
+    }
+
+    article.lg\:prose-xl thead th {
+      @apply pr-4;
+    }
+
+    article.lg\:prose-xl thead th:last-child {
+      @apply pr-4;
+    }
+
+    article.lg\:prose-xl tbody td:first-child {
+      @apply pl-4;
+    }
+
+    article.lg\:prose-xl tbody td {
+      @apply px-4;
+    }
+
+    article.lg\:prose-xl tbody td:last-child {
+      @apply pr-4;
+    }
+  }
+
+  table {
+    @apply bg-white;
+    @apply rounded-md;
+  }
+
+  table th {
+    @apply p-4;
+  }
+
+}
