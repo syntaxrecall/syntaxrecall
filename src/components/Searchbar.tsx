@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,6 +24,7 @@ function getFilteredItems(searchText: string, topics: Topic[]) {
 }
 
 export default function SearchBar({ items }: Props): React.ReactElement {
+  const ref = useRef(null);
   const [searchText, setSearchText] = useState("");
   const debouncedSearchTerm = useDebounce(searchText, 500);
   const [filteredItems, setFilteredItems] = useState<Topic[] | null>(null);
@@ -34,6 +35,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
     } else {
       setFilteredItems(null);
     }
+    ref.current.focus();
   }, [debouncedSearchTerm, setFilteredItems, items]);
 
   return (
@@ -59,6 +61,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
           height="20"
         />
         <input
+          ref={ref}
           type="text"
           name="search"
           className="focus:outline-none w-full"
