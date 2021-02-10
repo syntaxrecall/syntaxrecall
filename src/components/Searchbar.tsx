@@ -53,6 +53,9 @@ export default function SearchBar({ items }: Props): React.ReactElement {
       setResultIndex(
         Math.min(filteredItems ? filteredItems.length - 1 : -1, resultIndex + 1)
       );
+    } else if (event.key === Key.Enter) {
+      const item = filteredItems[resultIndex];
+      router.push(`/${item.slug}`);
     }
   }
 
