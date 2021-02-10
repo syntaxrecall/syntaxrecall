@@ -105,6 +105,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
           height="20"
           onClick={() => setSearchText("")}
         />
+
         {filteredItems && filteredItems.length > 0 && (
           <div className="absolute top-12 -inset-x-px rounded-b-lg bg-white border border-gray-400">
             {filteredItems.map((item, index) => (
@@ -124,6 +125,8 @@ export default function SearchBar({ items }: Props): React.ReactElement {
           </div>
         )}
       </div>
+
+      <p className="text-center mt-4">A quick reference for developers</p>
     </>
   );
 }
