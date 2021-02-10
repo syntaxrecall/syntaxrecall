@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import clsx from "clsx";
+import { Key } from "ts-key-enum";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useDebounce } from "../hooks";
@@ -25,9 +27,11 @@ function getFilteredItems(searchText: string, topics: Topic[]) {
 
 export default function SearchBar({ items }: Props): React.ReactElement {
   const ref = useRef(null);
+  const [resultIndex, setResultIndex] = useState(-1);
   const [searchText, setSearchText] = useState("");
   const debouncedSearchTerm = useDebounce(searchText, 500);
   const [filteredItems, setFilteredItems] = useState<Topic[] | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     if (debouncedSearchTerm) {
@@ -37,6 +41,20 @@ export default function SearchBar({ items }: Props): React.ReactElement {
     }
     ref.current.focus();
   }, [debouncedSearchTerm, setFilteredItems, items]);
+
+  function onKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (!filteredItems || filteredItems.length === 0) {
+      return;
+    }
+
+    if (event.key === Key.ArrowUp) {
+      setResultIndex(Math.max(-1, resultIndex - 1));
+    } else if (event.key === Key.ArrowDown) {
+      setResultIndex(
+        Math.min(filteredItems ? filteredItems.length - 1 : -1, resultIndex + 1)
+      );
+    }
+  }
 
   return (
     <>
@@ -69,6 +87,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
           autoComplete="off"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
+          onKeyDown={onKeyDown}
         />
 
         <FontAwesomeIcon
@@ -89,8 +108,10 @@ export default function SearchBar({ items }: Props): React.ReactElement {
               <Link key={item.slug} href={item.slug}>
                 <div
                   className={clsx(
-                    "cursor-pointer hover:text-gray-600 hover:bg-gray-200",
-                    { "rounded-b-lg": index === filteredItems.length - 1 }
+                    "cursor-pointer focus:text-gray-600 focus:bg-gray-200 hover:text-gray-600 hover:bg-gray-200",
+                    { "rounded-b-lg": index === filteredItems.length - 1 },
+                    { "text-gray-600": resultIndex === index },
+                    { "bg-gray-200": resultIndex === index }
                   )}
                 >
                   <div className="p-2">{item.title}</div>
