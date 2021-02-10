@@ -84,10 +84,15 @@ export default function SearchBar({ items }: Props): React.ReactElement {
           onClick={() => setSearchText("")}
         />
         {filteredItems && filteredItems.length > 0 && (
-          <div className="absolute top-12 -inset-x-px bg-white border border-gray-400">
-            {filteredItems.map((item) => (
+          <div className="absolute top-12 -inset-x-px rounded-b-lg bg-white border border-gray-400">
+            {filteredItems.map((item, index) => (
               <Link key={item.slug} href={item.slug}>
-                <div className="cursor-pointer hover:text-gray-600 hover:bg-gray-200">
+                <div
+                  className={clsx(
+                    "cursor-pointer hover:text-gray-600 hover:bg-gray-200",
+                    { "rounded-b-lg": index === filteredItems.length - 1 }
+                  )}
+                >
                   <div className="p-2">{item.title}</div>
                 </div>
               </Link>
