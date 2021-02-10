@@ -39,6 +39,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
     } else {
       setFilteredItems(null);
     }
+    setResultIndex(-1);
     ref.current.focus();
   }, [debouncedSearchTerm, setFilteredItems, items]);
 
