@@ -1,7 +1,6 @@
 import React from "react";
 import { getAllTopics, getTopicBySlug } from "../api/api";
-import markdownToHtml from "../utils/markdown-utils";
-import Markdown from "../components/Markdown";
+import HtmlContent from "../components/HtmlContent";
 import Layout from "../components/layouts/MainLayout";
 
 interface PageProps {
@@ -11,7 +10,7 @@ interface PageProps {
 export default function Page({ content }: PageProps): React.ReactElement {
   return (
     <Layout>
-      <Markdown htmlContent={content} />
+      <HtmlContent htmlContent={content} />
     </Layout>
   );
 }

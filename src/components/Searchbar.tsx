@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useDebounce } from "../hooks";
 import { Topic } from "../types";
+import Tag from "./Tag";
 
 interface Props {
   items: Topic[];
@@ -119,7 +120,14 @@ export default function SearchBar({ items }: Props): React.ReactElement {
                     { "bg-gray-200": resultIndex === index }
                   )}
                 >
-                  <div className="p-2">{item.title}</div>
+                  <div className="p-2">
+                    {item.title}
+
+                    {item.tags &&
+                      item.tags.map((tag) => {
+                        return <Tag text={tag} className="ml-2" />;
+                      })}
+                  </div>
                 </div>
               </Link>
             ))}

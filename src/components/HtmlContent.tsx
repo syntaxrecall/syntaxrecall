@@ -3,15 +3,15 @@ import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
-interface MarkdownProps {
+interface HtmlContentProps {
   htmlContent: string;
   className?: string;
 }
 
-export default function Markdown({
+export default function HtmlContent({
   htmlContent,
   className,
-}: MarkdownProps): React.ReactElement {
+}: HtmlContentProps): React.ReactElement {
   return (
     <>
       <article

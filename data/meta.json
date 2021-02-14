@@ -4,6 +4,9 @@
     "dateAdded": "February 8, 2021",
     "keywords": [
       "git"
+    ],
+    "tags": [
+      "cheatsheet"
     ]
   },
   {
@@ -11,6 +14,9 @@
     "dateAdded": "February 6, 2021",
     "keywords": [
       "yarn", "npm"
+    ],
+    "tags": [
+      "cheatsheet"
     ]
   },
   {
@@ -18,6 +24,9 @@
     "dateAdded": "February 10, 2021",
     "keywords": [
       "vim"
+    ],
+    "tags": [
+      "cheatsheet"
     ]
   }
 ]

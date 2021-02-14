@@ -3,4 +3,5 @@ export interface Topic {
   slug?: string;
   keywords?: string[];
   content?: string;
+  tags?: string[];
 }
