@@ -16,9 +16,26 @@ export default function HtmlContent({
   const [html, setHtml] = useState(null);
 
   useEffect(() => {
-    const document = new DOMParser().parseFromString(htmlContent, "text/html");
-    Prism.highlightAllUnder(document.documentElement);
-    setHtml(document.documentElement.innerHTML);
+    const groups = htmlContent.match(/language-[a-z]+/g);
+    if (groups) {
+      const uniqueGroups = groups.filter((a, b) => groups.indexOf(a) === b);
+      const promises = [];
+      uniqueGroups.forEach(async (group) => {
+        const language = group.replace("language-", "");
+        promises.push(import(`prismjs/components/prism-${language}`));
+      });
+
+      Promise.all(promises).then(() => {
+        const document = new DOMParser().parseFromString(
+          htmlContent,
+          "text/html"
+        );
+        Prism.highlightAllUnder(document.documentElement);
+        setHtml(document.documentElement.innerHTML);
+      });
+    } else {
+      setHtml(htmlContent);
+    }
   }, [htmlContent]);
 
   if (!html) {
