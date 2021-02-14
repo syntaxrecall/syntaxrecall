@@ -2,7 +2,7 @@
 import React from "react";
 import { AppProps } from "next/app";
 import "../styles/global.css";
-import "prismjs/themes/prism-tomorrow.css";
+import "prism-themes/themes/prism-darcula.css";
 
 export default function Page({
   Component,
