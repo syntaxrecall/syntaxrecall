@@ -59,6 +59,12 @@
 
   article.content pre {
     @apply rounded-lg;
+    @apply inline-flex;
+    @apply w-full;
+  }
+
+  article.content code:first-line {
+    line-height: 0;
   }
 
 }
