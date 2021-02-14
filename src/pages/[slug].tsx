@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Prism from "prismjs";
 import { getAllTopics, getTopicBySlug } from "../api/api";
 import HtmlContent from "../components/HtmlContent";
 import Layout from "../components/layouts/MainLayout";
@@ -8,10 +9,15 @@ interface PageProps {
 }
 
 export default function Page({ content }: PageProps): React.ReactElement {
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
   return (
-    <Layout>
-      <HtmlContent htmlContent={content} />
-    </Layout>
+    <>
+      <Layout>
+        <HtmlContent htmlContent={content} />
+      </Layout>
+    </>
   );
 }
 
