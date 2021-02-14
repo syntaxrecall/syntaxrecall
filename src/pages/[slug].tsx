@@ -19,8 +19,7 @@ export default function Page({ content }: PageProps): React.ReactElement {
 export async function getStaticProps({
   params,
 }: PageParams): Promise<StaticProps> {
-  const topic = getTopicBySlug(params.slug, ["content"]);
-  const content = await markdownToHtml(topic.content);
+  const { content } = getTopicBySlug(params.slug, ["content"]);
   return {
     props: {
       content,

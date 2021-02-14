@@ -1,20 +1,25 @@
 import fs from "fs";
 import { join } from "path";
-import matter from "gray-matter";
-import { Topic } from "../types";
+import { Topic, TopicMeta } from "../types";
 
-const contentDir = join(process.cwd(), "content");
+const dataDir = join(process.cwd(), "data");
+const contentDir = join(process.cwd(), "data", "content");
 
 export function getTopicSlugs(): string[] {
   return fs.readdirSync(contentDir);
 }
 
 export function getTopicBySlug(slug: string, fields: string[] = []): Topic {
-  const realSlug = slug.replace(/\.md$/, "");
-  const fullPath = join(contentDir, `${realSlug}.md`);
+  const realSlug = slug.replace(/\.html$/, "");
+  const fullPath = join(contentDir, `${realSlug}.html`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
+  const meta: TopicMeta[] = JSON.parse(
+    fs.readFileSync(join(dataDir, "meta.json"), "utf8")
+  );
 
+  const data = meta.find(
+    (m) => m.title.toLowerCase() === realSlug.toLowerCase()
+  );
   const items: Topic = {};
 
   fields.forEach((field) => {
@@ -24,7 +29,7 @@ export function getTopicBySlug(slug: string, fields: string[] = []): Topic {
         break;
 
       case "content":
-        items[field] = content;
+        items[field] = fileContents;
         break;
 
       default:
