@@ -1,5 +1,4 @@
-import React, { useState, useCallback } from "react";
-import Link from "next/link";
+import React from "react";
 import Searchbar from "../components/Searchbar";
 import { getAllTopics } from "../api/api";
 import { Topic } from "../types";

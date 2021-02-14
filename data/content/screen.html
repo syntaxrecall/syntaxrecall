@@ -1,0 +1,153 @@
+<h1 id="screen">Screen</h1>
+<p>
+  Screen or GNU Screen is a terminal multiplexer. In other words, it means that
+  you can start a screen session and then open any number of windows (virtual
+  terminals). This does not contain <b>all</b> of screen's commands and options,
+  read
+  <a
+    href="https://www.gnu.org/software/screen/manual/screen.html#Commands"
+    rel="noopener noreferrer"
+    target="_blank"
+    >GNU's manual</a
+  >
+  to see everything
+</p>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+  <div>
+    <h3 id="cli-options">CLI Options</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Options</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>-S</td>
+          <td>Starts a named session</td>
+        </tr>
+        <tr>
+          <td>-r [name]</td>
+          <td>Reattach to a screen (optionally by name)</td>
+        </tr>
+        <tr>
+          <td>-ls or --list</td>
+          <td>Returns a list of session ids</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 id="accessibility">Accessibility</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Keybind</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ctrl+a A</td>
+      <td>Rename current screen tab</td>
+    </tr>
+    <tr>
+      <td>ctrl+a k</td>
+      <td>Kill current screen tab</td>
+    </tr>
+    <tr>
+      <td>ctrl+a ctrl+a</td>
+      <td>Switch to last used screen tab</td>
+    </tr>
+    <tr>
+      <td>ctrl+a a</td>
+      <td>Send ctrl+a to current screen tab</td>
+    </tr>
+    <tr>
+      <td>ctrl+a ctrl+w</td>
+      <td>See a list of all screen tabs in the current screen</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+
+  <div>
+    <h3 id="screens">Screens</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Keybind</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ctrl+a c</td>
+          <td>Create a new screen tab inside a screen</td>
+        </tr>
+        <tr>
+          <td>ctrl+a [0-9]</td>
+          <td>Switch to a screen tab by number 0 through 9</td>
+        </tr>
+        <tr>
+          <td>ctrl+a n</td>
+          <td>Go to the next screen tab</td>
+        </tr>
+        <tr>
+          <td>ctrl+a p</td>
+          <td>Go to the previous screen tab</td>
+        </tr>
+        <tr>
+          <td>ctrl+a k</td>
+          <td>Kill current screen tab</td>
+        </tr>
+        <tr>
+          <td>ctrl+a ctrl+d</td>
+          <td>
+            Detach the current screen and go back to the terminal (screen
+            windows will stay running)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <h3 id="visual-pleasure">Visual pleasure</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Keybind</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ctrl+a S</td>
+          <td>Split a screen horizontally</td>
+        </tr>
+        <tr>
+          <td>`ctrl+a</td>
+          <td>`</td>
+          <td>Split a screen vertically</td>
+        </tr>
+        <tr>
+          <td>ctrl+a ctrl+I or ctrl+a tab</td>
+          <td>Change screen split</td>
+        </tr>
+        <tr>
+          <td>ctrl+a Q</td>
+          <td>Remove all screen splits</td>
+        </tr>
+        <tr>
+          <td>ctrl+a C</td>
+          <td>Clear the current screen tab</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<h2 id="sources">Sources</h2>
+<a href="https://devhints.io/screen" rel="noopener noreferrer" target="_blank">https://devhints.io/screen</a>

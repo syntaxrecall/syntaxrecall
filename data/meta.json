@@ -6,7 +6,7 @@
       "git"
     ],
     "tags": [
-      "cheatsheet"
+      "cheatsheet", "cli"
     ]
   },
   {
@@ -16,7 +16,7 @@
       "yarn", "npm"
     ],
     "tags": [
-      "cheatsheet"
+      "cheatsheet", "cli"
     ]
   },
   {
@@ -27,6 +27,16 @@
     ],
     "tags": [
       "cheatsheet"
+    ]
+  },
+  {
+    "title": "Screen",
+    "dateAdded": "February 13, 2021",
+    "keywords": [
+      "screen"
+    ],
+    "tags": [
+      "cheatsheet", "cli"
     ]
   }
 ]
