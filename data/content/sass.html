@@ -1,0 +1,126 @@
+<h1 id="markdown">Sass</h1>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+  <div>
+    <h3>Variables</h3>
+<pre>
+<code class="language-sass">
+$red: #833;
+body {
+    color: $red;
+}
+</code>
+</pre>
+
+<h3>Composing</h3>
+<pre>
+<code class="language-sass">
+@import './other_sass_file';
+
+// file extension is optional
+@import './other_sass_file.sass';
+</code>
+</pre>
+
+
+<h3>Mixins</h3>
+<pre>
+<code class="language-sass">
+@mixin heading-font {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+h1 {
+@include heading-font;
+}
+
+// with parameters
+@mixin font-size($n) {
+    font-size: $n * 1.2em;
+}
+
+body {
+    @include font-size(2);
+}
+
+// with default values
+@mixin pad($n: 10px) {
+    padding: $n;
+}
+
+body {
+    @include pad(15px);
+}
+
+// with a default variable
+$default-padding: 10px;
+
+@mixin pad($n: $default-padding) {
+    padding: $n;
+}
+
+body {
+    @include pad(15px);
+}
+</code>
+</pre>
+
+  </div>
+
+  <div>
+    <h3>Comments</h3>
+<pre>
+<code class="language-sass">
+/* 
+Multi
+line
+comments
+*/
+
+// Line comments
+</code>
+</pre>
+
+<h3>Extend</h3>
+<pre>
+<code class="language-sass">
+.button {
+    ···
+}
+.push-button {
+    @extend .button;
+}
+</code>
+</pre>
+
+  </div>
+
+  <div>
+    <h3>Nesting</h3>
+<pre>
+<code class="language-sass">
+.markdown-body {
+    a {
+        color: blue;
+        &:hover {
+        color: red;
+        }
+    }
+}
+
+text: {
+    // like text-align: center
+    align: center;
+
+    // like text-transform: uppercase
+    transform: uppercase;
+}
+</code>
+</pre>
+
+  </div>
+</div>
+
+<h2 id="sources">Sources</h2>
+<a href="https://devhints.io/sass" rel="noopener noreferrer" target="_blank">https://devhints.io/sass</a>
