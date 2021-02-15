@@ -25,1001 +25,881 @@
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
   <div>
     <h3 id="cursor-movement">Cursor movement</h3>
-    <table>
-      <thead>
+    <table class="shortcuts">
         <tr>
-          <th>Hotkey</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>h</td>
+          <td><span>h</span></td>
           <td>move cursor left</td>
         </tr>
         <tr>
-          <td>j</td>
+          <td><span>j</span></td>
           <td>move cursor down</td>
         </tr>
         <tr>
-          <td>k</td>
+          <td><span>k</span></td>
           <td>move cursor up</td>
         </tr>
         <tr>
-          <td>l</td>
+          <td><span>l</span></td>
           <td>move cursor right</td>
         </tr>
         <tr>
-          <td>H</td>
+          <td><span>H</span></td>
           <td>move to top of screen</td>
         </tr>
         <tr>
-          <td>M</td>
+          <td><span>M</span></td>
           <td>move to middle of screen</td>
         </tr>
         <tr>
-          <td>L</td>
+          <td><span>L</span></td>
           <td>move to bottom of screen</td>
         </tr>
         <tr>
-          <td>w</td>
+          <td><span>w</span></td>
           <td>jump forwards to the start of a word</td>
         </tr>
         <tr>
-          <td>W</td>
+          <td><span>W</span></td>
           <td>
             jump forwards to the start of a word (words can contain punctuation)
           </td>
         </tr>
         <tr>
-          <td>e</td>
+          <td><span>e</span></td>
           <td>jump forwards to the end of a word</td>
         </tr>
         <tr>
-          <td>E</td>
+          <td><span>E</span></td>
           <td>
             jump forwards to the end of a word (words can contain punctuation)
           </td>
         </tr>
         <tr>
-          <td>b</td>
+          <td><span>b</span></td>
           <td>jump backwards to the start of a word</td>
         </tr>
         <tr>
-          <td>B</td>
+          <td><span>B</span></td>
           <td>
             jump backwards to the start of a word (words can contain
             punctuation)
           </td>
         </tr>
         <tr>
-          <td>%</td>
+          <td><span>%</span></td>
           <td>
             move to matching character (default supported pairs: &#39;()&#39;,
             &#39;{}&#39;, &#39;[]&#39; - use :h matchpairs in vim for more info)
           </td>
         </tr>
         <tr>
-          <td>0</td>
+          <td><span>0</span></td>
           <td>jump to the start of the line</td>
         </tr>
         <tr>
-          <td>^</td>
+          <td><span>^</span></td>
           <td>jump to the first non-blank character of the line</td>
         </tr>
         <tr>
-          <td>$</td>
+          <td><span>$</span></td>
           <td>jump to the end of the line</td>
         </tr>
         <tr>
-          <td>g_</td>
+          <td><span>g_</span></td>
           <td>jump to the last non-blank character of the line</td>
         </tr>
         <tr>
-          <td>gg</td>
+          <td><span>gg</span></td>
           <td>go to the first line of the document</td>
         </tr>
         <tr>
-          <td>G</td>
+          <td><span>G</span></td>
           <td>go to the last line of the document</td>
         </tr>
         <tr>
-          <td>5gg or 5G</td>
+          <td><span>5gg</span> or <span>5G</span></td>
           <td>go to line 5</td>
         </tr>
         <tr>
-          <td>fx</td>
+          <td><span>fx</span></td>
           <td>jump to next occurrence of character x</td>
         </tr>
         <tr>
-          <td>tx</td>
+          <td><span>tx</span></td>
           <td>jump to before next occurrence of character x</td>
         </tr>
         <tr>
-          <td>Fx</td>
+          <td><span>Fx</span></td>
           <td>jump to previous occurence of character x</td>
         </tr>
         <tr>
-          <td>Tx</td>
+          <td><span>Tx</span></td>
           <td>jump to after previous occurence of character x</td>
         </tr>
         <tr>
-          <td>;</td>
+          <td><span>;</span></td>
           <td>repeat previous f, t, F or T movement</td>
         </tr>
         <tr>
-          <td>,</td>
+          <td><span>,</span></td>
           <td>repeat previous f, t, F or T movement, backwards</td>
         </tr>
         <tr>
-          <td>}</td>
+          <td><span>}</span></td>
           <td>jump to next paragraph (or function/block, when editing code)</td>
         </tr>
         <tr>
-          <td>{</td>
+          <td><span>{</span></td>
           <td>
             jump to previous paragraph (or function/block, when editing code)
           </td>
         </tr>
         <tr>
-          <td>zz</td>
+          <td><span>zz</span></td>
           <td>center cursor on screen</td>
         </tr>
         <tr>
-          <td>Ctrl + e</td>
+          <td><span>Ctrl + e</span></td>
           <td>move screen down one line (without moving cursor)</td>
         </tr>
         <tr>
-          <td>Ctrl + y</td>
+          <td><span>Ctrl + y</span></td>
           <td>move screen up one line (without moving cursor)</td>
         </tr>
         <tr>
-          <td>Ctrl + b</td>
+          <td><span>Ctrl + b</span></td>
           <td>move back one full screen</td>
         </tr>
         <tr>
-          <td>Ctrl + f</td>
+          <td><span>Ctrl + f</span></td>
           <td>move forward one full screen</td>
         </tr>
         <tr>
-          <td>Ctrl + d</td>
+          <td><span>Ctrl + d</span></td>
           <td>move forward 1/2 a screen</td>
         </tr>
         <tr>
-          <td>Ctrl + u</td>
+          <td><span>Ctrl + u</span></td>
           <td>move back 1/2 a screen</td>
         </tr>
-      </tbody>
     </table>
 
     <h3 id="registers">Registers</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Hotkey</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>:reg[isters]</td>
-          <td>show registers content</td>
-        </tr>
-        <tr>
-          <td>&quot;xy</td>
-          <td>yank into register x</td>
-        </tr>
-        <tr>
-          <td>&quot;xp</td>
-          <td>paste contents of register x</td>
-        </tr>
-        <tr>
-          <td>&quot;+y</td>
-          <td>yank into the system clipboard register</td>
-        </tr>
-        <tr>
-          <td>&quot;+p</td>
-          <td>paste from the system clipboard register</td>
-        </tr>
-      </tbody>
-    </table>
+    <table class="shortcuts"> 
+      <tbody><tr> 
+        <td><span>:reg[isters]</span></td> 
+        <td>show registers content</td> 
+      </tr> 
+      <tr> 
+        <td><span>"xy</span></td> 
+        <td>yank into register x</td> 
+      </tr> 
+      <tr> 
+        <td><span>"xp</span></td> 
+        <td>paste contents of register x</td> 
+      </tr> 
+      <tr> 
+        <td><span>"+y</span></td> 
+        <td>yank into the system clipboard register</td> 
+      </tr> 
+      <tr> 
+        <td><span>"+p</span></td> 
+        <td>paste from the system clipboard register</td> 
+      </tr> 
+      </tbody></table> 
 
     <h3 id="marks-and-positions">Marks and positions</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Hotkey</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>:marks</td>
-          <td>list of marks</td>
-        </tr>
-        <tr>
-          <td>ma</td>
-          <td>set current position for mark A</td>
-        </tr>
-        <tr>
-          <td>`a</td>
-          <td>jump to position of mark A</td>
-        </tr>
-        <tr>
-          <td>y`a</td>
-          <td>yank text to position of mark A</td>
-        </tr>
-        <tr>
-          <td>`0</td>
-          <td>go to the position where Vim was previously exited</td>
-        </tr>
-        <tr>
-          <td>`&quot;</td>
-          <td>go to the position when last editing this file</td>
-        </tr>
-        <tr>
-          <td>`.</td>
-          <td>go to the position of the last change in this file</td>
-        </tr>
-        <tr>
-          <td>``</td>
-          <td>go to the position before the last jump</td>
-        </tr>
-        <tr>
-          <td>:ju[mps]</td>
-          <td>list of jumps</td>
-        </tr>
-        <tr>
-          <td>Ctrl + i</td>
-          <td>go to newer position in jump list</td>
-        </tr>
-        <tr>
-          <td>Ctrl + o</td>
-          <td>go to older position in jump list</td>
-        </tr>
-        <tr>
-          <td>:changes</td>
-          <td>list of changes</td>
-        </tr>
-        <tr>
-          <td>g,</td>
-          <td>go to newer position in change list</td>
-        </tr>
-        <tr>
-          <td>g;</td>
-          <td>go to older position in change list</td>
-        </tr>
-        <tr>
-          <td>Ctrl + ]</td>
-          <td>jump to the tag under cursor</td>
-        </tr>
-      </tbody>
-    </table>
+    <table class="shortcuts"> 
+      <tbody><tr> 
+        <td><span>:marks</span></td> 
+        <td>list of marks</td> 
+      </tr> 
+      <tr> 
+        <td><span>ma</span></td> 
+        <td>set current position for mark A</td> 
+      </tr> 
+      <tr> 
+        <td><span>`a</span></td> 
+        <td>jump to position of mark A</td> 
+      </tr> 
+      <tr> 
+        <td><span>y`a</span></td> 
+        <td>yank text to position of mark A</td> 
+      </tr> 
+      <tr> 
+        <td><span>`0</span></td> 
+        <td>go to the position where Vim was previously exited</td> 
+      </tr> 
+      <tr> 
+        <td><span>`"</span></td> 
+        <td>go to the position when last editing this file</td> 
+      </tr> 
+      <tr> 
+        <td><span>`.</span></td> 
+        <td>go to the position of the last change in this file</td> 
+      </tr> 
+      <tr> 
+        <td><span>``</span></td> 
+        <td>go to the position before the last jump</td> 
+      </tr> 
+      <tr> 
+        <td><span>:ju[mps]</span></td> 
+        <td>list of jumps</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + i</span></td> 
+        <td>go to newer position in jump list</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + o</span></td> 
+        <td>go to older position in jump list</td> 
+      </tr> 
+      <tr> 
+        <td><span>:changes</span></td> 
+        <td>list of changes</td> 
+      </tr> 
+      <tr> 
+        <td><span>g,</span></td> 
+        <td>go to newer position in change list</td> 
+      </tr> 
+      <tr> 
+        <td><span>g;</span></td> 
+        <td>go to older position in change list</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + ]</span></td> 
+        <td>jump to the tag under cursor</td> 
+      </tr> 
+    </tbody></table> 
 
     <h3 id="visual-commands">Visual commands</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Hotkey</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>&gt;</td>
-          <td>shift text right</td>
-        </tr>
-        <tr>
-          <td>&lt;</td>
-          <td>shift text left</td>
-        </tr>
-        <tr>
-          <td>y</td>
-          <td>yank (copy) marked text</td>
-        </tr>
-        <tr>
-          <td>d</td>
-          <td>delete marked text</td>
-        </tr>
-        <tr>
-          <td>~</td>
-          <td>switch case</td>
-        </tr>
-        <tr>
-          <td>u</td>
-          <td>change marked text to lowercase</td>
-        </tr>
-        <tr>
-          <td>U</td>
-          <td>change marked text to uppercase</td>
-        </tr>
-      </tbody>
-    </table>
+    <table class="shortcuts"> 
+      <tbody><tr> 
+        <td><span>&gt;</span></td> 
+        <td>shift text right</td> 
+      </tr> 
+      <tr> 
+        <td><span>&lt;</span></td> 
+        <td>shift text left</td> 
+      </tr> 
+      <tr> 
+        <td><span>y</span></td> 
+        <td>yank (copy) marked text</td> 
+      </tr> 
+      <tr> 
+        <td><span>d</span></td> 
+        <td>delete marked text</td> 
+      </tr> 
+      <tr> 
+        <td><span>~</span></td> 
+        <td>switch case</td> 
+      </tr> 
+      <tr> 
+        <td><span>u</span></td> 
+        <td>change marked text to lowercase</td> 
+      </tr> 
+      <tr> 
+        <td><span>U</span></td> 
+        <td>change marked text to uppercase</td> 
+      </tr> 
+    </tbody></table>
   </div>
 
   <div>
     <h3 id="cut-and-paste">Cut and paste</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Hotkey</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>yy</td>
-          <td>yank (copy) a line</td>
-        </tr>
-        <tr>
-          <td>2yy</td>
-          <td>yank (copy) 2 lines</td>
-        </tr>
-        <tr>
-          <td>yw</td>
-          <td>
-            yank (copy) the characters of the word from the cursor position to
-            the start of the next word
-          </td>
-        </tr>
-        <tr>
-          <td>y$</td>
-          <td>yank (copy) to end of line</td>
-        </tr>
-        <tr>
-          <td>p</td>
-          <td>put (paste) the clipboard after cursor</td>
-        </tr>
-        <tr>
-          <td>P</td>
-          <td>put (paste) before cursor</td>
-        </tr>
-        <tr>
-          <td>dd</td>
-          <td>delete (cut) a line</td>
-        </tr>
-        <tr>
-          <td>2dd</td>
-          <td>delete (cut) 2 lines</td>
-        </tr>
-        <tr>
-          <td>dw</td>
-          <td>
-            delete (cut) the characters of the word from the cursor position to
-            the start of the next word
-          </td>
-        </tr>
-        <tr>
-          <td>D</td>
-          <td>delete (cut) to the end of the line</td>
-        </tr>
-        <tr>
-          <td>d$</td>
-          <td>delete (cut) to the end of the line</td>
-        </tr>
-        <tr>
-          <td>x</td>
-          <td>delete (cut) character</td>
-        </tr>
-      </tbody>
-    </table>
+    <table class="shortcuts"> 
+      <tbody><tr> 
+        <td><span>yy</span></td> 
+        <td>yank (copy) a line</td> 
+      </tr> 
+      <tr> 
+        <td><span>2yy</span></td> 
+        <td>yank (copy) 2 lines</td> 
+      </tr> 
+      <tr> 
+        <td><span>yw</span></td> 
+        <td> 
+          yank (copy) the characters of the word from the cursor position to 
+          the start of the next word 
+        </td> 
+      </tr> 
+      <tr> 
+        <td><span>y$</span></td> 
+        <td>yank (copy) to end of line</td> 
+      </tr> 
+      <tr> 
+        <td><span>p</span></td> 
+        <td>put (paste) the clipboard after cursor</td> 
+      </tr> 
+      <tr> 
+        <td><span>P</span></td> 
+        <td>put (paste) before cursor</td> 
+      </tr> 
+      <tr> 
+        <td><span>dd</span></td> 
+        <td>delete (cut) a line</td> 
+      </tr> 
+      <tr> 
+        <td><span>2dd</span></td> 
+        <td>delete (cut) 2 lines</td> 
+      </tr> 
+      <tr> 
+        <td><span>dw</span></td> 
+        <td> 
+          delete (cut) the characters of the word from the cursor position to 
+          the start of the next word 
+        </td> 
+      </tr> 
+      <tr> 
+        <td><span>D</span></td> 
+        <td>delete (cut) to the end of the line</td> 
+      </tr> 
+      <tr> 
+        <td><span>d$</span></td> 
+        <td>delete (cut) to the end of the line</td> 
+      </tr> 
+      <tr> 
+        <td><span>x</span></td> 
+        <td>delete (cut) character</td> 
+      </tr> 
+    </tbody></table>
 
     <h3 id="diff">Diff</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Hotkey</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>zf</td>
-          <td>manually define a fold up to motion</td>
-        </tr>
-        <tr>
-          <td>zd</td>
-          <td>delete fold under the cursor</td>
-        </tr>
-        <tr>
-          <td>za</td>
-          <td>toggle fold under the cursor</td>
-        </tr>
-        <tr>
-          <td>zo</td>
-          <td>open fold under the cursor</td>
-        </tr>
-        <tr>
-          <td>zc</td>
-          <td>close fold under the cursor</td>
-        </tr>
-        <tr>
-          <td>zr</td>
-          <td>reduce (open) all folds by one level</td>
-        </tr>
-        <tr>
-          <td>zm</td>
-          <td>fold more (close) all folds by one level</td>
-        </tr>
-        <tr>
-          <td>zi</td>
-          <td>toggle folding functionality</td>
-        </tr>
-        <tr>
-          <td>]c</td>
-          <td>jump to start of next change</td>
-        </tr>
-        <tr>
-          <td>[c</td>
-          <td>jump to start of previous change</td>
-        </tr>
-        <tr>
-          <td>do or :diffg[et]</td>
-          <td>obtain (get) difference (from other buffer)</td>
-        </tr>
-        <tr>
-          <td>dp or :diffpu[t]</td>
-          <td>put difference (to other buffer)</td>
-        </tr>
-        <tr>
-          <td>:diffthis</td>
-          <td>make current window part of diff</td>
-        </tr>
-        <tr>
-          <td>:dif[fupdate]</td>
-          <td>update differences</td>
-        </tr>
-        <tr>
-          <td>:diffo[ff]</td>
-          <td>switch off diff mode for current window</td>
-        </tr>
-      </tbody>
-    </table>
+    <table class="shortcuts"> 
+      <tbody><tr> 
+        <td><span>zf</span></td> 
+        <td>manually define a fold up to motion</td> 
+      </tr> 
+      <tr> 
+        <td><span>zd</span></td> 
+        <td>delete fold under the cursor</td> 
+      </tr> 
+      <tr> 
+        <td><span>za</span></td> 
+        <td>toggle fold under the cursor</td> 
+      </tr> 
+      <tr> 
+        <td><span>zo</span></td> 
+        <td>open fold under the cursor</td> 
+      </tr> 
+      <tr> 
+        <td><span>zc</span></td> 
+        <td>close fold under the cursor</td> 
+      </tr> 
+      <tr> 
+        <td><span>zr</span></td> 
+        <td>reduce (open) all folds by one level</td> 
+      </tr> 
+      <tr> 
+        <td><span>zm</span></td> 
+        <td>fold more (close) all folds by one level</td> 
+      </tr> 
+      <tr> 
+        <td><span>zi</span></td> 
+        <td>toggle folding functionality</td> 
+      </tr> 
+      <tr> 
+        <td><span>]c</span></td> 
+        <td>jump to start of next change</td> 
+      </tr> 
+      <tr> 
+        <td><span>[c</span></td> 
+        <td>jump to start of previous change</td> 
+      </tr> 
+      <tr> 
+        <td><span>do</span> or <span>:diffg[et]</span></td> 
+        <td>obtain (get) difference (from other buffer)</td> 
+      </tr> 
+      <tr> 
+        <td><span>dp</span> or <span>:diffpu[t]</span></td> 
+        <td>put difference (to other buffer)</td> 
+      </tr> 
+      <tr> 
+        <td><span>:diffthis</span></td> 
+        <td>make current window part of diff</td> 
+      </tr> 
+      <tr> 
+        <td><span>:dif[fupdate]</span></td> 
+        <td>update differences</td> 
+      </tr> 
+      <tr> 
+        <td><span>:diffo[ff]</span></td> 
+        <td>switch off diff mode for current window</td> 
+      </tr> 
+    </tbody></table>
 
     <h3 id="exiting">Exiting</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Hotkey</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>:w</td>
-          <td>write (save) the file, but don&#39;t exit</td>
-        </tr>
-        <tr>
-          <td>:w !sudo tee %</td>
-          <td>write out the current file using sudo</td>
-        </tr>
-        <tr>
-          <td>:wq or :x or ZZ</td>
-          <td>write (save) and quit</td>
-        </tr>
-        <tr>
-          <td>:q</td>
-          <td>quit (fails if there are unsaved changes)</td>
-        </tr>
-        <tr>
-          <td>:q! or ZQ</td>
-          <td>quit and throw away unsaved changes</td>
-        </tr>
-        <tr>
-          <td>:wqa</td>
-          <td>write (save) and quit on all tabs</td>
-        </tr>
-      </tbody>
-    </table>
+    <table class="shortcuts"> 
+      <tbody><tr> 
+        <td><span>:w</span></td> 
+        <td>write (save) the file, but don't exit</td> 
+      </tr> 
+      <tr> 
+        <td><span>:w !sudo tee %</span></td> 
+        <td>write out the current file using sudo</td> 
+      </tr> 
+      <tr> 
+        <td><span>:wq</span> or <span>:x</span> or <span>ZZ</span></td> 
+        <td>write (save) and quit</td> 
+      </tr> 
+      <tr> 
+        <td><span>:q</span></td> 
+        <td>quit (fails if there are unsaved changes)</td> 
+      </tr> 
+      <tr> 
+        <td><span>:q!</span> or <span>ZQ</span></td> 
+        <td>quit and throw away unsaved changes</td> 
+      </tr> 
+      <tr> 
+        <td><span>:wqa</span></td> 
+        <td>write (save) and quit on all tabs</td> 
+      </tr> 
+    </tbody></table>
 
     <h3 id="marking-text-visual-mode-">Marking text (visual mode)</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Hotkey</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>v</td>
-          <td>
-            start visual mode, mark lines, then do a command (like y-yank)
-          </td>
-        </tr>
-        <tr>
-          <td>V</td>
-          <td>start linewise visual mode</td>
-        </tr>
-        <tr>
-          <td>o</td>
-          <td>move to other end of marked area</td>
-        </tr>
-        <tr>
-          <td>Ctrl + v</td>
-          <td>start visual block mode</td>
-        </tr>
-        <tr>
-          <td>O</td>
-          <td>move to other corner of block</td>
-        </tr>
-        <tr>
-          <td>aw</td>
-          <td>mark a word</td>
-        </tr>
-        <tr>
-          <td>ab</td>
-          <td>a block with ()</td>
-        </tr>
-        <tr>
-          <td>aB</td>
-          <td>a block with {}</td>
-        </tr>
-        <tr>
-          <td>at</td>
-          <td>a block with &lt;&gt; tags</td>
-        </tr>
-        <tr>
-          <td>ib</td>
-          <td>inner block with ()</td>
-        </tr>
-        <tr>
-          <td>it</td>
-          <td>inner block with &lt;&gt; tags</td>
-        </tr>
-        <tr>
-          <td>Esc</td>
-          <td>exit visual mode</td>
-        </tr>
-      </tbody>
-    </table>
+    <table class="shortcuts"> 
+      <tbody><tr> 
+        <td><span>v</span></td> 
+        <td> 
+          start visual mode, mark lines, then do a command (like y-yank) 
+        </td> 
+      </tr> 
+      <tr> 
+        <td><span>V</span></td> 
+        <td>start linewise visual mode</td> 
+      </tr> 
+      <tr> 
+        <td><span>o</span></td> 
+        <td>move to other end of marked area</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + v</span></td> 
+        <td>start visual block mode</td> 
+      </tr> 
+      <tr> 
+        <td><span>O</span></td> 
+        <td>move to other corner of block</td> 
+      </tr> 
+      <tr> 
+        <td><span>aw</span></td> 
+        <td>mark a word</td> 
+      </tr> 
+      <tr> 
+        <td><span>ab</span></td> 
+        <td>a block with ()</td> 
+      </tr> 
+      <tr> 
+        <td><span>aB</span></td> 
+        <td>a block with {}</td> 
+      </tr> 
+      <tr> 
+        <td><span>at</span></td> 
+        <td>a block with &lt;&gt; tags</td> 
+      </tr> 
+      <tr> 
+        <td><span>ib</span></td> 
+        <td>inner block with ()</td> 
+      </tr> 
+      <tr> 
+        <td><span>it</span></td> 
+        <td>inner block with &lt;&gt; tags</td> 
+      </tr> 
+      <tr> 
+        <td><span>Esc</span></td> 
+        <td>exit visual mode</td> 
+      </tr> 
+    </tbody></table>
 
     <h3 id="working-with-multiple-files">Working with multiple files</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Hotkey</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>:e[dit] file</td>
-          <td>edit a file in a new buffer</td>
-        </tr>
-        <tr>
-          <td>:bn[ext]</td>
-          <td>go to the next buffer</td>
-        </tr>
-        <tr>
-          <td>:bp[revious]</td>
-          <td>go to the previous buffer</td>
-        </tr>
-        <tr>
-          <td>:bd[elete]</td>
-          <td>delete a buffer (close a file)</td>
-        </tr>
-        <tr>
-          <td>:b[uffer]#</td>
-          <td>go to a buffer by index #</td>
-        </tr>
-        <tr>
-          <td>:b[uffer] file</td>
-          <td>go to a buffer by file</td>
-        </tr>
-        <tr>
-          <td>:ls or :buffers</td>
-          <td>list all open buffers</td>
-        </tr>
-        <tr>
-          <td>:sp[lit] file</td>
-          <td>open a file in a new buffer and split window</td>
-        </tr>
-        <tr>
-          <td>:vs[plit] file</td>
-          <td>open a file in a new buffer and vertically split window</td>
-        </tr>
-        <tr>
-          <td>:vert[ical] ba[ll]</td>
-          <td>edit all buffers as vertical windows</td>
-        </tr>
-        <tr>
-          <td>:tab ba[ll]</td>
-          <td>edit all buffers as tabs</td>
-        </tr>
-        <tr>
-          <td>Ctrl + ws</td>
-          <td>split window</td>
-        </tr>
-        <tr>
-          <td>Ctrl + wv</td>
-          <td>split window vertically</td>
-        </tr>
-        <tr>
-          <td>Ctrl + ww</td>
-          <td>switch windows</td>
-        </tr>
-        <tr>
-          <td>Ctrl + wq</td>
-          <td>quit a window</td>
-        </tr>
-        <tr>
-          <td>Ctrl + wx</td>
-          <td>exchange current window with next one</td>
-        </tr>
-        <tr>
-          <td>Ctrl + w=</td>
-          <td>make all windows equal height &amp; width</td>
-        </tr>
-        <tr>
-          <td>Ctrl + wh</td>
-          <td>move cursor to the left window (vertical split)</td>
-        </tr>
-        <tr>
-          <td>Ctrl + wl</td>
-          <td>move cursor to the right window (vertical split)</td>
-        </tr>
-        <tr>
-          <td>Ctrl + wj</td>
-          <td>move cursor to the window below (horizontal split)</td>
-        </tr>
-        <tr>
-          <td>Ctrl + wk</td>
-          <td>move cursor to the window above (horizontal split)</td>
-        </tr>
-      </tbody>
-    </table>
+    <table class="shortcuts"> 
+      <tbody><tr> 
+        <td><span>:e[dit] file</span></td> 
+        <td>edit a file in a new buffer</td> 
+      </tr> 
+      <tr> 
+        <td><span>:bn[ext]</span></td> 
+        <td>go to the next buffer</td> 
+      </tr> 
+      <tr> 
+        <td><span>:bp[revious]</span></td> 
+        <td>go to the previous buffer</td> 
+      </tr> 
+      <tr> 
+        <td><span>:bd[elete]</span></td> 
+        <td>delete a buffer (close a file)</td> 
+      </tr> 
+      <tr> 
+        <td><span>:b[uffer]#</span></td> 
+        <td>go to a buffer by index #</td> 
+      </tr> 
+      <tr> 
+        <td><span>:b[uffer] file</span></td> 
+        <td>go to a buffer by file</td> 
+      </tr> 
+      <tr> 
+        <td><span>:ls</span> or <span>:buffers</span></td> 
+        <td>list all open buffers</td> 
+      </tr> 
+      <tr> 
+        <td><span>:sp[lit] file</span></td> 
+        <td>open a file in a new buffer and split window</td> 
+      </tr> 
+      <tr> 
+        <td><span>:vs[plit] file</span></td> 
+        <td>open a file in a new buffer and vertically split window</td> 
+      </tr> 
+      <tr> 
+        <td><span>:vert[ical] ba[ll]</span></td> 
+        <td>edit all buffers as vertical windows</td> 
+      </tr> 
+      <tr> 
+        <td><span>:tab ba[ll]</span></td> 
+        <td>edit all buffers as tabs</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + ws</span></td> 
+        <td>split window</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + wv</span></td> 
+        <td>split window vertically</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + ww</span></td> 
+        <td>switch windows</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + wq</span></td> 
+        <td>quit a window</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + wx</span></td> 
+        <td>exchange current window with next one</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + w=</span></td> 
+        <td>make all windows equal height &amp; width</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + wh</span></td> 
+        <td>move cursor to the left window (vertical split)</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + wl</span></td> 
+        <td>move cursor to the right window (vertical split)</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + wj</span></td> 
+        <td>move cursor to the window below (horizontal split)</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + wk</span></td> 
+        <td>move cursor to the window above (horizontal split)</td> 
+      </tr> 
+    </tbody></table>
   </div>
 
   <div>
     <h3 id="editing">Editing</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Hotkey</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>r</td>
-          <td>replace a single character</td>
-        </tr>
-        <tr>
-          <td>J</td>
-          <td>join line below to the current one with one space in between</td>
-        </tr>
-        <tr>
-          <td>gJ</td>
-          <td>join line below to the current one without space in between</td>
-        </tr>
-        <tr>
-          <td>gwip</td>
-          <td>reflow paragraph</td>
-        </tr>
-        <tr>
-          <td>g~</td>
-          <td>switch case up to motion</td>
-        </tr>
-        <tr>
-          <td>gu</td>
-          <td>change to lowercase up to motion</td>
-        </tr>
-        <tr>
-          <td>gU</td>
-          <td>change to uppercase up to motion</td>
-        </tr>
-        <tr>
-          <td>cc</td>
-          <td>change (replace) entire line</td>
-        </tr>
-        <tr>
-          <td>C</td>
-          <td>change (replace) to the end of the line</td>
-        </tr>
-        <tr>
-          <td>c$</td>
-          <td>change (replace) to the end of the line</td>
-        </tr>
-        <tr>
-          <td>ciw</td>
-          <td>change (replace) entire word</td>
-        </tr>
-        <tr>
-          <td>cw</td>
-          <td>change (replace) to the end of the word</td>
-        </tr>
-        <tr>
-          <td>s</td>
-          <td>delete character and substitute text</td>
-        </tr>
-        <tr>
-          <td>S</td>
-          <td>delete line and substitute text (same as cc)</td>
-        </tr>
-        <tr>
-          <td>xp</td>
-          <td>transpose two letters (delete and paste)</td>
-        </tr>
-        <tr>
-          <td>u</td>
-          <td>undo</td>
-        </tr>
-        <tr>
-          <td>U</td>
-          <td>restore (undo) last changed line</td>
-        </tr>
-        <tr>
-          <td>Ctrl + r</td>
-          <td>redo</td>
-        </tr>
-        <tr>
-          <td>.</td>
-          <td>repeat last command</td>
-        </tr>
-      </tbody>
-    </table>
+    <table class="shortcuts"> 
+      <tbody><tr> 
+        <td><span>r</span></td> 
+        <td>replace a single character</td> 
+      </tr> 
+      <tr> 
+        <td><span>J</span></td> 
+        <td>join line below to the current one with one space in between</td> 
+      </tr> 
+      <tr> 
+        <td><span>gJ</span></td> 
+        <td>join line below to the current one without space in between</td> 
+      </tr> 
+      <tr> 
+        <td><span>gwip</span></td> 
+        <td>reflow paragraph</td> 
+      </tr> 
+      <tr> 
+        <td><span>g~</span></td> 
+        <td>switch case up to motion</td> 
+      </tr> 
+      <tr> 
+        <td><span>gu</span></td> 
+        <td>change to lowercase up to motion</td> 
+      </tr> 
+      <tr> 
+        <td><span>gU</span></td> 
+        <td>change to uppercase up to motion</td> 
+      </tr> 
+      <tr> 
+        <td><span>cc</span></td> 
+        <td>change (replace) entire line</td> 
+      </tr> 
+      <tr> 
+        <td><span>C</span></td> 
+        <td>change (replace) to the end of the line</td> 
+      </tr> 
+      <tr> 
+        <td><span>c$</span></td> 
+        <td>change (replace) to the end of the line</td> 
+      </tr> 
+      <tr> 
+        <td><span>ciw</span></td> 
+        <td>change (replace) entire word</td> 
+      </tr> 
+      <tr> 
+        <td><span>cw</span></td> 
+        <td>change (replace) to the end of the word</td> 
+      </tr> 
+      <tr> 
+        <td><span>s</span></td> 
+        <td>delete character and substitute text</td> 
+      </tr> 
+      <tr> 
+        <td><span>S</span></td> 
+        <td>delete line and substitute text (same as cc)</td> 
+      </tr> 
+      <tr> 
+        <td><span>xp</span></td> 
+        <td>transpose two letters (delete and paste)</td> 
+      </tr> 
+      <tr> 
+        <td><span>u</span></td> 
+        <td>undo</td> 
+      </tr> 
+      <tr> 
+        <td><span>U</span></td> 
+        <td>restore (undo) last changed line</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + r</span></td> 
+        <td>redo</td> 
+      </tr> 
+      <tr> 
+        <td><span>.</span></td> 
+        <td>repeat last command</td> 
+      </tr> 
+    </tbody></table>
 
     <h3 id="indent-text">Indent text</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Hotkey</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>&gt;&gt;</td>
-          <td>indent (move right) line one shiftwidth</td>
-        </tr>
-        <tr>
-          <td>&lt;&lt;</td>
-          <td>de-indent (move left) line one shiftwidth</td>
-        </tr>
-        <tr>
-          <td>&gt;%</td>
-          <td>indent a block with () or {} (cursor on brace)</td>
-        </tr>
-        <tr>
-          <td>&gt;ib</td>
-          <td>indent inner block with ()</td>
-        </tr>
-        <tr>
-          <td>&gt;at</td>
-          <td>indent a block with &lt;&gt; tags</td>
-        </tr>
-        <tr>
-          <td>3==</td>
-          <td>re-indent 3 lines</td>
-        </tr>
-        <tr>
-          <td>=%</td>
-          <td>re-indent a block with () or {} (cursor on brace)</td>
-        </tr>
-        <tr>
-          <td>=iB</td>
-          <td>re-indent inner block with {}</td>
-        </tr>
-        <tr>
-          <td>gg=G</td>
-          <td>re-indent entire buffer</td>
-        </tr>
-        <tr>
-          <td>]p</td>
-          <td>paste and adjust indent to current line</td>
-        </tr>
-      </tbody>
-    </table>
+    <table class="shortcuts"> 
+      <tbody><tr> 
+        <td><span>&gt;&gt;</span></td> 
+        <td>indent (move right) line one shiftwidth</td> 
+      </tr> 
+      <tr> 
+        <td><span>&lt;&lt;</span></td> 
+        <td>de-indent (move left) line one shiftwidth</td> 
+      </tr> 
+      <tr> 
+        <td><span>&gt;%</span></td> 
+        <td>indent a block with () or {} (cursor on brace)</td> 
+      </tr> 
+      <tr> 
+        <td><span>&gt;ib</span></td> 
+        <td>indent inner block with ()</td> 
+      </tr> 
+      <tr> 
+        <td><span>&gt;at</span></td> 
+        <td>indent a block with &lt;&gt; tags</td> 
+      </tr> 
+      <tr> 
+        <td><span>3==</span></td> 
+        <td>re-indent 3 lines</td> 
+      </tr> 
+      <tr> 
+        <td><span>=%</span></td> 
+        <td>re-indent a block with () or {} (cursor on brace)</td> 
+      </tr> 
+      <tr> 
+        <td><span>=iB</span></td> 
+        <td>re-indent inner block with {}</td> 
+      </tr> 
+      <tr> 
+        <td><span>gg=G</span></td> 
+        <td>re-indent entire buffer</td> 
+      </tr> 
+      <tr> 
+        <td><span>]p</span></td> 
+        <td>paste and adjust indent to current line</td> 
+      </tr> 
+    </tbody></table>
 
     <h3 id="macros">Macros</h3>
-    <table class="w-full">
-      <thead>
-        <tr>
-          <th>Hotkey</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>qa</td>
-          <td>record macro a</td>
-        </tr>
-        <tr>
-          <td>q</td>
-          <td>stop recording macro</td>
-        </tr>
-        <tr>
-          <td>@a</td>
-          <td>run macro a</td>
-        </tr>
-        <tr>
-          <td>@@</td>
-          <td>rerun last run macro</td>
-        </tr>
-      </tbody>
-    </table>
+    <table class="shortcuts"> 
+      <tbody><tr> 
+        <td><span>qa</span></td> 
+        <td>record macro a</td> 
+      </tr> 
+      <tr> 
+        <td><span>q</span></td> 
+        <td>stop recording macro</td> 
+      </tr> 
+      <tr> 
+        <td><span>@a</span></td> 
+        <td>run macro a</td> 
+      </tr> 
+      <tr> 
+        <td><span>@@</span></td> 
+        <td>rerun last run macro</td> 
+      </tr> 
+    </tbody></table>
 
     <h3 id="insert-mode-inserting-appending-text">
       Insert mode - inserting/appending text
     </h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Hotkey</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>i</td>
-          <td>insert before the cursor</td>
-        </tr>
-        <tr>
-          <td>I</td>
-          <td>insert at the beginning of the line</td>
-        </tr>
-        <tr>
-          <td>a</td>
-          <td>insert (append) after the cursor</td>
-        </tr>
-        <tr>
-          <td>A</td>
-          <td>insert (append) at the end of the line</td>
-        </tr>
-        <tr>
-          <td>o</td>
-          <td>append (open) a new line below the current line</td>
-        </tr>
-        <tr>
-          <td>O</td>
-          <td>append (open) a new line above the current line</td>
-        </tr>
-        <tr>
-          <td>ea</td>
-          <td>insert (append) at the end of the word</td>
-        </tr>
-        <tr>
-          <td>Ctrl + h</td>
-          <td>delete the character before the cursor during insert mode</td>
-        </tr>
-        <tr>
-          <td>Ctrl + w</td>
-          <td>delete word before the cursor during insert mode</td>
-        </tr>
-        <tr>
-          <td>Ctrl + j</td>
-          <td>begin new line during insert mode</td>
-        </tr>
-        <tr>
-          <td>Ctrl + t</td>
-          <td>indent (move right) line one shiftwidth during insert mode</td>
-        </tr>
-        <tr>
-          <td>Ctrl + d</td>
-          <td>de-indent (move left) line one shiftwidth during insert mode</td>
-        </tr>
-        <tr>
-          <td>Ctrl + n</td>
-          <td>
-            insert (auto-complete) next match before the cursor during insert
-            mode
-          </td>
-        </tr>
-        <tr>
-          <td>Ctrl + p</td>
-          <td>
-            insert (auto-complete) previous match before the cursor during
-            insert mode
-          </td>
-        </tr>
-        <tr>
-          <td>Ctrl + rx</td>
-          <td>insert the contents of register x</td>
-        </tr>
-        <tr>
-          <td>Esc</td>
-          <td>exit insert mode</td>
-        </tr>
-      </tbody>
-    </table>
+    <table class="shortcuts"> 
+      <tbody><tr> 
+        <td><span>i</span></td> 
+        <td>insert before the cursor</td> 
+      </tr> 
+      <tr> 
+        <td><span>I</span></td> 
+        <td>insert at the beginning of the line</td> 
+      </tr> 
+      <tr> 
+        <td><span>a</span></td> 
+        <td>insert (append) after the cursor</td> 
+      </tr> 
+      <tr> 
+        <td><span>A</span></td> 
+        <td>insert (append) at the end of the line</td> 
+      </tr> 
+      <tr> 
+        <td><span>o</span></td> 
+        <td>append (open) a new line below the current line</td> 
+      </tr> 
+      <tr> 
+        <td><span>O</span></td> 
+        <td>append (open) a new line above the current line</td> 
+      </tr> 
+      <tr> 
+        <td><span>ea</span></td> 
+        <td>insert (append) at the end of the word</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + h</span></td> 
+        <td>delete the character before the cursor during insert mode</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + w</span></td> 
+        <td>delete word before the cursor during insert mode</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + j</span></td> 
+        <td>begin new line during insert mode</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + t</span></td> 
+        <td>indent (move right) line one shiftwidth during insert mode</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + d</span></td> 
+        <td>de-indent (move left) line one shiftwidth during insert mode</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + n</span></td> 
+        <td> 
+          insert (auto-complete) next match before the cursor during insert 
+          mode 
+        </td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + p</span></td> 
+        <td> 
+          insert (auto-complete) previous match before the cursor during 
+          insert mode 
+        </td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + rx</span></td> 
+        <td>insert the contents of register x</td> 
+      </tr> 
+      <tr> 
+        <td><span>Esc</span></td> 
+        <td>exit insert mode</td> 
+      </tr> 
+    </tbody></table>
 
     <h3 id="search-and-replace">Search and replace</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Hotkey</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>/pattern</td>
-          <td>search for pattern</td>
-        </tr>
-        <tr>
-          <td>?pattern</td>
-          <td>search backward for pattern</td>
-        </tr>
-        <tr>
-          <td>\vpattern</td>
-          <td>
-            &#39;very magic&#39; pattern: non-alphanumeric characters are
-            interpreted as special regex symbols (no escaping needed)
-          </td>
-        </tr>
-        <tr>
-          <td>n</td>
-          <td>repeat search in same direction</td>
-        </tr>
-        <tr>
-          <td>N</td>
-          <td>repeat search in opposite direction</td>
-        </tr>
-        <tr>
-          <td>:%s/old/new/g</td>
-          <td>replace all old with new throughout file</td>
-        </tr>
-        <tr>
-          <td>:%s/old/new/gc</td>
-          <td>replace all old with new throughout file with confirmations</td>
-        </tr>
-        <tr>
-          <td>:noh[lsearch]</td>
-          <td>remove highlighting of search matches</td>
-        </tr>
-      </tbody>
-    </table>
+    <table class="shortcuts"> 
+      <tbody><tr> 
+        <td><span>/pattern</span></td> 
+        <td>search for pattern</td> 
+      </tr> 
+      <tr> 
+        <td><span>?pattern</span></td> 
+        <td>search backward for pattern</td> 
+      </tr> 
+      <tr> 
+        <td><span>\vpattern</span></td> 
+        <td> 
+          'very magic' pattern: non-alphanumeric characters are 
+          interpreted as special regex symbols (no escaping needed) 
+        </td> 
+      </tr> 
+      <tr> 
+        <td><span>n</span></td> 
+        <td>repeat search in same direction</td> 
+      </tr> 
+      <tr> 
+        <td><span>N</span></td> 
+        <td>repeat search in opposite direction</td> 
+      </tr> 
+      <tr> 
+        <td><span>:%s/old/new/g</span></td> 
+        <td>replace all old with new throughout file</td> 
+      </tr> 
+      <tr> 
+        <td><span>:%s/old/new/gc</span></td> 
+        <td>replace all old with new throughout file with confirmations</td> 
+      </tr> 
+      <tr> 
+        <td><span>:noh[lsearch]</span></td> 
+        <td>remove highlighting of search matches</td> 
+      </tr> 
+    </tbody></table>
 
     <h3 id="tabs">Tabs</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Hotkey</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>:tabnew or :tabnew {page.words.file}</td>
-          <td>open a file in a new tab</td>
-        </tr>
-        <tr>
-          <td>Ctrl + wT</td>
-          <td>move the current split window into its own tab</td>
-        </tr>
-        <tr>
-          <td>gt or :tabn[ext]</td>
-          <td>move to the next tab</td>
-        </tr>
-        <tr>
-          <td>gT or :tabp[revious]</td>
-          <td>move to the previous tab</td>
-        </tr>
-        <tr>
-          <td>#gt</td>
-          <td>move to tab number #</td>
-        </tr>
-        <tr>
-          <td>:tabm[ove] #</td>
-          <td>move current tab to the #th position (indexed from 0)</td>
-        </tr>
-        <tr>
-          <td>:tabc[lose]</td>
-          <td>close the current tab and all its windows</td>
-        </tr>
-        <tr>
-          <td>:tabo[nly]</td>
-          <td>close all tabs except for the current one</td>
-        </tr>
-        <tr>
-          <td>:tabdo command</td>
-          <td>
-            run the command on all tabs (e.g. :tabdo q - closes all opened tabs)
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <table class="shortcuts"> 
+      <tbody><tr> 
+        <td><span>:tabnew</span> or <span>:tabnew {page.words.file}</span></td> 
+        <td>open a file in a new tab</td> 
+      </tr> 
+      <tr> 
+        <td><span>Ctrl + wT</span></td> 
+        <td>move the current split window into its own tab</td> 
+      </tr> 
+      <tr> 
+        <td><span>gt</span> or <span>:tabn[ext]</span></td> 
+        <td>move to the next tab</td> 
+      </tr> 
+      <tr> 
+        <td><span>gT</span> or <span>:tabp[revious]</span></td> 
+        <td>move to the previous tab</td> 
+      </tr> 
+      <tr> 
+        <td><span>#gt</span></td> 
+        <td>move to tab number #</td> 
+      </tr> 
+      <tr> 
+        <td><span>:tabm[ove] #</span></td> 
+        <td>move current tab to the #th position (indexed from 0)</td> 
+      </tr> 
+      <tr> 
+        <td><span>:tabc[lose]</span></td> 
+        <td>close the current tab and all its windows</td> 
+      </tr> 
+      <tr> 
+        <td><span>:tabo[nly]</span></td> 
+        <td>close all tabs except for the current one</td> 
+      </tr> 
+      <tr> 
+        <td><span>:tabdo command</span></td> 
+        <td> 
+          run the command on all tabs (e.g. :tabdo q - closes all opened tabs) 
+        </td> 
+      </tr> 
+    </tbody></table>
   </div>
 </div>
 
