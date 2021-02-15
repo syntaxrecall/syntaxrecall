@@ -16,11 +16,11 @@ interface Props {
 function getFilteredItems(searchText: string, topics: Topic[]) {
   let results: Topic[] = [];
   if (searchText) {
-    results = topics.filter(
-      (topic) =>
-        topic.keywords.filter((keyword) =>
-          keyword.toLowerCase().includes(searchText.toLowerCase())
-        ).length > 0
+    const split = searchText.toLowerCase().split(" ");
+    results = topics.filter((topic) =>
+      split.some((s) =>
+        topic.keywords.some((keyword) => keyword.toLowerCase().includes(s))
+      )
     );
   }
   return results;
