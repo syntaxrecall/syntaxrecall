@@ -1,15 +1,23 @@
 import React from "react";
+import Head from "next/head";
 import { getAllTopics, getTopicBySlug } from "../api/api";
 import HtmlContent from "../components/HtmlContent";
 import Layout from "../components/layouts/MainLayout";
 
 interface PageProps {
   content: string;
+  title: string;
 }
 
-export default function Page({ content }: PageProps): React.ReactElement {
+export default function Page({
+  content,
+  title,
+}: PageProps): React.ReactElement {
   return (
     <>
+      <Head>
+        <title>Syntax Recall - {title}</title>
+      </Head>
       <Layout>
         <HtmlContent htmlContent={content} />
       </Layout>
@@ -20,10 +28,11 @@ export default function Page({ content }: PageProps): React.ReactElement {
 export async function getStaticProps({
   params,
 }: PageParams): Promise<StaticProps> {
-  const { content } = getTopicBySlug(params.slug, ["content"]);
+  const { content, title } = getTopicBySlug(params.slug, ["content", "title"]);
   return {
     props: {
       content,
+      title,
     },
   };
 }
@@ -46,6 +55,7 @@ interface StaticProps {
 
 interface StaticProp {
   content: string;
+  title: string;
 }
 
 interface StaticPaths {
