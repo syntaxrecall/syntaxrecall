@@ -67,4 +67,36 @@
     line-height: 0;
   }
 
+  article.content table.shortcuts {
+    @apply table-auto;
+  }
+
+  article.content table.shortcuts td:last-child {
+    @apply text-right;
+  }
+
+  article.content table.shortcuts td:first-child {
+    @apply pl-0;
+    @apply pt-0;
+  }
+
+  article.content table.shortcuts tbody td {
+    @apply text-sm;
+  }
+
+  article.content table.shortcuts td:first-child code {
+    @apply bg-gray-200;
+    @apply p-1;
+    @apply rounded;
+  }
+
+  article.content table.shortcuts td:first-child span {
+    @apply bg-gray-200;
+    @apply p-1;
+    @apply rounded;
+    @apply ml-2;
+    @apply mt-2;
+    @apply inline-block;
+  }
+
 }

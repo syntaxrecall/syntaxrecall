@@ -1,0 +1,720 @@
+<h1 id="vscode">Visual Studio Code</h1>
+<p>
+  <a href="https://code.visualstudio.com/" rel="noopener noreferrer" target="_blank">Visual Studio Code</a>
+  (aka VSCode), is an open-source code editor.
+</p>
+
+<h3 id="table-of-contents">Table of Contents</h3>
+<ul>
+  <li><a href="#basic-editing">Basic editing</li></a>
+  <li><a href="#general">General</li></a>
+  <li><a href="#multi-cursor-and-selection">Multi-cursor and selection</li></a>
+  <li><a href="#rich-languages-editing">Rich languages editing</li></a>
+  <li><a href="#search-and-replace">Search and replace</li></a>
+  <li><a href="#sources">Sources</li></a>
+</ul>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+  <div>
+    <h3 id="general">General</h3>
+    <table class="shortcuts">
+      <tr>
+        <td><span>⇧⌘P</span></td>
+        <td>F1 Show Command Palette</td>
+      </tr>
+      <tr>
+        <td><span>⌘P</span></td>
+        <td>Quick Open, Go to File…</td>
+      </tr>
+      <tr>
+        <td>
+          <span>⇧⌘N</span>
+        </td>
+        <td>New window instance</td>
+      </tr>
+      <tr>
+        <td><span>⌘W</span></td>
+        <td>Close window instance</td>
+      </tr>
+      <tr>
+        <td><span>⌘</span></td>
+        <td>User Settings</td>
+      </tr>
+      <tr>
+        <td><span>⌘K</span><span>⌘S</span></td>
+        <td>Keyboard Shortcuts</td>
+      </tr>
+    </table>
+
+    <h3 id="basic-editing">Basic editing</h3>
+    <table class="shortcuts">
+      <tr>
+        <td><span>⌘X</span></td>
+        <td>Cut line (empty selection)</td>
+      </tr>
+
+      <tr>
+        <td><span>⌘C</span></td>
+        <td>Copy line (empty selection)</td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌥↓</span>
+        </td>
+        <td>Move line down</td>
+      </tr>
+
+      <tr>
+        <td><span>⌥↑</span></td>
+        <td>Move line up</td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⇧⌥↓</span>
+        </td>
+        <td>Copy line down</td>
+      </tr>
+
+      <tr>
+        <td><span>⇧⌥↑</span></td>
+        <td>Copy line up</td>
+      </tr>
+
+      <tr>
+        <td><span>⇧⌘K</span></td>
+        <td>Delete line</td>
+      </tr>
+
+      <tr>
+        <td><span>⌘Enter</span></td>
+        <td>Insert line below</td>
+      </tr>
+
+      <tr>
+        <td><span>⇧⌘Enter</span></td>
+        <td>Insert line above</td>
+      </tr>
+
+      <tr>
+        <td><span>⇧⌘\</span></td>
+        <td>Jump to matching bracket</td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌘]</span>
+        <td>Indent line</td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌘[</span>
+        </td>
+        </td>
+
+        <td>
+          Outdent line
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>Home</span>
+        </td>
+        <td>Go to beginning of line</td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>End</span>
+        </td>
+
+        <td>
+          Go to end of line
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌘↑</span>
+        </td>
+
+        <td>Go to beginning of file</td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌘↓</span>
+        </td>
+
+        <td>
+          Go to end of file
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌃PgUp</span>
+        </td>
+        <td>Scroll line up</td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌃PgDn</span>
+        </td>
+
+        <td>
+          Scroll line down
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌘PgUp</span>
+        </td>
+        <td>Scroll page up</td>
+      </tr>
+
+
+      <tr>
+        <td>
+          <span>⌘PgDn</span>
+        </td>
+
+        <td>
+          Scroll page down
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌥⌘[</span>
+        </td>
+        <td>Fold region</td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌥⌘]</span>
+        </td>
+
+        <td>
+          Unfold region
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌘K ⌘[</span>
+        </td>
+        <td>Fold all subregions</td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌘K ⌘]</span>
+        </td>
+
+        <td>
+          Unfold all subregions
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌘K ⌘0</span>
+        </td>
+        <td>
+          Fold all regions
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌘K ⌘J</span>
+        </td>
+
+        <td>
+          Unfold all regions
+        </td>
+      </tr>
+
+      <tr>
+        <td><span>⌘K</span><span>⌘C</span></td>
+        <td>Add line comment</td>
+      </tr>
+
+      <tr>
+        <td><span>⌘K</span><span>⌘U</span></td>
+        <td>Remove line comment</td>
+      </tr>
+
+      <tr>
+        <td><span>⌘/</span></td>
+        <td>Toggle line comment</td>
+      </tr>
+
+      <tr>
+        <td><span>⇧⌥A</span></td>
+        <td>Toggle block comment</td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌥Z</span>
+        </td>
+
+        <td>
+          Toggle word wrap
+        </td>
+      </tr>
+    </table>
+
+    <h3 id="multi-cursor-and-selection">Multi-cursor and selection</h3>
+    <table class="shortcuts">
+      <tr>
+        <td>
+          <span>⌥ + click</span>
+        </td>
+
+        <td>
+          Insert cursor
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌥⌘↑</span>
+        </td>
+
+        <td>
+          Insert cursor above
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌥⌘↓</span>
+        </td>
+
+        <td>
+          Insert cursor below
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌘U</span>
+        </td>
+
+        <td>
+          Undo last cursor operation
+        </td>
+      </tr>
+
+      <tr>
+        <td><span>⇧⌥I</span></td>
+        <td>Insert cursor at end of each line selected</td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌘L</span>
+        </td>
+
+        <td>
+          Select current line
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⇧⌘L</span>
+        </td>
+
+        <td>
+          Select all occurrences of current selection
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌘F2</span>
+        </td>
+
+        <td>
+          Select all occurrences of current word
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌃⇧⌘→</span>
+        </td>
+
+        <td>
+          Expand selection
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>←</span>
+        </td>
+
+        <td>
+          Shrink selection
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⇧⌥ + drag mouse </span>
+        </td>
+
+        <td>
+          Column (box) selection
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⇧⌥⌘↑</span>
+        </td>
+
+        <td>
+          Column (box) selection up
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ↓
+          </span>
+        </td>
+
+        <td>
+          Column (box) selection down
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⇧⌥⌘←
+          </span>
+        </td>
+
+        <td>
+          Column (box) selection left
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            →
+          </span>
+        </td>
+
+        <td>
+          Column (box) selection right
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⇧⌥⌘PgUp
+          </span>
+        </td>
+
+        <td>
+          Column (box) selection page up
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⇧⌥⌘PgDn
+          </span>
+        </td>
+
+        <td>
+          Column (box) selection page down
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <h3 id="search-and-replace">Search and replace</h3>
+    <table class="shortcuts">
+      <tr>
+        <td>
+          <span>
+            ⌘F
+          </span>
+        </td>
+
+        <td>
+          Find
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⌥⌘F
+          </span>
+        </td>
+
+        <td>
+          Replace
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⌘G
+          </span>
+        </td>
+
+        <td>
+          Find next
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⇧⌘G
+          </span>
+        </td>
+
+        <td>
+          Find previous
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>⌥Enter</span>
+        </td>
+
+        <td>
+          Select all occurrences of Find match
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⌘D
+          </span>
+        </td>
+
+        <td>
+          Add selection to next Find match
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⌘K
+          </span>
+
+          <span>
+            ⌘D
+          </span>
+        </td>
+
+        <td>
+          Move last selection to next Find match
+        </td>
+      </tr>
+    </table>
+
+    <h3 id="rich-languages-editing">Rich languages editing</h3>
+
+    <table class="shortcuts">
+      <tr>
+        <td>
+          <span>⌃Space</span>
+        </td>
+
+        <td>
+          Trigger suggestion
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⇧⌘Space
+          </span>
+        </td>
+
+        <td>
+          Trigger parameter hints
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⇧⌥F
+          </span>
+        </td>
+
+        <td>
+          Format document
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⌘K
+          </span>
+
+          <span>
+            ⌘F
+          </span>
+        </td>
+
+        <td>
+          Format selection
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            F12
+          </span>
+        </td>
+
+        <td>
+          Go to Definition
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⌥F12
+          </span>
+        </td>
+
+        <td>
+          Peek Definition
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⌘K
+          </span>
+
+          <span>
+            F12
+          </span>
+        </td>
+
+        <td>
+          Open Definition to the side
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⌘.
+          </span>
+        </td>
+
+        <td>
+          Quick Fix
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⇧F12
+          </span>
+        </td>
+
+        <td>
+          Show References
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            F2
+          </span>
+        </td>
+
+        <td>
+          Rename Symbol
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⌘K
+          </span>
+          <span>
+            ⌘X
+          </span>
+        </td>
+
+        <td>
+          Trim trailing whitespace
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>
+            ⌘K
+          </span>
+
+          <span>
+            M
+          </span>
+        </td>
+
+        <td>
+          Change file language
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div></div>
+</div>
+
+<h2 id="sources">Sources</h2>
+<ul>
+  <li>
+    <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf?WT.mc_id=code-online-jopapa"
+      rel="noopener noreferrer" target="_blank">Shortcuts for Mac</a>
+  </li>
+
+  <li>
+    <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf" rel="noopener noreferrer"
+      target="_blank">Shortcuts for Windows</a>
+  </li>
+</ul>
