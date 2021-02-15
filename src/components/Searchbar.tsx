@@ -93,6 +93,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           onKeyDown={onKeyDown}
+          aria-label="Search"
         />
 
         <FontAwesomeIcon
