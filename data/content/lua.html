@@ -1,0 +1,631 @@
+<h1 id="lua">Lua</h1>
+<h3 id="table-of-contents">Table of Contents</h3>
+<ul>
+  <li><a href="#arrays">Arrays</a></li>
+  <li><a href="#comments">Comments</a></li>
+  <li><a href="#conditionals">Conditionals</a></li>
+  <li><a href="#data-types">Data Types</a></li>
+  <li><a href="#error-handling">Error Handling</a></li>
+  <li><a href="#functions">Functions</a></li>
+  <li><a href="#operators">Operators</a></li>
+</ul>
+
+<div class="grid md:grid-cols-2 gap-2">
+  <div>
+    <h3 id="arrays">Arrays</h3>
+    <pre>
+<code class="language-lua">
+  --[[
+  Arrays are called tables in Lua. Tables look like arrays but function differently.
+  * Index starts at 1 not 0 like most languages.
+  * Tables are not fixed-length like arrays.
+  * Tables are not confined to a single type. They act like tuples and you can store any data type you want.
+]]
+
+-- one-dimensional
+array = {1, "hi", false}
+
+-- length
+print(#array)
+-- output
+--[[
+  3
+]]
+
+-- You grab the element inside the table the same as most C-like languages.
+print(array[2])
+-- output
+--[[
+  hi
+]]
+
+--[[ This is different than most languages; typically this would throw an error.
+  Not in Lua though, instead returns nil.
+]]
+print(array[4])
+-- output
+
+-- note this returns nil as well because Lua arrays/tables start at index 1 not 0.
+print(array[0])
+-- output
+--[[
+  nil
+]]
+
+-- multi-dimensional array
+array = {
+  {"Chad", "Bob", "Sally"},
+  {1, 2 },
+  {false, true, false, true, true }
+}
+
+print(array[1][1])
+-- output
+--[[
+  Chad
+]]
+
+print(array[3][2])
+-- output
+--[[
+  true
+]]
+
+-- Arrays are not fixed in Lua.
+array = {1}
+
+-- This would usually be an issue in most languages.
+array[2] = "I am a new element!"
+
+-- This will show how many elements are in the array/table.
+print(#array)
+
+-- This will get the value of the element at the specified index.
+print(array[2])
+-- output
+--[[
+  1
+  I am a new element!
+]]
+</code>
+</pre>
+
+    <h3 id="error-handling">Error Handling</h3>
+<pre>
+<code class="language-lua">
+  -- runtime errors
+  function add(a,b)
+      return a+b
+  end
+  
+  -- input
+  --[[
+  add(10)
+   ]]
+  
+  -- output
+  --[[
+      ErrorHandling.lua:3 attempt to perform arithmetic __add on number and nil
+   ]]
+  
+  --[[
+      To resolve this you can use build-in function pcall.
+  
+      pcall calls its first argument in protected mode, if there are no errors pcall return true
+      plus any values returned by the call. Otherwise, it returns false, plus the error message.
+  
+      You need to encapsulate your code in another function here I encapsulated my code
+      in an anonymous function within the pcall parameters
+   ]]
+  
+  if (pcall(function() add(20, 100) end)) then
+      print("Foo1 Success! ")
+  else
+      print("Foo1 Failed!")
+  end
+  -- output
+  --[[
+      Foo1 Success!
+   ]]
+  
+  if (pcall(function() add(20) end)) then
+      print("Foo2 Success!")
+  else
+      print("Foo2 Failed!")
+  end
+  -- output
+  --[[
+      Foo2 Failed!
+   ]]
+  
+  function logError(err)
+      print("[ERROR]= " .. err)
+  end
+  
+  -- You can also use xpcall, xpcall works the same as pcall but sets the error handler.
+  
+  if (xpcall(function() add(20) end, logError)) then
+      -- do something here
+  else
+      -- do something here
+  end
+  
+  -- output
+  --[[
+       [ERROR]= scripts/ErrorHandling.lua:3 attempt to perform arithmetic __add on number and nil
+   ]]  
+</code>
+</pre>
+
+    <h3 id="conditionals">Conditionals</h3>
+<pre>
+<code class="language-lua">
+  condition1 = true
+  condition2 = false
+  
+  -- if
+  if (condition1)
+  then
+      print("Condition1 is true")
+  end
+  -- output
+  --[[
+      Condition1 is true
+   ]]
+  
+  -- if else
+  if (condition2)
+  then
+      print("Condition2 is true")
+  else
+      print("Condition2 is false")
+  end
+  -- output
+  --[[
+      Condition2 is false
+   ]]
+  
+  -- nested if
+  if(condition1)
+  then
+      print("Condition1 is true")
+      if(condition2)
+      then
+          print("Condition2 is true")
+      end
+  end
+  -- output
+  --[[
+      Condition1 is true
+   ]]  
+</code>
+</pre>
+
+    <h3 id="operators">Operators</h3>
+<pre>
+<code class="language-lua">
+  local value1 = 8
+  local value2 = 2
+  
+  local condition1 = true
+  local condition2 = false
+  
+  -- add '+'
+  print(value1 + value2)
+  -- output
+  --[[
+       10
+   ]]
+  
+  -- subtract '-'
+  print(value1 - value2)
+  -- output
+  --[[
+       6
+   ]]
+  
+  -- multiply '*'
+  print(value1 * value2)
+  -- output
+  --[[
+       16
+   ]]
+  
+  -- divide '/'
+  print(value1 / value2)
+  -- output
+  --[[
+       4
+   ]]
+  
+  -- modulus '%'
+  print(value1 % value2)
+  -- output
+  --[[
+       0
+   ]]
+  
+  -- exponent '^'
+  print(value1 ^ value2)
+  -- output
+  --[[
+      64
+   ]]
+  
+  -- negation '-'
+  print(-value1)
+  -- output
+  --[[
+       -8
+   ]]
+  
+  -- equal
+  print(value1 == value2)
+  -- output
+  --[[
+     false
+   ]]
+  
+  -- not equal
+  print(value1 ~= value2)
+  -- output
+  --[[
+      true
+   ]]
+  
+  -- less than
+  print(value1 < value2)
+  -- output
+  --[[
+       false
+   ]]
+  
+  -- less than or equal to
+  print(value1 <= value2)
+  -- output
+  --[[
+       false
+   ]]
+  
+  -- greater than
+  print(value1 > value2)
+  -- output
+  --[[
+      true
+   ]]
+  
+  -- greater than or equal to
+  print(value1 >= value2)
+  -- output
+  --[[
+       true
+   ]]
+  
+  -- and
+  print(condition1 and condition2)
+  -- output
+  --[[
+       false
+   ]]
+  
+  -- or
+  print(condition1 or condition2)
+  -- output
+  --[[
+       true
+   ]]
+  
+  -- not
+  print(not(condition1 and condition2))
+  -- output
+  --[[
+       true
+   ]]
+  
+  -- string concatenation
+  print("Hello " .. " Lua" .. "!")
+  -- output
+  --[[
+      Hello Lua!
+   ]]
+  
+  -- length operator (length of a table or string)
+  print(#"Word")
+  print(#{1, false, "string", 25.00, 'a'})
+  -- output
+  --[[
+      4
+      5
+   ]]  
+</code>
+</pre>
+  </div>
+
+
+  <div>
+    <h3 id="comments">Comments</h3>
+  <pre>
+  <code class="language-lua">
+    -- single line
+
+--[[
+    multi
+    line
+    comments
+--]]
+  </code>
+  </pre>
+
+  <h3 id="data-types">Data Types</h3>
+  <pre>
+  <code class="language-lua">
+--[[
+  Datatypes
+  nil
+  boolean
+  number
+  function
+  string
+  table
+  thread
+]]
+
+-- null keyword is "nil"
+print(type(nil))
+-- output
+--[[
+    nil
+ ]]
+
+-- booleans
+print(type(true))
+print(type(false))
+-- output
+--[[
+    boolean
+    boolean
+ ]]
+
+-- numbers
+print(type(1))
+print(type(1.33333))
+-- output
+--[[
+    number
+    number
+ ]]
+
+-- functions
+print(type(print))
+-- output
+--[[
+    function
+ ]]
+
+-- strings
+print(type("Hello Lua!"))
+-- output
+--[[
+    string
+ ]]
+
+-- tables
+print(print(type({1, false, "hi"})))
+-- output
+--[[
+    table
+ ]]
+
+-- threads
+co = coroutine.create(function ()
+    print("hi")
+end)
+
+print(type(co))
+-- output
+--[[
+    thread
+ ]]
+  </code>
+  </pre>
+
+    <h3 id="functions">Functions</h3>
+  <pre>
+  <code class="language-lua">
+    -- simple function with a parameter
+    function sayHello(name)
+        print("Hello " .. name .. "!")
+    end
+    
+    -- function that returns a value
+    function add(value1, value2)
+        return value1 + value2
+    end
+    
+    -- function with variable number of arguments
+    function varargs(...)
+        local arg = {... }
+    
+        for i, v in ipairs(arg) do
+            print(arg[i])
+        end
+    end
+    
+    -- calling functions
+    
+    sayHello("Chad")
+    
+    --output
+    --[[
+    Hello Chad!
+     ]]
+    
+    print(add(2, 3))
+    
+    -- output
+    --[[
+    5
+     ]]
+    
+    varargs("Chad", "Bob", "Sally")
+    
+    -- output
+    --[[
+    Chad
+    Bob
+    Sally
+     ]]    
+  </code>
+  </pre>
+
+    <h3 id="loops">Loops</h3>
+<pre>
+<code class="language-lua">
+  -- iterators
+  array = {"Sally", "Bob", "Joe"}
+
+  for key, value in ipairs(array)
+  do
+    print(key, value)
+  end
+  
+  -- output
+  --[[
+    1	Sally
+    2	Bob
+    3	Joe
+  ]]
+
+  -- while loop
+
+  local count = 0
+  
+  while(count < 5)
+  do
+      print("while count: " .. count)
+      count = count + 1
+  end
+  
+  -- output
+  --[[
+      while count: 0
+      while count: 1
+      while count: 2
+      while count: 3
+      while count: 4
+   ]]
+  
+  -- for loop
+  
+  for count = 0, 5, 1
+      do
+      print("for count: " .. count)
+  end
+  
+  -- output
+  --[[
+      for count: 0
+      for count: 1
+      for count: 2
+      for count: 3
+      for count: 4
+      for count: 5
+   ]]
+  
+  -- repeat loop (test condition at the bottom of the loop)
+  
+  count = 0
+  
+  repeat
+      print("repeat count: " .. count)
+      count = count + 1
+  until(count > 5)
+  
+  -- output
+  --[[
+      repeat count: 0
+      repeat count: 1
+      repeat count: 2
+      repeat count: 3
+      repeat count: 4
+      repeat count: 5
+   ]]  
+</code>
+</pre>
+
+    <h3 id="strings">Strings</h3>
+<pre>
+<code class="language-lua">
+  string1 = "Hello"
+  string2 = "Lua!"
+  
+  -- concatenting strings
+  print(string1 .. " " .. string2)
+  -- output
+  --[[
+    Hello Lua!
+  ]]
+  
+  -- another way though formatting will not be the same
+  print(string1, string2)
+  -- output
+  --[[
+    Hello	Lua!
+  ]]
+  
+  -- formatting strings
+  print(string.format("%s %s", string1, string2))
+  -- output
+  --[[
+    Hello Lua!
+  ]]
+  
+  -- getting the bytes of a string
+  print(string.byte(string1 .. " " .. string2))
+  -- output
+  --[[
+    72
+  ]]
+  
+  -- getting a character from an array of bytes
+  print(string.byte(string1 .. " " .. string2, 2))
+  -- output
+  --[[
+    101
+  ]]
+  
+  print(string.char(101))
+  -- output
+  --[[
+    e
+  ]]
+  
+  -- finding a string
+  print(string.find("I hope everyone loves Lua as much as I do!", "Lua"))
+  -- output (returns the index of the first letter and the index of the last char)
+  --[[
+    23	25
+  ]]
+  
+  -- reversing a string
+  print(string.reverse(".desrever driew skool ecnetnes siht teb I"))
+  -- output
+  --[[
+    I bet this sentence looks weird reversed.
+  ]]
+  
+  -- case manipulation
+  print(string.upper(string1) .. " " .. string.lower(string2))
+  -- output
+  --[[
+    HELLO lua!
+  ]]  
+</code>
+</pre>
+  </div>
+
+  <div>
+
+  </div>
+
+</div>

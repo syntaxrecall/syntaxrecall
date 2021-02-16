@@ -75,5 +75,16 @@
       "keyboard",
       "shortcuts"
     ]
+  },
+  {
+    "title": "Lua",
+    "dateAdded": "February 16, 2021",
+    "keywords": [
+      "lua"
+    ],
+    "tags": [
+      "cheatsheet",
+      "code"
+    ]
   }
 ]
