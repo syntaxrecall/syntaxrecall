@@ -1,4 +1,4 @@
-# Syntax Recall [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/syntaxrecall/syntaxrecall/issues) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Syntax-Recall/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+# Syntax Recall [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/syntaxrecall/syntaxrecall/issues) [![Gitter](https://badges.gitter.im/Syntax-Recall/community.svg)](https://gitter.im/Syntax-Recall/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 
 Is a quick reference for developers inspired by [devhints.io](https://devhints.io).
