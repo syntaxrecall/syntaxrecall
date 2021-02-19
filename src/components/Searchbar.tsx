@@ -135,7 +135,9 @@ export default function SearchBar({ items }: Props): React.ReactElement {
         )}
       </div>
 
-      <p className="text-center mt-4">A quick reference for developers</p>
+      <p className="text-sm text-center mt-4">
+        Search for developer cheatsheets, code examples, tools and more...
+      </p>
     </>
   );
 }

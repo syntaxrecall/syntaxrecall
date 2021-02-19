@@ -15,7 +15,7 @@ export default function Page({ topics }: Props): React.ReactElement {
         <title>Syntax Recall</title>
         <meta
           name="description"
-          content="A quick reference for developers: Syntax, code examples, cheatsheets and more."
+          content="Search for developer cheatsheets, code examples, tools and more..."
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
