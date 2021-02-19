@@ -6,4 +6,5 @@ export interface TopicMeta {
   tags?: string[];
   filename: string;
   pageDescription: string;
+  overrideLayout?: boolean;
 }

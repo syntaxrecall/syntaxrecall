@@ -30,6 +30,10 @@ export function getTopicBySlug(slug: string, fields: string[] = []): Topic {
         items[field] = fileContents;
         break;
 
+      case "overrideLayout":
+        items[field] = data[field] || false;
+        break;
+
       default:
         items[field] = data[field];
         break;

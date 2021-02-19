@@ -112,5 +112,25 @@
     ],
     "filename": "lua",
     "metaDescription": "One page cheatsheet for Lua: Syntax, code examples and more."
+  },
+  {
+    "name": "Tailwind Playground",
+    "pageTitle": "Tailwind Playground",
+    "dateAdded": "February 19, 2021",
+    "keywords": [
+      "tailwind",
+      "tailwindcss",
+      "playground",
+      "tools",
+      "css"
+    ],
+    "tags": [
+      "tools",
+      "tailwindcss",
+      "css"
+    ],
+    "filename": "tailwind-playground",
+    "metaDescription": "An advanced online playground for Tailwind CSS that lets you use all of Tailwind's build-time features directly in the browser.",
+    "overrideLayout": true
   }
 ]
