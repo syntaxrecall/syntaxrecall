@@ -99,4 +99,27 @@
     @apply inline-block;
   }
 
+  article.content .command-card {
+    @apply bg-white;
+    @apply rounded;
+    @apply shadow;
+    @apply mb-4;
+  }
+
+  article.content .command-card div:first-child  {
+    @apply p-2;
+    @apply text-gray-600;
+    @apply text-sm;
+  }
+
+  article.content .command-card div:last-child {
+    @apply bg-gray-200;
+    @apply rounded-b;
+    @apply p-2;
+    @apply border-t;
+    @apply border-gray-300;
+    @apply text-gray-800;
+    @apply text-base;
+  }
+
 }
