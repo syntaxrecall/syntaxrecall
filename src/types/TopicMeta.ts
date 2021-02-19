@@ -1,7 +1,9 @@
 export interface TopicMeta {
-  title?: string;
+  name: string;
+  pageTitle: string;
   dateAdded: string;
-  keywords?: string[];
+  keywords: string[];
   tags?: string[];
   filename: string;
+  pageDescription: string;
 }

@@ -1,46 +1,59 @@
 [
   {
-    "title": "Git",
+    "name": "Git",
+    "pageTitle": "Git Cheatsheet",
     "dateAdded": "February 8, 2021",
     "keywords": [
       "git"
     ],
     "tags": [
       "cheatsheet", "cli"
-    ]
+    ],
+    "filename": "git",
+    "metaDescription": "One page cheatsheet for Git commands."
   },
   {
-    "title": "Yarn",
+    "name": "Yarn",
+    "pageTitle": "Yarn Cheatsheet",
     "dateAdded": "February 6, 2021",
     "keywords": [
       "yarn", "npm"
     ],
     "tags": [
       "cheatsheet", "cli"
-    ]
+    ],
+    "filename": "yarn",
+    "metaDescription": "One page cheatsheet for Yarn commands."
   },
   {
-    "title": "Vim",
+    "name": "Vim",
+    "pageTitle": "Vim Cheatsheet",
     "dateAdded": "February 10, 2021",
     "keywords": [
       "vim"
     ],
     "tags": [
       "cheatsheet"
-    ]
+    ],
+    "filename": "vim",
+    "metaDescription": "One page cheatsheet for Vim keyboard shortcuts."
   },
   {
-    "title": "Screen",
+    "name": "Screen",
+    "pageTitle": "Screen Cheatsheet",
     "dateAdded": "February 13, 2021",
     "keywords": [
       "screen"
     ],
     "tags": [
       "cheatsheet", "cli"
-    ]
+    ],
+    "filename": "screen",
+    "metaDescription": "One page cheatsheet for Screen keyboard shortcuts."
   },
   {
-    "title": "Markdown",
+    "name": "Markdown",
+    "pageTitle": "Markdown Cheatsheet",
     "dateAdded": "February 13, 2021",
     "keywords": [
       "markdown",
@@ -48,10 +61,13 @@
     ],
     "tags": [
       "cheatsheet"
-    ]
+    ],
+    "filename": "markdown",
+    "metaDescription": "One page cheatsheet for Markdown syntax."
   },
   {
-    "title": "Sass",
+    "name": "Sass",
+    "pageTitle": "Sass Cheatsheet",
     "dateAdded": "February 14, 2021",
     "keywords": [
       "sass",
@@ -59,25 +75,33 @@
     ],
     "tags": [
       "cheatsheet"
-    ]
+    ],
+    "filename": "sass",
+    "metaDescription": "One page cheatsheet for Sass: Syntax, code examples and more."
   },
   {
-    "title": "VSCode",
+    "name": "VSCode",
+    "pageTitle": "Visual Studio Code Keyboard Shortcuts Cheatsheet",
     "dateAdded": "February 14, 2021",
     "keywords": [
       "vscode",
       "visual",
       "studio",
-      "code"
+      "code",
+      "keyboard",
+      "shortcuts"
     ],
     "tags": [
       "cheatsheet",
       "keyboard",
       "shortcuts"
-    ]
+    ],
+    "filename": "vscode-keyboard-shortcuts",
+    "metaDescription": "One page cheatsheet for Visual Studio Code keyboard shortcuts."
   },
   {
-    "title": "Lua",
+    "name": "Lua",
+    "pageTitle": "Lua Cheatsheet",
     "dateAdded": "February 16, 2021",
     "keywords": [
       "lua"
@@ -85,6 +109,8 @@
     "tags": [
       "cheatsheet",
       "code"
-    ]
+    ],
+    "filename": "lua",
+    "metaDescription": "One page cheatsheet for Lua: Syntax, code examples and more."
   }
 ]

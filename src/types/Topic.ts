@@ -1,7 +1,9 @@
 export interface Topic {
-  title?: string;
+  name?: string;
+  pageTitle?: string;
   slug?: string;
   keywords?: string[];
   content?: string;
   tags?: string[];
+  metaDescription?: string;
 }

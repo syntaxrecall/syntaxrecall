@@ -13,7 +13,13 @@ export default function Page({ topics }: Props): React.ReactElement {
     <>
       <Head>
         <title>Syntax Recall</title>
-        <meta name="description" content="A quick reference for developers" />
+        <meta
+          name="description"
+          content="A quick reference for developers: Syntax, code examples, cheatsheets and more."
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charSet="UTF-8" />
       </Head>
       <div className="grid grid-cols-12 min-h-screen">
         <div className="relative col-span-12 sm:col-start-2 sm:col-span-10 md:col-start-3 md:col-span-8 lg:col-start-4 lg:col-span-6 xl:col-start-5 xl:col-span-4 min-h-screen">
@@ -38,7 +44,7 @@ interface StaticProp {
 }
 
 export function getStaticProps(): StaticProps {
-  const topics = getAllTopics(["title", "slug", "keywords", "tags"]) as Topic[];
+  const topics = getAllTopics(["name", "slug", "keywords", "tags"]) as Topic[];
   return {
     props: {
       topics,

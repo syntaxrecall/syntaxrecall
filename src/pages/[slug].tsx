@@ -6,17 +6,23 @@ import Layout from "../components/layouts/MainLayout";
 
 interface PageProps {
   content: string;
-  title: string;
+  pageTitle: string;
+  metaDescription: string;
 }
 
 export default function Page({
   content,
-  title,
+  pageTitle,
+  metaDescription,
 }: PageProps): React.ReactElement {
   return (
     <>
       <Head>
-        <title>Syntax Recall - {title}</title>
+        <title>{pageTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charSet="UTF-8" />
       </Head>
       <Layout>
         <HtmlContent htmlContent={content} />
@@ -28,11 +34,16 @@ export default function Page({
 export async function getStaticProps({
   params,
 }: PageParams): Promise<StaticProps> {
-  const { content, title } = getTopicBySlug(params.slug, ["content", "title"]);
+  const { content, pageTitle, metaDescription } = getTopicBySlug(params.slug, [
+    "content",
+    "pageTitle",
+    "metaDescription",
+  ]);
   return {
     props: {
       content,
-      title,
+      pageTitle,
+      metaDescription,
     },
   };
 }
@@ -55,7 +66,8 @@ interface StaticProps {
 
 interface StaticProp {
   content: string;
-  title: string;
+  pageTitle: string;
+  metaDescription: string;
 }
 
 interface StaticPaths {

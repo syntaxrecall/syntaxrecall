@@ -122,8 +122,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
                   )}
                 >
                   <div className="p-2">
-                    {item.title}
-
+                    {item.name}
                     {item.tags &&
                       item.tags.map((tag) => {
                         return <Tag key={tag} text={tag} className="ml-2" />;

@@ -17,9 +17,7 @@ export function getTopicBySlug(slug: string, fields: string[] = []): Topic {
     fs.readFileSync(join(dataDir, "meta.json"), "utf8")
   );
 
-  const data = meta.find(
-    (m) => m.title.toLowerCase() === realSlug.toLowerCase()
-  );
+  const data = meta.find((m) => m.filename === realSlug);
   const items: Topic = {};
 
   fields.forEach((field) => {
@@ -45,6 +43,6 @@ export function getAllTopics(fields: string[] = []): Topic[] {
   const slugs = getTopicSlugs();
   const topics = slugs
     .map((slug: string) => getTopicBySlug(slug, fields))
-    .sort((a, b) => (a.title > b.title ? 1 : -1));
+    .sort((a, b) => (a.name > b.name ? 1 : -1));
   return topics;
 }
