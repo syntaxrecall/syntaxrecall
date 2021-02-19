@@ -115,10 +115,10 @@ export default function SearchBar({ items }: Props): React.ReactElement {
               <Link key={item.slug} href={item.slug}>
                 <div
                   className={clsx(
-                    "cursor-pointer focus:text-gray-600 focus:bg-gray-200 hover:text-gray-600 hover:bg-gray-200",
+                    "cursor-pointer focus:text-gray-600 focus:bg-gray-100 hover:text-gray-600 hover:bg-gray-100",
                     { "rounded-b-lg": index === filteredItems.length - 1 },
                     { "text-gray-600": resultIndex === index },
-                    { "bg-gray-200": resultIndex === index }
+                    { "bg-gray-100": resultIndex === index }
                   )}
                 >
                   <div className="p-2">
