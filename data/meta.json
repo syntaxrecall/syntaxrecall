@@ -148,5 +148,21 @@
     "filename": "regex101",
     "metaDescription": "Online regular expression tester with syntax highlighting, explanation, cheat sheet for PHP/PCRE, Python, Golang, JavaScript. Extensive regex quiz & library.",
     "overrideLayout": true
+  },
+  {
+    "name": "JSON Editor",
+    "pageTitle": "JSON Editor Online - view, edit and format JSON online",
+    "dateAdded": "February 19, 2021",
+    "keywords": [
+      "json",
+      "editor"
+    ],
+    "tags": [
+      "tools",
+      "json"
+    ],
+    "filename": "json-editor-online",
+    "metaDescription": "JSON Editor Online is a web-based tool to view, edit, format, transform, and diff JSON documents.",
+    "overrideLayout": true
   }
 ]
