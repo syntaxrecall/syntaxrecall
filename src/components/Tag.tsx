@@ -11,7 +11,7 @@ export default function Tag({ text, className }: TagProps): React.ReactElement {
     <div
       className={clsx(
         className,
-        "inline-block p-1 border rounded bg-gray-200 text-xs sm:text-sm"
+        "inline-block p-1 border rounded bg-gray-200 text-xs"
       )}
     >
       {`#${text}`}

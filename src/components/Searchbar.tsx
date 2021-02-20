@@ -135,6 +135,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
                 key={item.name}
                 onClick={() => onClickResultItem(item)}
                 className={clsx(
+                  "p-2",
                   "cursor-pointer",
                   "focus:outline-none focus:text-gray-600 focus:bg-gray-100",
                   "hover:text-gray-600 hover:bg-gray-100",
@@ -144,13 +145,23 @@ export default function SearchBar({ items }: Props): React.ReactElement {
                   { "bg-gray-100": resultIndex === index }
                 )}
               >
-                <div className="p-2">
+                <div
+                  className={clsx({
+                    "pb-1": !!item.description || !!item.metaDescription,
+                  })}
+                >
                   {item.name}
                   {item.tags &&
                     item.tags.map((tag) => {
                       return <Tag key={tag} text={tag} className="ml-2" />;
                     })}
                 </div>
+
+                {item.description || item.metaDescription ? (
+                  <div className="text-xs">
+                    {item.description || item.metaDescription}
+                  </div>
+                ) : null}
               </button>
             ))}
           </div>

@@ -115,6 +115,7 @@
   },
   {
     "name": "Tailwind Playground",
+    "description": "A web-based editor that let's you try out tailwindcss.",
     "dateAdded": "February 19, 2021",
     "keywords": [
       "tailwind",
@@ -133,6 +134,7 @@
   },
   {
     "name": "Regex101",
+    "description": "A web-based regular expression tester.",
     "dateAdded": "February 19, 2021",
     "keywords": [
       "regex",
@@ -148,6 +150,7 @@
   },
   {
     "name": "JSON Editor Online",
+    "description": "A web-based JSON editor.",
     "dateAdded": "February 19, 2021",
     "keywords": [
       "json",
@@ -162,6 +165,7 @@
   },
   {
     "name": "BundlePhobia",
+    "description": "Helps you find the performance impact of adding a npm package to your front-end bundle.",
     "dateAdded": "February 19, 2021",
     "keywords": [
       "npm",
@@ -179,6 +183,7 @@
   },
   {
     "name": "Flexbox playground",
+    "description": "A web-based tool that let's you play around with the flexbox layout.",
     "dateAdded": "February 20, 2021",
     "keywords": [
       "flexbox",
@@ -193,6 +198,7 @@
   },
   {
     "name": "Can I Use?",
+    "description": "Provides up-to-date browser support tables for support of front-end web technologies on desktop and mobile web browsers.",
     "dateAdded": "February 20, 2021",
     "keywords": [
       "can",

@@ -50,6 +50,8 @@ export function getStaticProps(): StaticProps {
     "keywords",
     "tags",
     "externalSource",
+    "description",
+    "metaDescription",
   ]) as Topic[];
   return {
     props: {
