@@ -240,6 +240,7 @@
     "keywords": [
       "compressor",
       "optimizer",
+      "image",
       "tools",
       "png",
       "svg",
@@ -253,5 +254,26 @@
       "tools"
     ],
     "externalSource": "https://shrinkme.app/"
+  },
+  {
+    "name": "Squoosh",
+    "description": "Compress and compare images with different codecs, right in your browser.",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "compressor",
+      "optimizer",
+      "image",
+      "tools",
+      "png",
+      "svg",
+      "jpg",
+      "webp",
+      "squoosh"
+    ],
+    "tags": [
+      "externalSource",
+      "tools"
+    ],
+    "externalSource": "https://squoosh.app/"
   }
 ]
