@@ -176,5 +176,19 @@
       "npm"
     ],
     "externalSource": "https://bundlephobia.com/"
+  },
+  {
+    "name": "Flexbox playground",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "flexbox",
+      "tools"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "css"
+    ],
+    "externalSource": "https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos/"
   }
 ]
