@@ -139,7 +139,8 @@
     "dateAdded": "February 19, 2021",
     "keywords": [
       "regex",
-      "regex101"
+      "regex101",
+      "tools"
     ],
     "tags": [
       "tools",
@@ -173,7 +174,8 @@
       "npm",
       "bundle",
       "phobia",
-      "package.json"
+      "package.json",
+      "tools"
     ],
     "tags": [
       "tools",
