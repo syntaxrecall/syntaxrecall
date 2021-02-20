@@ -292,5 +292,20 @@
       "tools"
     ],
     "externalSource": "https://dev.w3.org/html5/html-author/charref"
+  },
+  {
+    "name": "Modularscale",
+    "description": "Calculate, visualize, and learn about modular scales.",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "modularscale",
+      "font",
+      "tools"
+    ],
+    "tags": [
+      "externalSource",
+      "tools"
+    ],
+    "externalSource": "https://www.modularscale.com/"
   }
 ]
