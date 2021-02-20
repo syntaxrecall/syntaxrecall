@@ -49,7 +49,7 @@ export async function getStaticProps({
 }
 
 export function getStaticPaths(): StaticPaths {
-  const topics = getAllTopics(["slug"]);
+  const topics = getAllTopics(["slug"]).filter((value) => !!value.slug);
   return {
     paths: topics.map((topic) => ({
       params: {
