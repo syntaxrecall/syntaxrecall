@@ -308,5 +308,21 @@
       "tools"
     ],
     "externalSource": "https://www.modularscale.com/"
+  },
+  {
+    "name": "Browser Default Styles",
+    "description": "Search against any element for standardized and default styles from all major rendering engines (WebKit, Blink, Gecko, Trident).",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "browser",
+      "default",
+      "styles",
+      "tools"
+    ],
+    "tags": [
+      "externalSource",
+      "tools"
+    ],
+    "externalSource": "https://browserdefaultstyles.com/"
   }
 ]
