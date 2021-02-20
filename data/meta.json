@@ -164,5 +164,23 @@
     "filename": "json-editor-online",
     "metaDescription": "JSON Editor Online is a web-based tool to view, edit, format, transform, and diff JSON documents.",
     "overrideLayout": true
+  },
+  {
+    "name": "BundlePhobia",
+    "pageTitle": "BundlePhobia ❘ cost of adding a npm package",
+    "dateAdded": "February 19, 2021",
+    "keywords": [
+      "npm",
+      "bundle",
+      "phobia",
+      "package.json"
+    ],
+    "tags": [
+      "tools",
+      "npm"
+    ],
+    "filename": "bundlephobia",
+    "metaDescription": "Bundlephobia helps you find the performance impact of adding a npm package to your front-end bundle",
+    "overrideLayout": true
   }
 ]
