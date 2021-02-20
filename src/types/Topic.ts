@@ -6,5 +6,5 @@ export interface Topic {
   content?: string;
   tags?: string[];
   metaDescription?: string;
-  overrideLayout?: boolean;
+  externalSource?: string;
 }

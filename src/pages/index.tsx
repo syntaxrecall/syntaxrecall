@@ -44,7 +44,13 @@ interface StaticProp {
 }
 
 export function getStaticProps(): StaticProps {
-  const topics = getAllTopics(["name", "slug", "keywords", "tags"]) as Topic[];
+  const topics = getAllTopics([
+    "name",
+    "slug",
+    "keywords",
+    "tags",
+    "externalSource",
+  ]) as Topic[];
   return {
     props: {
       topics,

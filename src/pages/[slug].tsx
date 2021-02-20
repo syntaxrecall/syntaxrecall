@@ -8,14 +8,12 @@ interface PageProps {
   content: string;
   pageTitle: string;
   metaDescription: string;
-  overrideLayout: boolean;
 }
 
 export default function Page({
   content,
   pageTitle,
   metaDescription,
-  overrideLayout,
 }: PageProps): React.ReactElement {
   return (
     <>
@@ -26,17 +24,9 @@ export default function Page({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charSet="UTF-8" />
       </Head>
-      {overrideLayout ? (
-        <div
-          className="relative min-w-screen min-h-screen"
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
-      ) : (
-        <Layout>
-          <HtmlContent htmlContent={content} />
-        </Layout>
-      )}
+      <Layout>
+        <HtmlContent htmlContent={content} />
+      </Layout>
     </>
   );
 }
@@ -44,23 +34,16 @@ export default function Page({
 export async function getStaticProps({
   params,
 }: PageParams): Promise<StaticProps> {
-  const {
-    content,
-    pageTitle,
-    metaDescription,
-    overrideLayout,
-  } = getTopicBySlug(params.slug, [
+  const { content, pageTitle, metaDescription } = getTopicBySlug(params.slug, [
     "content",
     "pageTitle",
     "metaDescription",
-    "overrideLayout",
   ]);
   return {
     props: {
       content,
       pageTitle,
       metaDescription,
-      overrideLayout,
     },
   };
 }
@@ -85,7 +68,6 @@ interface StaticProp {
   content: string;
   pageTitle: string;
   metaDescription: string;
-  overrideLayout: boolean;
 }
 
 interface StaticPaths {

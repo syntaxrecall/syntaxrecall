@@ -9,33 +9,39 @@ export function getTopicSlugs(): string[] {
   return fs.readdirSync(contentDir);
 }
 
-export function getTopicBySlug(slug: string, fields: string[] = []): Topic {
-  const realSlug = slug.replace(/\.html$/, "");
-  const fullPath = join(contentDir, `${realSlug}.html`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+export function getTopicMetas(): TopicMeta[] {
   const meta: TopicMeta[] = JSON.parse(
     fs.readFileSync(join(dataDir, "meta.json"), "utf8")
   );
 
-  const data = meta.find((m) => m.filename === realSlug);
+  return meta;
+}
+
+export function getTopicByTopicMeta(
+  topicMeta: TopicMeta,
+  fields: string[] = []
+): Topic {
+  const realSlug = topicMeta.filename;
   const items: Topic = {};
 
   fields.forEach((field) => {
     switch (field) {
       case "slug":
-        items[field] = realSlug;
+        items[field] = realSlug || "";
         break;
 
-      case "content":
+      case "content": {
+        let fileContents = "";
+        if (realSlug) {
+          const fullPath = join(contentDir, `${realSlug}.html`);
+          fileContents = fs.readFileSync(fullPath, "utf8");
+        }
         items[field] = fileContents;
         break;
-
-      case "overrideLayout":
-        items[field] = data[field] || false;
-        break;
+      }
 
       default:
-        items[field] = data[field];
+        items[field] = topicMeta[field] || "";
         break;
     }
   });
@@ -43,10 +49,21 @@ export function getTopicBySlug(slug: string, fields: string[] = []): Topic {
   return items;
 }
 
+export function getTopicBySlug(slug: string, fields: string[] = []): Topic {
+  const realSlug = slug.replace(/\.html$/, "");
+  const meta: TopicMeta[] = JSON.parse(
+    fs.readFileSync(join(dataDir, "meta.json"), "utf8")
+  );
+
+  const data = meta.find((m) => m.filename === realSlug);
+  const items: Topic = getTopicByTopicMeta(data, fields);
+  return items;
+}
+
 export function getAllTopics(fields: string[] = []): Topic[] {
-  const slugs = getTopicSlugs();
-  const topics = slugs
-    .map((slug: string) => getTopicBySlug(slug, fields))
+  const topicMetas = getTopicMetas();
+  const topics = topicMetas
+    .map((topicMeta) => getTopicByTopicMeta(topicMeta, fields))
     .sort((a, b) => (a.name > b.name ? 1 : -1));
   return topics;
 }

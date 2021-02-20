@@ -115,7 +115,6 @@
   },
   {
     "name": "Tailwind Playground",
-    "pageTitle": "Tailwind Playground",
     "dateAdded": "February 19, 2021",
     "keywords": [
       "tailwind",
@@ -125,17 +124,15 @@
       "css"
     ],
     "tags": [
+      "externalSource",
       "tools",
       "tailwindcss",
       "css"
     ],
-    "filename": "tailwind-playground",
-    "metaDescription": "An advanced online playground for Tailwind CSS that lets you use all of Tailwind's build-time features directly in the browser.",
-    "overrideLayout": true
+    "externalSource": "https://play.tailwindcss.com/"
   },
   {
-    "name": "Regex Expressions",
-    "pageTitle": "regex101: build, debug and test regex",
+    "name": "Regex101",
     "dateAdded": "February 19, 2021",
     "keywords": [
       "regex",
@@ -143,32 +140,28 @@
       "tools"
     ],
     "tags": [
+      "externalSource",
       "tools",
       "regex"
     ],
-    "filename": "regex101",
-    "metaDescription": "Online regular expression tester with syntax highlighting, explanation, cheat sheet for PHP/PCRE, Python, Golang, JavaScript. Extensive regex quiz & library.",
-    "overrideLayout": true
+    "externalSource": "https://regex101.com/"
   },
   {
-    "name": "JSON Editor",
-    "pageTitle": "JSON Editor Online - view, edit and format JSON online",
+    "name": "JSON Editor Online",
     "dateAdded": "February 19, 2021",
     "keywords": [
       "json",
       "editor"
     ],
     "tags": [
+      "externalSource",
       "tools",
       "json"
     ],
-    "filename": "json-editor-online",
-    "metaDescription": "JSON Editor Online is a web-based tool to view, edit, format, transform, and diff JSON documents.",
-    "overrideLayout": true
+    "externalSource": "https://jsoneditoronline.org/"
   },
   {
     "name": "BundlePhobia",
-    "pageTitle": "BundlePhobia ❘ cost of adding a npm package",
     "dateAdded": "February 19, 2021",
     "keywords": [
       "npm",
@@ -178,11 +171,10 @@
       "tools"
     ],
     "tags": [
+      "externalSource",
       "tools",
       "npm"
     ],
-    "filename": "bundlephobia",
-    "metaDescription": "Bundlephobia helps you find the performance impact of adding a npm package to your front-end bundle",
-    "overrideLayout": true
+    "externalSource": "https://bundlephobia.com/"
   }
 ]

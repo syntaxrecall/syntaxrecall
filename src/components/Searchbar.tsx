@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import clsx from "clsx";
 import { Key } from "ts-key-enum";
@@ -44,6 +43,11 @@ export default function SearchBar({ items }: Props): React.ReactElement {
     ref.current.focus();
   }, [debouncedSearchTerm, setFilteredItems, items]);
 
+  function reset() {
+    setSearchText("");
+    setResultIndex(-1);
+  }
+
   function onKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
     if (!filteredItems || filteredItems.length === 0) {
       return;
@@ -56,8 +60,22 @@ export default function SearchBar({ items }: Props): React.ReactElement {
         Math.min(filteredItems ? filteredItems.length - 1 : -1, resultIndex + 1)
       );
     } else if (event.key === Key.Enter) {
-      const item = filteredItems[resultIndex];
-      router.push(`/${item.slug}`);
+      const topic = filteredItems[resultIndex];
+      if (topic.slug) {
+        router.push(`/${topic.slug}`);
+      } else if (topic.externalSource) {
+        window.open(topic.externalSource, "_blank");
+        reset();
+      }
+    }
+  }
+
+  function onClickResultItem(item: Topic) {
+    if (item.slug) {
+      router.push(item.slug);
+    } else if (item.externalSource) {
+      window.open(item.externalSource, "_blank");
+      reset();
     }
   }
 
@@ -92,8 +110,8 @@ export default function SearchBar({ items }: Props): React.ReactElement {
           autoComplete="off"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
-          onKeyDown={onKeyDown}
           aria-label="Search"
+          onKeyDown={onKeyDown}
         />
 
         <FontAwesomeIcon
@@ -112,24 +130,28 @@ export default function SearchBar({ items }: Props): React.ReactElement {
         {filteredItems && filteredItems.length > 0 && (
           <div className="absolute top-12 -inset-x-px rounded-b-lg bg-white border border-gray-400">
             {filteredItems.map((item, index) => (
-              <Link key={item.slug} href={item.slug}>
-                <div
-                  className={clsx(
-                    "cursor-pointer focus:text-gray-600 focus:bg-gray-100 hover:text-gray-600 hover:bg-gray-100",
-                    { "rounded-b-lg": index === filteredItems.length - 1 },
-                    { "text-gray-600": resultIndex === index },
-                    { "bg-gray-100": resultIndex === index }
-                  )}
-                >
-                  <div className="p-2">
-                    {item.name}
-                    {item.tags &&
-                      item.tags.map((tag) => {
-                        return <Tag key={tag} text={tag} className="ml-2" />;
-                      })}
-                  </div>
+              <button
+                type="button"
+                key={item.name}
+                onClick={() => onClickResultItem(item)}
+                className={clsx(
+                  "cursor-pointer",
+                  "focus:outline-none focus:text-gray-600 focus:bg-gray-100",
+                  "hover:text-gray-600 hover:bg-gray-100",
+                  "block w-full text-left",
+                  { "rounded-b-lg": index === filteredItems.length - 1 },
+                  { "text-gray-600": resultIndex === index },
+                  { "bg-gray-100": resultIndex === index }
+                )}
+              >
+                <div className="p-2">
+                  {item.name}
+                  {item.tags &&
+                    item.tags.map((tag) => {
+                      return <Tag key={tag} text={tag} className="ml-2" />;
+                    })}
                 </div>
-              </Link>
+              </button>
             ))}
           </div>
         )}
