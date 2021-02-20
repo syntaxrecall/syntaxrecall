@@ -190,5 +190,23 @@
       "css"
     ],
     "externalSource": "https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos/"
+  },
+  {
+    "name": "Can I Use?",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "can",
+      "i",
+      "use",
+      "browser",
+      "support",
+      "tools"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "frontend"
+    ],
+    "externalSource": "https://caniuse.com/"
   }
 ]
