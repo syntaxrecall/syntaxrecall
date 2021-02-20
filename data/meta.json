@@ -132,5 +132,21 @@
     "filename": "tailwind-playground",
     "metaDescription": "An advanced online playground for Tailwind CSS that lets you use all of Tailwind's build-time features directly in the browser.",
     "overrideLayout": true
+  },
+  {
+    "name": "Regex Expressions",
+    "pageTitle": "regex101: build, debug and test regex",
+    "dateAdded": "February 19, 2021",
+    "keywords": [
+      "regex",
+      "regex101"
+    ],
+    "tags": [
+      "tools",
+      "regex"
+    ],
+    "filename": "regex101",
+    "metaDescription": "Online regular expression tester with syntax highlighting, explanation, cheat sheet for PHP/PCRE, Python, Golang, JavaScript. Extensive regex quiz & library.",
+    "overrideLayout": true
   }
 ]
