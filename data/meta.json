@@ -275,5 +275,22 @@
       "tools"
     ],
     "externalSource": "https://squoosh.app/"
+  },
+  {
+    "name": "HTML Character Entity Reference Chart",
+    "description": "A chart containing all HTML character entities.",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "html",
+      "character",
+      "entity",
+      "reference",
+      "chart"
+    ],
+    "tags": [
+      "externalSource",
+      "tools"
+    ],
+    "externalSource": "https://dev.w3.org/html5/html-author/charref"
   }
 ]
