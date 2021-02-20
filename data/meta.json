@@ -214,5 +214,23 @@
       "frontend"
     ],
     "externalSource": "https://caniuse.com/"
+  },
+  {
+    "name": "SVGOMG",
+    "description": "A web-based SVG optimizer.",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "svg",
+      "optimizer",
+      "tools",
+      "svgo",
+      "svgomg"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "svg"
+    ],
+    "externalSource": "https://jakearchibald.github.io/svgomg/"
   }
 ]
