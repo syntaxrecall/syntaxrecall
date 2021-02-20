@@ -232,5 +232,26 @@
       "svg"
     ],
     "externalSource": "https://jakearchibald.github.io/svgomg/"
+  },
+  {
+    "name": "Shrinkme",
+    "description": "A web-based image compressor for PNG, SVG, JPG and WEBP.",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "compressor",
+      "optimizer",
+      "tools",
+      "png",
+      "svg",
+      "jpg",
+      "webp",
+      "shrink",
+      "shrinkme"
+    ],
+    "tags": [
+      "externalSource",
+      "tools"
+    ],
+    "externalSource": "https://shrinkme.app/"
   }
 ]
