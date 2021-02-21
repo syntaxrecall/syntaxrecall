@@ -424,5 +424,21 @@
       "performance"
     ],
     "externalSource": "https://latency.apex.sh/"
+  },
+  {
+    "name": "Excalidraw",
+    "description": "Free web-based drawing tool.",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "excalidraw",
+      "drawing",
+      "tools"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "draw"
+    ],
+    "externalSource": "https://excalidraw.com/"
   }
 ]
