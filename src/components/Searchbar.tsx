@@ -29,7 +29,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
   const ref = useRef(null);
   const [resultIndex, setResultIndex] = useState(-1);
   const [searchText, setSearchText] = useState("");
-  const debouncedSearchTerm = useDebounce(searchText, 500);
+  const debouncedSearchTerm = useDebounce(searchText.trim(), 500);
   const [filteredItems, setFilteredItems] = useState<Topic[] | null>(null);
   const router = useRouter();
 
