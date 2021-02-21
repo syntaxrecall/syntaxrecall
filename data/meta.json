@@ -358,5 +358,22 @@
       "colorpicker"
     ],
     "externalSource": "https://color.hailpixel.com/#"
+  },
+  {
+    "name": "UIGradients",
+    "description": "A handpicked collection of beautiful color gradients for designers and developers.",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "ui",
+      "gradients",
+      "tools",
+      "color"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "colorgradients"
+    ],
+    "externalSource": "https://uigradients.com/"
   }
 ]
