@@ -440,5 +440,21 @@
       "draw"
     ],
     "externalSource": "https://excalidraw.com/"
+  },
+  {
+    "name": "Type-scale",
+    "description": "A free web-based tool to experiment with font sizes, scales and different webfonts.",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "type",
+      "scape",
+      "tools"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "typography"
+    ],
+    "externalSource": "https://type-scale.com/"
   }
 ]
