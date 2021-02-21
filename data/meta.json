@@ -456,5 +456,21 @@
       "typography"
     ],
     "externalSource": "https://type-scale.com/"
+  },
+  {
+    "name": "Happy Hues",
+    "description": "A web-based color palette inspiration site that acts as a real world example as to how the colors could be used in your design projects.",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "happy",
+      "hues",
+      "tools"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "colorpalette"
+    ],
+    "externalSource": "https://www.happyhues.co/"
   }
 ]
