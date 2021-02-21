@@ -324,5 +324,22 @@
       "tools"
     ],
     "externalSource": "https://browserdefaultstyles.com/"
+  },
+  {
+    "name": "IcoMoon",
+    "description": "Search and download vector icons or generate fonts (icon fonts).",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "tools",
+      "icons",
+      "vector",
+      "fonts"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "icons"
+    ],
+    "externalSource": "https://icomoon.io/app/#/select"
   }
 ]
