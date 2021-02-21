@@ -15,9 +15,9 @@ interface Props {
 function getFilteredItems(searchText: string, topics: Topic[]) {
   let results: Topic[] = [];
   if (searchText) {
-    const split = searchText.toLowerCase().split(" ");
+    const splitSearchText = searchText.toLowerCase().split(" ");
     results = topics.filter((topic) =>
-      split.some((s) =>
+      splitSearchText.every((s) =>
         topic.keywords.some((keyword) => keyword.toLowerCase().includes(s))
       )
     );
