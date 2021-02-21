@@ -375,5 +375,37 @@
       "colorgradients"
     ],
     "externalSource": "https://uigradients.com/"
+  },
+  {
+    "name": "FontSpark",
+    "description": "Helping designers discover the perfect font for their next design project.",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "font",
+      "spark",
+      "tools"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "font"
+    ],
+    "externalSource": "https://fontspark.app/"
+  },
+  {
+    "name": "unDraw",
+    "description": "Completely free illustrations for any idea you can imagine and create.",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "undraw",
+      "illustrations",
+      "tools"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "illustrations"
+    ],
+    "externalSource": "https://undraw.co/illustrations"
   }
 ]
