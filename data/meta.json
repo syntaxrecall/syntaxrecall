@@ -341,5 +341,22 @@
       "icons"
     ],
     "externalSource": "https://icomoon.io/app/#/select"
+  },
+  {
+    "name": "HailPixel",
+    "description": "A simple web-based color picker.",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "hail",
+      "pixel",
+      "color",
+      "picker"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "colorpicker"
+    ],
+    "externalSource": "https://color.hailpixel.com/#"
   }
 ]
