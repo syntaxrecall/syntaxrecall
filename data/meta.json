@@ -407,5 +407,22 @@
       "illustrations"
     ],
     "externalSource": "https://undraw.co/illustrations"
+  },
+  {
+    "name": "Apex Latency",
+    "description": "Free web-based global latency testing tool.",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "apex",
+      "latency",
+      "tools",
+      "performance"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "performance"
+    ],
+    "externalSource": "https://latency.apex.sh/"
   }
 ]
