@@ -481,5 +481,23 @@
       "colorpalette"
     ],
     "externalSource": "https://www.happyhues.co/"
+  },
+  {
+    "name": "DevDocs",
+    "description": "Fast, offline, and free documentation browser for developers. Search 100+ docs in one web app.",
+    "dateAdded": "February 20, 2021",
+    "keywords": [
+      "dev",
+      "docs",
+      "devdocs",
+      "documentation",
+      "tools"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "documentation"
+    ],
+    "externalSource": "https://devdocs.io/"
   }
 ]
