@@ -519,7 +519,7 @@
     "externalSource": "https://responsivebreakpoints.com/"
   },
   {
-    "name": "CSS Gradient",
+    "name": "CSS Gradient Generator",
     "description": "As a free css gradient generator tool, this website lets you create a colorful gradient background for your website, blog, or social media profile.",
     "dateAdded": "February 23, 2021",
     "keywords": [
@@ -534,5 +534,23 @@
       "gradient"
     ],
     "externalSource": "https://cssgradient.io/"
+  },
+  {
+    "name": "Smooth Shadow Generator",
+    "description": "A free web-based css shadow generator.",
+    "dateAdded": "February 23, 2021",
+    "keywords": [
+      "css",
+      "shadow",
+      "smooth",
+      "generator",
+      "tools"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "css"
+    ],
+    "externalSource": "https://brumm.af/shadows"
   }
 ]
