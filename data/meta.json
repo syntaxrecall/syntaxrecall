@@ -4,7 +4,9 @@
     "pageTitle": "Git Cheatsheet",
     "dateAdded": "February 8, 2021",
     "keywords": [
-      "git"
+      "git",
+      "cheatsheets",
+      "cli"
     ],
     "tags": [
       "cheatsheet", "cli"
@@ -17,7 +19,7 @@
     "pageTitle": "Yarn Cheatsheet",
     "dateAdded": "February 6, 2021",
     "keywords": [
-      "yarn", "npm"
+      "yarn", "npm", "cheatsheets"
     ],
     "tags": [
       "cheatsheet", "cli"
@@ -30,7 +32,8 @@
     "pageTitle": "Vim Cheatsheet",
     "dateAdded": "February 10, 2021",
     "keywords": [
-      "vim"
+      "vim",
+      "cheatsheets"
     ],
     "tags": [
       "cheatsheet"
@@ -43,7 +46,8 @@
     "pageTitle": "Screen Cheatsheet",
     "dateAdded": "February 13, 2021",
     "keywords": [
-      "screen"
+      "screen",
+      "cheatsheets"
     ],
     "tags": [
       "cheatsheet", "cli"
@@ -57,7 +61,8 @@
     "dateAdded": "February 13, 2021",
     "keywords": [
       "markdown",
-      "md"
+      "md",
+      "cheatsheets"
     ],
     "tags": [
       "cheatsheet"
@@ -71,7 +76,8 @@
     "dateAdded": "February 14, 2021",
     "keywords": [
       "sass",
-      "css"
+      "css",
+      "cheatsheets"
     ],
     "tags": [
       "cheatsheet"
@@ -89,7 +95,8 @@
       "studio",
       "code",
       "keyboard",
-      "shortcuts"
+      "shortcuts",
+      "cheatsheets"
     ],
     "tags": [
       "cheatsheet",
@@ -104,7 +111,8 @@
     "pageTitle": "Lua Cheatsheet",
     "dateAdded": "February 16, 2021",
     "keywords": [
-      "lua"
+      "lua",
+      "cheatsheets"
     ],
     "tags": [
       "cheatsheet",
