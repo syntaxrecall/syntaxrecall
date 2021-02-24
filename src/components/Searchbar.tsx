@@ -198,6 +198,11 @@ export default function SearchBar({ items }: Props): React.ReactElement {
                     {
                       "bg-gray-100 text-gray-600":
                         resultIndex === searchRecommendationIndex,
+                    },
+                    {
+                      "rounded-b-lg":
+                        searchRecommendationIndex ===
+                        searchRecommendations.length - 1,
                     }
                   )}
                   onClick={() =>
