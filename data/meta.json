@@ -585,5 +585,21 @@
       "blog"
     ],
     "externalSource": "https://dev.to/"
+  },
+  {
+    "name": "HTML Semantics Cheatsheet",
+    "description": "A cheat sheet covering the basic HTML elements and their purpose.",
+    "dateAdded": "February 24, 2021",
+    "keywords": [
+      "html",
+      "semantics",
+      "cheatsheets"
+    ],
+    "tags": [
+      "externalSource",
+      "html",
+      "cheatsheet"
+    ],
+    "externalSource": "https://learn-the-web.algonquindesign.ca/topics/html-semantics-cheat-sheet/"
   }
 ]
