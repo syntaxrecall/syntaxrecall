@@ -616,5 +616,19 @@
       "cheatsheet"
     ],
     "externalSource": "https://adam-marsden.co.uk/css-cheat-sheet"
+  },
+  {
+    "name": "CoDrops - CSS Reference",
+    "description": "An extensive CSS reference with all the important properties and info to learn CSS from the basics.",
+    "dateAdded": "February 24, 2021",
+    "keywords": [
+      "css",
+      "reference"
+    ],
+    "tags": [
+      "externalSource",
+      "css"
+    ],
+    "externalSource": "http://tympanus.net/codrops/css_reference/"
   }
 ]
