@@ -6,23 +6,79 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useDebounce } from "../hooks";
 import { Topic } from "../types";
-import Tag from "./Tag";
 
 interface Props {
   items: Topic[];
 }
 
-function getFilteredItems(searchText: string, topics: Topic[]) {
-  let results: Topic[] = [];
-  if (searchText) {
-    const splitSearchText = searchText.toLowerCase().split(" ");
-    results = topics.filter((topic) =>
-      splitSearchText.every((s) =>
-        topic.keywords.some((keyword) => keyword.toLowerCase().includes(s))
-      )
+function getSearchRecommendations(
+  searchText: string,
+  topics: Topic[]
+): string[] {
+  const searchTextToLowercase = searchText.trim().toLowerCase();
+  const splitSearchResults = searchTextToLowercase.split(" ");
+  const filteredTopics = topics.filter((topic) => {
+    return splitSearchResults.every((searchTextValue) =>
+      topic.keywords.some((keyword) => keyword.startsWith(searchTextValue))
     );
-  }
-  return results;
+  });
+
+  const keywords = filteredTopics.flatMap((value) => value.keywords);
+
+  const allSearchTextMatchesKeyword = splitSearchResults.every(
+    (value) => keywords.indexOf(value) !== -1
+  );
+
+  const searchTextToDisplay = splitSearchResults
+    .slice(0, splitSearchResults.length - 1)
+    .join(" ");
+
+  const results = keywords
+    .map((keyword, index) => {
+      const lastSearchResult =
+        splitSearchResults[splitSearchResults.length - 1];
+
+      const lastSearchTextContainsKeyword =
+        lastSearchResult.indexOf(keyword) !== -1;
+
+      const keywordStartsWith = keyword.startsWith(lastSearchResult);
+      let show = true;
+      let displayKeyword = keyword;
+
+      if (lastSearchTextContainsKeyword) {
+        displayKeyword = `${searchTextToLowercase}`;
+      } else if (keywordStartsWith) {
+        displayKeyword = `${searchTextToDisplay} ${keyword}`;
+      } else if (
+        allSearchTextMatchesKeyword &&
+        !searchTextToLowercase.includes(keyword)
+      ) {
+        if (searchTextToLowercase.includes(keyword)) {
+          show = false;
+        }
+        displayKeyword = `${searchTextToLowercase} ${keyword}`;
+      } else {
+        show = false;
+      }
+
+      return {
+        keyword: displayKeyword,
+        unique: keywords.indexOf(keyword) === index,
+        searchTextContainsKeyword: lastSearchTextContainsKeyword,
+        show,
+      };
+    })
+    .filter((value) => value.unique && value.show)
+    .sort((a) => {
+      if (a.searchTextContainsKeyword) {
+        return -1;
+      }
+      return 0;
+    })
+    .map((value) => value.keyword);
+
+  const r = results.filter((value, index) => results.indexOf(value) === index);
+  return r.splice(0, 8);
 }
 
 export default function SearchBar({ items }: Props): React.ReactElement {
@@ -30,26 +86,31 @@ export default function SearchBar({ items }: Props): React.ReactElement {
   const [resultIndex, setResultIndex] = useState(-1);
   const [searchText, setSearchText] = useState("");
   const debouncedSearchTerm = useDebounce(searchText.trim(), 500);
-  const [filteredItems, setFilteredItems] = useState<Topic[] | null>(null);
+  const [searchRecommendations, setSearchRecommendations] = useState<
+    string[] | null
+  >(null);
   const router = useRouter();
 
   useEffect(() => {
     if (debouncedSearchTerm) {
-      setFilteredItems(getFilteredItems(debouncedSearchTerm, items));
+      setSearchRecommendations(
+        getSearchRecommendations(debouncedSearchTerm, items)
+      );
     } else {
-      setFilteredItems(null);
+      setSearchRecommendations(null);
     }
     setResultIndex(-1);
     ref.current.focus();
-  }, [debouncedSearchTerm, setFilteredItems, items]);
+  }, [debouncedSearchTerm, items]);
 
   function reset() {
     setSearchText("");
     setResultIndex(-1);
+    setSearchRecommendations(null);
   }
 
   function onKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
-    if (!filteredItems || filteredItems.length === 0) {
+    if (!searchRecommendations || searchRecommendations.length === 0) {
       return;
     }
 
@@ -57,26 +118,19 @@ export default function SearchBar({ items }: Props): React.ReactElement {
       setResultIndex(Math.max(-1, resultIndex - 1));
     } else if (event.key === Key.ArrowDown) {
       setResultIndex(
-        Math.min(filteredItems ? filteredItems.length - 1 : -1, resultIndex + 1)
+        Math.min(
+          searchRecommendations ? searchRecommendations.length - 1 : -1,
+          resultIndex + 1
+        )
       );
     } else if (event.key === Key.Enter) {
-      const topic = filteredItems[resultIndex];
-      if (topic.slug) {
-        router.push(`/${topic.slug}`);
-      } else if (topic.externalSource) {
-        window.open(topic.externalSource, "_blank");
-        reset();
-      }
+      const searchRecommendation = searchRecommendations[resultIndex];
+      router.push(`/?q=${searchRecommendation}`);
     }
   }
 
-  function onClickResultItem(item: Topic) {
-    if (item.slug) {
-      router.push(item.slug);
-    } else if (item.externalSource) {
-      window.open(item.externalSource, "_blank");
-      reset();
-    }
+  function onClickSearchRecommendation(searchRecommendation: string) {
+    router.push(`/?q=${searchRecommendation}`);
   }
 
   return (
@@ -87,11 +141,12 @@ export default function SearchBar({ items }: Props): React.ReactElement {
           {
             "rounded-lg":
               debouncedSearchTerm === "" ||
-              !filteredItems ||
-              filteredItems.length === 0,
+              !searchRecommendations ||
+              searchRecommendations.length === 0,
           },
           {
-            "rounded-t-lg": filteredItems && filteredItems.length > 0,
+            "rounded-t-lg":
+              searchRecommendations && searchRecommendations.length > 0,
           }
         )}
       >
@@ -124,53 +179,38 @@ export default function SearchBar({ items }: Props): React.ReactElement {
           )}
           width="13.75"
           height="20"
-          onClick={() => setSearchText("")}
+          onClick={reset}
         />
 
-        {filteredItems && filteredItems.length > 0 && (
+        {searchRecommendations && searchRecommendations.length > 0 && (
           <div className="absolute top-12 -inset-x-px rounded-b-lg bg-white border border-gray-400">
-            {filteredItems.map((item, index) => (
-              <button
-                type="button"
-                key={item.name}
-                onClick={() => onClickResultItem(item)}
-                className={clsx(
-                  "p-2",
-                  "cursor-pointer",
-                  "focus:outline-none focus:text-gray-600 focus:bg-gray-100",
-                  "hover:text-gray-600 hover:bg-gray-100",
-                  "block w-full text-left",
-                  { "rounded-b-lg": index === filteredItems.length - 1 },
-                  { "text-gray-600": resultIndex === index },
-                  { "bg-gray-100": resultIndex === index }
-                )}
-              >
-                <div
-                  className={clsx({
-                    "pb-1": !!item.description || !!item.metaDescription,
-                  })}
+            {searchRecommendations.map(
+              (searchRecommendation, searchRecommendationIndex) => (
+                <button
+                  type="button"
+                  key={searchRecommendation}
+                  className={clsx(
+                    "cursor-pointer",
+                    "p-2",
+                    "hover:text-gray-600 hover:bg-gray-100",
+                    "focus:outline-none",
+                    "block w-full text-left",
+                    {
+                      "bg-gray-100 text-gray-600":
+                        resultIndex === searchRecommendationIndex,
+                    }
+                  )}
+                  onClick={() =>
+                    onClickSearchRecommendation(searchRecommendation)
+                  }
                 >
-                  {item.name}
-                  {item.tags &&
-                    item.tags.map((tag) => {
-                      return <Tag key={tag} text={tag} className="ml-2" />;
-                    })}
-                </div>
-
-                {item.description || item.metaDescription ? (
-                  <div className="text-xs">
-                    {item.description || item.metaDescription}
-                  </div>
-                ) : null}
-              </button>
-            ))}
+                  {searchRecommendation}
+                </button>
+              )
+            )}
           </div>
         )}
       </div>
-
-      <p className="text-sm text-center mt-4">
-        Search for developer cheatsheets, code examples, tools and more...
-      </p>
     </>
   );
 }
