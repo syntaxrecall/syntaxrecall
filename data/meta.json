@@ -552,5 +552,24 @@
       "css"
     ],
     "externalSource": "https://brumm.af/shadows"
+  },
+  {
+    "name": "CSS to JS converter",
+    "description": "Transform between CSS, JS objects and JSX props.",
+    "dateAdded": "February 23, 2021",
+    "keywords": [
+      "css",
+      "to",
+      "js",
+      "converter",
+      "tools"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "css",
+      "js"
+    ],
+    "externalSource": "https://css2js.dotenv.dev/"
   }
 ]
