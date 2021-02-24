@@ -30,8 +30,8 @@ function HomePage({ topics }: { topics: Topic[] }): React.ReactElement {
 function getTopicsByQuery(topics: Topic[], query: string) {
   const splitQuery = query.trim().split(" ");
   return topics.filter((topic) => {
-    return splitQuery.every(
-      (searchText) => topic.keywords.indexOf(searchText) !== -1
+    return splitQuery.every((searchText) =>
+      topic.keywords.some((keyword) => keyword.includes(searchText))
     );
   });
 }
