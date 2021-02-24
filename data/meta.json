@@ -601,5 +601,20 @@
       "cheatsheet"
     ],
     "externalSource": "https://learn-the-web.algonquindesign.ca/topics/html-semantics-cheat-sheet/"
+  },
+  {
+    "name": "CSS Cheatsheet",
+    "description": "A reference for CSS goodness.",
+    "dateAdded": "February 24, 2021",
+    "keywords": [
+      "css",
+      "cheatsheets"
+    ],
+    "tags": [
+      "externalSource",
+      "css",
+      "cheatsheet"
+    ],
+    "externalSource": "https://adam-marsden.co.uk/css-cheat-sheet"
   }
 ]
