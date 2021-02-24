@@ -485,7 +485,7 @@
   {
     "name": "DevDocs",
     "description": "Fast, offline, and free documentation browser for developers. Search 100+ docs in one web app.",
-    "dateAdded": "February 20, 2021",
+    "dateAdded": "February 23, 2021",
     "keywords": [
       "dev",
       "docs",
@@ -499,5 +499,23 @@
       "documentation"
     ],
     "externalSource": "https://devdocs.io/"
+  },
+  {
+    "name": "Responsive Image Breakpoints Generator",
+    "description": "Efficiently analyze each hi-res image and find the best dimensions for embedding as responsive images in your site.",
+    "dateAdded": "February 23, 2021",
+    "keywords": [
+      "responsive",
+      "image",
+      "breakpoints",
+      "generator",
+      "tools"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "image"
+    ],
+    "externalSource": "https://responsivebreakpoints.com/"
   }
 ]
