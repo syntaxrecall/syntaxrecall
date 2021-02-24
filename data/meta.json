@@ -646,5 +646,21 @@
       "javascript"
     ],
     "externalSource": "https://www.codecademy.com/learn/introduction-to-javascript/modules/learn-javascript-introduction/cheatsheet"
+  },
+  {
+    "name": "Bootstrap 4 Cheatsheet",
+    "description": "An interactive list of Bootstrap classes for version 4.",
+    "dateAdded": "February 24, 2021",
+    "keywords": [
+      "bootstrap",
+      "cheatsheets",
+      "css"
+    ],
+    "tags": [
+      "externalSource",
+      "css",
+      "bootstrap"
+    ],
+    "externalSource": "https://hackerthemes.com/bootstrap-cheatsheet/"
   }
 ]
