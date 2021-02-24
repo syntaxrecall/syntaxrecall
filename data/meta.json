@@ -517,5 +517,22 @@
       "image"
     ],
     "externalSource": "https://responsivebreakpoints.com/"
+  },
+  {
+    "name": "CSS Gradient",
+    "description": "As a free css gradient generator tool, this website lets you create a colorful gradient background for your website, blog, or social media profile.",
+    "dateAdded": "February 23, 2021",
+    "keywords": [
+      "css",
+      "gradient",
+      "tools"
+    ],
+    "tags": [
+      "externalSource",
+      "tools",
+      "css",
+      "gradient"
+    ],
+    "externalSource": "https://cssgradient.io/"
   }
 ]
