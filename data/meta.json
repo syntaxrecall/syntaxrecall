@@ -630,5 +630,21 @@
       "css"
     ],
     "externalSource": "http://tympanus.net/codrops/css_reference/"
+  },
+  {
+    "name": "CodeAcademy - JavaScript Cheatsheet",
+    "description": "A free collection of JavaScript cheatsheets.",
+    "dateAdded": "February 24, 2021",
+    "keywords": [
+      "javascript",
+      "cheatsheets",
+      "codeacademy",
+      "js"
+    ],
+    "tags": [
+      "externalSource",
+      "javascript"
+    ],
+    "externalSource": "https://www.codecademy.com/learn/introduction-to-javascript/modules/learn-javascript-introduction/cheatsheet"
   }
 ]
