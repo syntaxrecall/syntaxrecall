@@ -1,5 +1,23 @@
 [
   {
+    "name": "Google Chrome",
+    "pageTitle": "Google Chrome Keyboard Shortcuts Cheatsheet",
+    "dateAdded": "February 8, 2021",
+    "keywords": [
+      "chrome",
+      "cheatsheets",
+      "keyboard",
+      "shortcuts",
+      "browser",
+      "google"
+    ],
+    "tags": [
+      "cheatsheet", "chrome", "shortcuts", "mac"
+    ],
+    "filename": "chrome-keyboard-shortcuts",
+    "metaDescription": "One page cheatsheet for Google Chrome keyboard shortcuts."
+  },
+  {
     "name": "Git",
     "pageTitle": "Git Cheatsheet",
     "dateAdded": "February 8, 2021",
