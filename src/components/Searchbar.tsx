@@ -83,6 +83,7 @@ function getSearchRecommendations(
 
 export default function SearchBar({ items }: Props): React.ReactElement {
   const ref = useRef(null);
+  const [showDropdown, setShowDropdown] = useState(false);
   const [resultIndex, setResultIndex] = useState(-1);
   const [searchText, setSearchText] = useState("");
   const debouncedSearchTerm = useDebounce(searchText.trim(), 500);
@@ -124,13 +125,22 @@ export default function SearchBar({ items }: Props): React.ReactElement {
         )
       );
     } else if (event.key === Key.Enter) {
-      const searchRecommendation = searchRecommendations[resultIndex];
-      router.push(`/?q=${searchRecommendation}`);
+      let query = searchText.trim();
+      if (resultIndex >= 0 && resultIndex < searchRecommendations.length) {
+        query = searchRecommendations[resultIndex].trim();
+      }
+      router.push(`/?q=${query}`);
     }
   }
 
   function onClickSearchRecommendation(searchRecommendation: string) {
-    router.push(`/?q=${searchRecommendation}`);
+    router.push(`/?q=${searchRecommendation.trim()}`);
+    setShowDropdown(false);
+  }
+
+  function onChangeSearchText(event: React.ChangeEvent<HTMLInputElement>) {
+    setSearchText(event.target.value);
+    setShowDropdown(true);
   }
 
   return (
@@ -164,7 +174,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
           placeholder="Search..."
           autoComplete="off"
           value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
+          onChange={onChangeSearchText}
           aria-label="Search"
           onKeyDown={onKeyDown}
         />
@@ -182,39 +192,41 @@ export default function SearchBar({ items }: Props): React.ReactElement {
           onClick={reset}
         />
 
-        {searchRecommendations && searchRecommendations.length > 0 && (
-          <div className="absolute top-12 -inset-x-px rounded-b-lg bg-white border border-gray-400">
-            {searchRecommendations.map(
-              (searchRecommendation, searchRecommendationIndex) => (
-                <button
-                  type="button"
-                  key={searchRecommendation}
-                  className={clsx(
-                    "cursor-pointer",
-                    "p-2",
-                    "hover:text-gray-600 hover:bg-gray-100",
-                    "focus:outline-none",
-                    "block w-full text-left",
-                    {
-                      "bg-gray-100 text-gray-600":
-                        resultIndex === searchRecommendationIndex,
-                    },
-                    {
-                      "rounded-b-lg":
-                        searchRecommendationIndex ===
-                        searchRecommendations.length - 1,
+        {showDropdown &&
+          searchRecommendations &&
+          searchRecommendations.length > 0 && (
+            <div className="absolute top-12 -inset-x-px rounded-b-lg bg-white border border-gray-400">
+              {searchRecommendations.map(
+                (searchRecommendation, searchRecommendationIndex) => (
+                  <button
+                    type="button"
+                    key={searchRecommendation}
+                    className={clsx(
+                      "cursor-pointer",
+                      "p-2",
+                      "hover:text-gray-600 hover:bg-gray-100",
+                      "focus:outline-none",
+                      "block w-full text-left",
+                      {
+                        "bg-gray-100 text-gray-600":
+                          resultIndex === searchRecommendationIndex,
+                      },
+                      {
+                        "rounded-b-lg":
+                          searchRecommendationIndex ===
+                          searchRecommendations.length - 1,
+                      }
+                    )}
+                    onClick={() =>
+                      onClickSearchRecommendation(searchRecommendation)
                     }
-                  )}
-                  onClick={() =>
-                    onClickSearchRecommendation(searchRecommendation)
-                  }
-                >
-                  {searchRecommendation}
-                </button>
-              )
-            )}
-          </div>
-        )}
+                  >
+                    {searchRecommendation}
+                  </button>
+                )
+              )}
+            </div>
+          )}
       </div>
     </>
   );
