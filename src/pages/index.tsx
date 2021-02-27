@@ -50,35 +50,38 @@ function SearchResultPage({
 
   return (
     <div className="grid grid-cols-12 min-h-screen">
-      <div className="col-span-1 col-start-4">
-        <div className="mt-5 flex items-center justify-center">
-          <Link href="/">
-            <img
-              src="logo.png"
-              alt="Logo"
-              className="cursor-pointer"
-              style={{ width: "48px" }}
-            />
-          </Link>
-        </div>
-      </div>
       <div className="relative col-span-12 sm:col-start-2 sm:col-span-10 md:col-start-3 md:col-span-8 lg:col-start-4 lg:col-span-6 xl:col-start-5 xl:col-span-4 min-h-screen">
         <div className="absolute mt-4 inset-x-0 px-2 sm:px-0">
-          <Searchbar items={topics} />
-          {searchResults.map((searchResult) => (
-            <div key={searchResult.name}>
-              <SearchResultItem item={searchResult} />
+          <div className="flex">
+            <div className="mr-4 hidden sm:block" style={{ marginTop: "3px" }}>
+              <Link href="/">
+                <img
+                  src="logo.png"
+                  alt="Logo"
+                  className="cursor-pointer"
+                  style={{ width: "48px" }}
+                />
+              </Link>
             </div>
-          ))}
-          {searchResultLimit < totalSearchResults ? (
-            <button
-              type="button"
-              className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-3 rounded w-full mt-4"
-              onClick={() => setSearchResultLimit(searchResultLimit + 10)}
-            >
-              Load more
-            </button>
-          ) : null}
+
+            <div className="flex-grow">
+              <Searchbar items={topics} />
+              {searchResults.map((searchResult) => (
+                <div key={searchResult.name}>
+                  <SearchResultItem item={searchResult} />
+                </div>
+              ))}
+              {searchResultLimit < totalSearchResults ? (
+                <button
+                  type="button"
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-3 rounded w-full mt-4"
+                  onClick={() => setSearchResultLimit(searchResultLimit + 10)}
+                >
+                  Load more
+                </button>
+              ) : null}
+            </div>
+          </div>
         </div>
       </div>
     </div>
