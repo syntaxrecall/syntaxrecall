@@ -129,12 +129,12 @@ export default function SearchBar({ items }: Props): React.ReactElement {
       if (resultIndex >= 0 && resultIndex < searchRecommendations.length) {
         query = searchRecommendations[resultIndex].trim();
       }
-      router.push(`/?q=${query}`);
+      router.push(`/search?q=${query}`);
     }
   }
 
   function onClickSearchRecommendation(searchRecommendation: string) {
-    router.push(`/?q=${searchRecommendation.trim()}`);
+    router.push(`/search?q=${searchRecommendation.trim()}`);
     setShowDropdown(false);
   }
 
