@@ -1,0 +1,361 @@
+<h1 id="nano">Nano Editor</h1>
+<p>
+  GNU nano is a text editor for Unix-like computing systems or operating environments using a command line interface.
+</p>
+
+<h3 id="table-of-contents">Table of Contents</h3>
+<ul>
+  <li><a href="#deletion">Deletion</li></a>
+  <li><a href="#editing">Editing</li></a>
+  <li><a href="#file-handling">File handling</li></a>
+  <li><a href="#information">Information</li></a>
+  <li><a href="#moving-around">Moving around</li></a>
+  <li><a href="#operations">Operations</li></a>
+  <li><a href="#search-and-replace">Search and replace</li></a>
+  <li><a href="#special-movement">Special movement</li></a>
+  <li><a href="#various">Various</li></a>
+  <li><a href="#sources">Sources</li></a>
+</ul>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+  <div>
+    <h3 id="file-handling">File handling</h3>
+    <table class="shortcuts">
+      <tr>
+        <td><span>Ctrl+S</span></td>
+        <td>Save current file</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+O</span></td>
+        <td>Offer to write file ("Save as")</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+R</span></td>
+        <td>Insert a file into current one</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+X</span></td>
+        <td>Close buffer, exit from nano</td>
+      </tr>
+    </table>
+
+    <h3 id="search-and-replace">Search and replace</h3>
+    <table class="shortcuts">
+      <tr>
+        <td><span>Ctrl+Q</span></td>
+        <td>Start backward search</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+W</span></td>
+        <td>Start forward search</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+Q</span></td>
+        <td>Find next occurrence backward</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+W</span></td>
+        <td>Find next occurrence forward</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+R</span></td>
+        <td>Start a replacing session</td>
+      </tr>
+    </table>
+
+    <h3 id="deletion">Deletion</h3>
+    <table class="shortcuts">
+      <tr>
+        <td><span>Ctrl+H</span></td>
+        <td>Delete character before cursor</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+D</span></td>
+        <td>Delete character under cursor</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+Bsp</span></td>
+        <td>Delete word to the left</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+Del</span></td>
+        <td>Delete word to the right</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+Del</span></td>
+        <td>Delete current line</td>
+      </tr>
+    </table>
+
+    <h3 id="various">Various</h3>
+    <table class="shortcuts">
+      <tr>
+        <td><span>Alt+A</span></td>
+        <td>Turn the mark on/off</td>
+      </tr>
+
+      <tr>
+        <td><span>Tab</span></td>
+        <td>Indent marked region</td>
+      </tr>
+
+      <tr>
+        <td><span>Shift+Tab</span></td>
+        <td>Unindent marked region</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+N</span></td>
+        <td>Turn line numbers on/off</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+P</span></td>
+        <td>Turn visible whitespace on/off</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+V</span></td>
+        <td>Enter next keystroke verbatim</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+L</span></td>
+        <td>Refresh the screen</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+Z</span></td>
+        <td>Suspend nano</td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <h3 id="moving-around">Moving around</h3>
+    <table class="shortcuts">
+      <tr>
+        <td><span>Ctrl+B</span></td>
+        <td>One character backward</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+F</span></td>
+        <td>One character forward</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+←</span></td>
+        <td>One word backward</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+→</span></td>
+        <td>One word forward</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+A</span></td>
+        <td>To start of line</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+E</span></td>
+        <td>To end of line</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+P</span></td>
+        <td>One line up</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+N</span></td>
+        <td>One line down</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+↑</span></td>
+        <td>To previous block</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+↓</span></td>
+        <td>To next block</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+Y</span></td>
+        <td>One page up</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+V</span></td>
+        <td>One page down</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+\</span></td>
+        <td>To top of buffer</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+/</span></td>
+        <td>To end of buffer</td>
+      </tr>
+    </table>
+
+    <h3 id="information">Information</h3>
+    <table class="shortcuts">
+      <tr>
+        <td><span>Ctrl+C</span></td>
+        <td>Report cursor position</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+D</span></td>
+        <td>Report line/word/character count</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+G</span></td>
+        <td>Display help text</td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <h3 id="editing">Editing</h3>
+    <table class="shortcuts">
+      <tr>
+        <td><span>Ctrl+K</span></td>
+        <td>Cut current line into cutbuffer</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+6</span></td>
+        <td>Copy current line into cutbuffer</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+U</span></td>
+        <td>Paste contents of cutbuffer</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+T</span></td>
+        <td>Cut until end of buffer</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+]</span></td>
+        <td>Complete current word</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+3</span></td>
+        <td>Comment/uncomment line/region</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+U</span></td>
+        <td>Undo last action</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+E</span></td>
+        <td>Redo last undone action</td>
+      </tr>
+    </table>
+
+    <h3 id="special-movement">Special movement</h3>
+    <table class="shortcuts">
+      <tr>
+        <td><span>Alt+G</span></td>
+        <td>Go to specified line</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+]</span></td>
+        <td>Go to complementary bracket</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+↑</span></td>
+        <td>Scroll viewport up</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+↓</span></td>
+        <td>Scroll viewport down</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+<</span></td>
+        <td>Switch to preceding buffer</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+></span></td>
+        <td>Switch to succeeding buffer</td>
+      </tr>
+    </table>
+
+    <h3 id="operations">Operations</h3>
+    <table class="shortcuts">
+      <tr>
+        <td><span>Ctrl+T</span></td>
+        <td>Execute some command</td>
+      </tr>
+
+      <tr>
+        <td><span>Ctrl+J</span></td>
+        <td>Justify paragraph or region</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+J</span></td>
+        <td>Justify entire buffer</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+B</span></td>
+        <td>Run a syntax check</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+F</span></td>
+        <td>Run a formatter/fixer/arranger</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+:</span></td>
+        <td>Start/stop recording of macro</td>
+      </tr>
+
+      <tr>
+        <td><span>Alt+;</span></td>
+        <td>Replay macro</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<h2 id="sources">Sources</h2>
+<ul>
+  <li>
+    <a href="https://www.nano-editor.org/dist/latest/cheatsheet.html"
+      rel="noopener noreferrer" target="_blank">Overview of nano's shortcuts</a>
+  </li>
+</ul>

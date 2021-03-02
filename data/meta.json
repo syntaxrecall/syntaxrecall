@@ -1,5 +1,22 @@
 [
   {
+    "name": "Nano",
+    "pageTitle": "Nano Keyboard Shortcuts Cheatsheet",
+    "dateAdded": "March 1, 2021",
+    "keywords": [
+      "nano",
+      "editor",
+      "cheatsheets",
+      "keyboard",
+      "shortcuts"
+    ],
+    "tags": [
+      "cheatsheet", "shortcuts", "editors"
+    ],
+    "filename": "nano-keyboard-shortcuts",
+    "metaDescription": "One page cheatsheet for Nano keyboard shortcuts."
+  },
+  {
     "name": "Google Chrome",
     "pageTitle": "Google Chrome Keyboard Shortcuts Cheatsheet",
     "dateAdded": "February 8, 2021",
