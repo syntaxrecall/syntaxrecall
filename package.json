@@ -13,6 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "5.15.2",
     "@fortawesome/react-fontawesome": "0.1.14",
     "clsx": "^1.2.1",
+    "gray-matter": "^4.0.3",
     "markdown-it": "^13.0.1",
     "next": "13.0.0",
     "react": "18.2.0",
