@@ -3,28 +3,25 @@
 import React from "react";
 import { useRouter } from "next/router";
 import clsx from "clsx";
-import Tag from "./Tag";
-import { Topic } from "../interfaces";
+import { Post } from "../interfaces";
 
 export default function SearchResultItem({
   item,
 }: {
-  item: Topic;
+  item: Post;
 }): React.ReactElement {
   const router = useRouter();
 
   function onClickResultItem() {
-    if (item.slug) {
-      router.push(item.slug);
-    } else if (item.externalSource) {
-      window.location.href = item.externalSource;
+    if (item.id) {
+      router.push(item.id);
     }
   }
 
   return (
     <button
       type="button"
-      key={item.name}
+      key={item.id}
       onClick={() => onClickResultItem()}
       className={clsx(
         "p-2",
@@ -36,21 +33,21 @@ export default function SearchResultItem({
     >
       <div
         className={clsx({
-          "pb-1": !!item.description || !!item.metaDescription,
+          // "pb-1": !!item.description || !!item.metaDescription,
         })}
       >
-        {item.name}
-        {item.tags &&
+        {item.id}
+        {/* {item.tags &&
           item.tags.map((tag) => {
             return <Tag key={tag} text={tag} className="ml-2" />;
-          })}
+          })} */}
       </div>
 
-      {item.description || item.metaDescription ? (
+      {/* {item.description || item.metaDescription ? (
         <div className="text-xs">
           {item.description || item.metaDescription}
         </div>
-      ) : null}
+      ) : null} */}
     </button>
   );
 }

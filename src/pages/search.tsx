@@ -1,36 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import Searchbar from "../components/Searchbar";
-import { Topic } from "../interfaces";
 import SearchResultItem from "../components/SearchResultItem";
+import { NextPageContext } from "next";
+import { GetSearch } from "../api/search.api";
+import { Post } from '../interfaces';
 
 interface Props {
-  topics: Topic[];
+  posts: Post[];
 }
 
-function getTopicsByQuery(topics: Topic[], query: string) {
-  if (!query) {
-    return [];
-  }
-
-  const splitQuery = query.trim().split(" ");
-  return topics.filter((topic) => {
-    return splitQuery.every((searchText) =>
-      topic?.keywords?.some((keyword) => keyword.includes(searchText))
-    );
-  });
-}
-
-export default function Page({ topics }: Props): React.ReactElement {
-  const router = useRouter();
-  const query = new URLSearchParams(router.asPath.substring(7)).get("q") || '';
-
-  const [searchResultLimit, setSearchResultLimit] = useState(10);
-  let searchResults = getTopicsByQuery(topics, query);
-  const totalSearchResults = searchResults.length;
-  searchResults = searchResults.splice(0, searchResultLimit);
+export default function Page({ posts }: Props): React.ReactElement {
   return (
     <>
       <Head>
@@ -63,13 +44,13 @@ export default function Page({ topics }: Props): React.ReactElement {
               </div>
 
               <div className="flex-grow">
-                <Searchbar items={topics} />
-                {searchResults.map((searchResult) => (
-                  <div key={searchResult.name}>
-                    <SearchResultItem item={searchResult} />
+                <Searchbar items={posts} />
+                {posts.map((post) => (
+                  <div key={post.id}>
+                    <SearchResultItem item={post} />
                   </div>
                 ))}
-                {searchResultLimit < totalSearchResults ? (
+                {/* {searchResultLimit < totalSearchResults ? (
                   <button
                     type="button"
                     className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-3 rounded w-full mt-4"
@@ -77,7 +58,7 @@ export default function Page({ topics }: Props): React.ReactElement {
                   >
                     Load more
                   </button>
-                ) : null}
+                ) : null} */}
               </div>
             </div>
           </div>
@@ -87,18 +68,13 @@ export default function Page({ topics }: Props): React.ReactElement {
   );
 }
 
-interface StaticProps {
-  props: StaticProp;
-}
-
-interface StaticProp {
-  topics: Topic[];
-}
-
-export function getStaticProps(): StaticProps {
+export async function getServerSideProps(ctx: NextPageContext) {
+  const { q } = ctx.query;
+  const searchText = q?.toString() || '';
+  const result = await GetSearch(searchText);
   return {
     props: {
-      topics: [],
+      posts: result.hits,
     },
   };
 }

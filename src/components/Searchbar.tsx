@@ -5,12 +5,11 @@ import { Key } from "ts-key-enum";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useDebounce } from "../hooks";
-import { Topic } from "../interfaces";
+import { Post } from "../interfaces";
 import { GetSearch } from "../api/search.api";
-import { Post } from "../interfaces/Post";
 
 interface Props {
-  items: Topic[];
+  items: Post[];
 }
 
 async function getSearchRecommendations(
