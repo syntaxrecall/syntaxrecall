@@ -45,11 +45,13 @@ export default function Page({ posts }: Props): React.ReactElement {
 
               <div className="flex-grow">
                 <Searchbar items={posts} />
-                {posts.map((post) => (
-                  <div key={post.id}>
-                    <SearchResultItem item={post} />
-                  </div>
-                ))}
+                <div className="mt-4">
+                  {posts.map((post) => (
+                    <div key={post.id}>
+                      <SearchResultItem item={post} />
+                    </div>
+                  ))}
+                </div>
                 {/* {searchResultLimit < totalSearchResults ? (
                   <button
                     type="button"
