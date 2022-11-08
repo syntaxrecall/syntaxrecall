@@ -57,7 +57,7 @@ export async function getStaticProps({ params: { slug } }: StaticProps): Promise
   const markdown = getMarkdown(slug);
   const parser = md({
     breaks: true,
-  });
+  }).use(require('markdown-it-sub'));
   const html = parser.render(markdown);
   return {
     props: {

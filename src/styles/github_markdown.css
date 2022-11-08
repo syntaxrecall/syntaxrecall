@@ -142,6 +142,10 @@
   padding-inline-start: 40px;
 }
 
+.markdown li+li {
+  margin-top: 0.25em;
+}
+
 .markdown .highlight pre,
 .markdown pre {
   padding: 16px;
@@ -155,3 +159,8 @@
 .markdown pre {
   word-wrap: normal;
 }
+
+.markdown del {
+  text-decoration: line-through;
+}
+
