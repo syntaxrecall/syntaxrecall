@@ -26,7 +26,7 @@ export default function Page({
 
           <article
             className={clsx(
-              "content px-2 sm:px-0 my-16 flex-grow relative",
+              "markdown px-2 sm:px-0 my-16 flex-grow relative",
             )}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: markdown }}
