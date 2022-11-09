@@ -142,7 +142,7 @@
   padding-inline-start: 40px;
 }
 
-.markdown li+li {
+.markdown li + li {
   margin-top: 0.25em;
 }
 
@@ -173,3 +173,31 @@
   text-decoration: line-through;
 }
 
+.markdown table {
+  display: block;
+  width: 100%;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown table tr {
+  background-color: #ffffff;
+  border-top: 1px solid hsla(210, 18%, 87%, 1);
+}
+
+.markdown table th,
+.markdown table td {
+  padding: 6px 13px;
+  border: 1px solid #d0d7de;
+}
+
+.markdown table th {
+  font-weight: 600;
+}
+
+.markdown table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
