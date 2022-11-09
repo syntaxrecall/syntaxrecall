@@ -57,6 +57,7 @@ export async function getStaticProps({ params: { slug } }: StaticProps): Promise
   const markdown = getMarkdown(slug);
   const parser = md({
     breaks: true,
+    linkify: true,
   }).use(require('markdown-it-sub'));
   const html = parser.render(markdown);
   return {
@@ -71,7 +72,7 @@ export function getStaticPaths(): any {
   return {
     paths: slugs.map((slug) => ({
       params: {
-        slug,
+        slug, 
       }
     })),
     fallback: false,
