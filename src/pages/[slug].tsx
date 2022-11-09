@@ -58,7 +58,10 @@ export async function getStaticProps({ params: { slug } }: StaticProps): Promise
   const parser = md({
     breaks: true,
     linkify: true,
-  }).use(require('markdown-it-sub'));
+  })
+  .use(require('markdown-it-sub'))
+  .use(require('markdown-it-emoji'));
+
   const html = parser.render(markdown);
   return {
     props: {
