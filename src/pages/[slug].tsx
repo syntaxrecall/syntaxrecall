@@ -59,7 +59,8 @@ export async function getStaticProps({ params: { slug } }: StaticProps): Promise
     breaks: true,
     linkify: true,
   })
-  .use(require('markdown-it-emoji'));
+  .use(require('markdown-it-emoji'))
+  .use(require('markdown-it-footnote'));
 
   const html = parser.render(markdown);
   return {

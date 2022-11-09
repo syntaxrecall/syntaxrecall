@@ -17,6 +17,7 @@ specifiers:
   isomorphic-unfetch: ^3.1.0
   markdown-it: ^13.0.1
   markdown-it-emoji: ^2.0.2
+  markdown-it-footnote: ^3.0.3
   next: 13.0.0
   postcss: ^8.4.18
   react: 18.2.0
@@ -35,6 +36,7 @@ dependencies:
   isomorphic-unfetch: 3.1.0
   markdown-it: 13.0.1
   markdown-it-emoji: 2.0.2
+  markdown-it-footnote: 3.0.3
   next: 13.0.0_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -1615,6 +1617,10 @@ packages:
 
   /markdown-it-emoji/2.0.2:
     resolution: {integrity: sha512-zLftSaNrKuYl0kR5zm4gxXjHaOI3FAOEaloKmRA5hijmJZvSjmxcokOLlzycb/HXlUFWzXqpIEoyEMCE4i9MvQ==}
+    dev: false
+
+  /markdown-it-footnote/3.0.3:
+    resolution: {integrity: sha512-YZMSuCGVZAjzKMn+xqIco9d1cLGxbELHZ9do/TSYVzraooV8ypsppKNmUJ0fVH5ljkCInQAtFpm8Rb3eXSrt5w==}
     dev: false
 
   /markdown-it/13.0.1:
