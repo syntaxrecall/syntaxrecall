@@ -6,7 +6,7 @@ const fetch = require('isomorphic-unfetch');
 const dataDir = path.join(process.cwd(), 'data');
 const posts = [];
 
-const BASE_URL = process.env.BASE_URL || 'http://localhost:7700';
+const MEILISEARCH_URL = process.env.MEILISEARCH_URL || 'http://localhost:7700';
 
 console.log('Running generatePosts script...');
 
@@ -29,17 +29,18 @@ parseMarkdownFiles();
 
 const jsonData = JSON.stringify(posts);
 
-fetch(`${BASE_URL}/indexes/posts/documents`, {
+fetch(`${MEILISEARCH_URL}/indexes/posts/documents`, {
   method: 'POST',
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   },
-  body: jsonData
-}).then(() => {
-  console.log('success!');
+  body: jsonData,
 })
-.catch((err) => {
-  console.log('failed!');
-  console.log(err);
-});
+  .then(() => {
+    console.log('success!');
+  })
+  .catch((err) => {
+    console.log('failed!');
+    console.log(err);
+  });
 
