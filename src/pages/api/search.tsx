@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return;
   }
 
-  const response = await fetch('http://localhost:7700/indexes/posts/search', {
+  const response = await fetch(`${process.env.MEILISEARCH_URL}/indexes/posts/search`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
