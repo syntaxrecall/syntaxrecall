@@ -1,0 +1,22 @@
+version: 0.2
+
+env:
+  variables:
+    MEILISEARCH_URL: "http://ec2-3-142-222-108.us-east-2.compute.amazonaws.com"
+
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+      - npm install
+  build:
+    commands:
+      - echo Entered the build phase...
+      - echo Build started on `date`
+      - npm run build
+    finally:
+      - echo This always runs even if the install command fails
+  post_build:
+    commands:
+      - echo Entered the post_build phase...
+      - echo Build completed on `date`
