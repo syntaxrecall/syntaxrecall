@@ -1,21 +1,23 @@
 version: 0.2
 
 env:
-  variables:
-    MEILISEARCH_URL: "http://ec2-3-142-222-108.us-east-2.compute.amazonaws.com"
-
+  parameter-store:
+    MEILISEARCH_URL: MEILISEARCH_URL
 phases:
   install:
     commands:
+      - echo Value of MEILISEARCH_URL=$MEILISEARCH_URL
       - echo Entered the install phase...
-      - npm install
+      - echo Installing pnpm
+      - npm install -g pnpm
+      - echo Printing pnpm version
+      - pnpm --version
+      - pnpm install
   build:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
-      - npm run build
-    finally:
-      - echo This always runs even if the install command fails
+      - pnpm run build
   post_build:
     commands:
       - echo Entered the post_build phase...
