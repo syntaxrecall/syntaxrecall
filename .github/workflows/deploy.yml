@@ -19,8 +19,9 @@ jobs:
         run: pnpm install
 
       - name: Build
-         run: pnpm run build
-         run: node scripts/postBuild.js
+        run: |
+          pnpm run build
+          node scripts/postBuild.js
 
       - name: Export
-         run: pnpm run export
+        run: pnpm run export
