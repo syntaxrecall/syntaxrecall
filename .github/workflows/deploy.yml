@@ -16,3 +16,5 @@ jobs:
       - run: echo hello world!
       - run: pnpm --version
       - run: pnpm install
+      - run: pnpm run build
+      - run: echo Done.
