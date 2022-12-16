@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import Searchbar from "../components/Searchbar";
 import SearchResultItem from "../components/SearchResultItem";
-import { NextPageContext } from "next";
 import { GetSearch } from "../api/search.api";
 import { Post } from '../interfaces';
+import { useRouter } from "next/router";
 
-interface Props {
-  posts: Post[];
-}
+export default function Page(): React.ReactElement {
+  const router = useRouter();
+  const [posts, setPosts] = useState<Post[]>([]);
 
-export default function Page({ posts }: Props): React.ReactElement {
+  useEffect(() => {
+    async function onLoad() {
+      const { q } = router.query;
+      const searchText = q?.toString() || '';
+      const result = await GetSearch(searchText);
+      setPosts(result.hits);
+    }
+
+    onLoad();
+  }, [router]);
+
   return (
     <>
       <Head>
@@ -68,15 +78,4 @@ export default function Page({ posts }: Props): React.ReactElement {
       </div>
     </>
   );
-}
-
-export async function getServerSideProps(ctx: NextPageContext) {
-  const { q } = ctx.query;
-  const searchText = q?.toString() || '';
-  const result = await GetSearch(searchText);
-  return {
-    props: {
-      posts: result.hits,
-    },
-  };
 }

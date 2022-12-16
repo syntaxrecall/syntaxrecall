@@ -4,7 +4,7 @@ import { MeiliPostSearchResult } from './../interfaces/MeilisearchResult';
 export async function GetSearch(searchText: string): Promise<MeiliPostSearchResult<Post>> {
   const params = new URLSearchParams();
   params.set('q', searchText);
-  const response = await fetch(`http://localhost:3000/api/search?${params.toString()}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/search?${params.toString()}`, {
     method: 'GET',
   });
 

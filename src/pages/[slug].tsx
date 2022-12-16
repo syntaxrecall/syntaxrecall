@@ -34,6 +34,7 @@ export default function Page({
 
           <div className="flex items-center justify-center mb-16">
             <button
+              title='Go to top of page'
               type="button"
               className="flex items-center justify-center hover:bg-gray-200 cursor-pointer rounded-full w-16 h-16 focus:outline-none"
               onClick={() => window.scrollTo(0, 0)}
