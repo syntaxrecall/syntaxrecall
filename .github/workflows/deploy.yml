@@ -8,13 +8,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      MEILISEARCH_URL: ${{ secrets.MEILISEARCH_URL }}
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
         with:
           version: 7.17.0
-      env:
-        MEILISEARCH_URL: ${{ secrets.MEILISEARCH_URL }}
       - run: echo hello world!
       - run: pnpm --version
       - run: echo $MEILISEARCH_URL
