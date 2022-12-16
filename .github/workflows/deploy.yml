@@ -15,7 +15,12 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: 7.17.0
-      - run: pnpm install
-      - run: pnpm run build
-      - run: pnpm run export
-      - run: node scripts/postBuild.js
+      - name: Install
+        run: pnpm install
+
+      - name: Build
+          run: pnpm run build
+          run: node scripts/postBuild.js
+
+      - name: Export
+        run: pnpm run export
