@@ -15,9 +15,5 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: 7.17.0
-      - run: echo hello world!
-      - run: pnpm --version
-      - run: echo $MEILISEARCH_URL
       - run: pnpm install
       - run: pnpm run build
-      - run: echo Done.
