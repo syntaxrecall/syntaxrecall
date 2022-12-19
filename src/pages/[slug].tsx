@@ -18,7 +18,7 @@ export default function Page({
         <div className="flex flex-col min-h-full">
           <div className="mt-4">
             <Link href="/">
-              <div className="rounded-full h-16 w-16 flex items-center justify-center hover:bg-gray-200 cursor-pointer">
+              <div className="rounded-full h-16 w-16 flex items-center justify-center hover:bg-gray-300 dark:text-zinc-400 dark:hover:bg-zinc-700 cursor-pointer">
                 <FontAwesomeIcon icon={faChevronLeft} width="10" height="16" />
               </div>
             </Link>
@@ -36,7 +36,7 @@ export default function Page({
             <button
               title='Go to top of page'
               type="button"
-              className="flex items-center justify-center hover:bg-gray-200 cursor-pointer rounded-full w-16 h-16 focus:outline-none"
+              className="flex items-center justify-center hover:bg-gray-300 cursor-pointer rounded-full w-16 h-16 focus:outline-none"
               onClick={() => window.scrollTo(0, 0)}
             >
               <FontAwesomeIcon icon={faChevronUp} width="14" height="16" />

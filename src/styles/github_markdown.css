@@ -15,9 +15,14 @@
   word-wrap: break-word;
 }
 
+.markdown p {
+  @apply dark:text-gray-500;
+}
+
 .markdown b,
 .markdown strong {
   font-weight: 600;
+  @apply dark:text-gray-500;
 }
 
 .markdown hr {
@@ -26,11 +31,15 @@
   margin: 24px 0;
   background-color: #d0d7de;
   border: 0;
+
+  @apply dark:bg-zinc-700;
 }
 
 .markdown a {
   color: #0969da;
   text-decoration: none;
+
+  @apply dark:text-gray-300;
 }
 
 .markdown a:hover {
@@ -58,12 +67,16 @@
   padding-bottom: 0.3em;
   font-size: 2em;
   border-bottom: 1px solid hsla(210, 18%, 87%, 1);
+
+  @apply dark:border-b-zinc-700;
 }
 
 .markdown h2 {
   padding-bottom: 0.3em;
   font-size: 1.5em;
   border-bottom: 1px solid hsla(210, 18%, 87%, 1);
+
+  @apply dark:border-b-zinc-700;
 }
 
 .markdown h3 {
@@ -93,6 +106,8 @@
   margin-bottom: 16px;
   font-weight: 600;
   line-height: 1.25;
+
+  @apply dark:text-gray-400;
 }
 
 .markdown ul {
@@ -110,6 +125,8 @@
   color: #57606a;
   border-left: 0.25em solid #d0d7de;
   margin: 0;
+
+  @apply dark:border-l-zinc-700;
 }
 
 .markdown code,
@@ -150,6 +167,14 @@
   margin-top: 16px;
 }
 
+.markdown li::marker {
+  @apply dark:text-gray-400;
+}
+
+.markdown li {
+  @apply dark:text-gray-500;
+}
+
 .markdown .highlight pre,
 .markdown pre {
   padding: 16px;
@@ -158,6 +183,9 @@
   line-height: 1.45;
   background-color: #f6f8fa;
   border-radius: 6px;
+
+  @apply dark:bg-zinc-700;
+  @apply dark:text-zinc-400;
 }
 
 .markdown pre {
@@ -190,20 +218,28 @@
 .markdown table tr {
   background-color: #ffffff;
   border-top: 1px solid hsla(210, 18%, 87%, 1);
+
+  @apply dark:bg-zinc-700;
 }
 
 .markdown table th,
 .markdown table td {
   padding: 6px 13px;
   border: 1px solid #d0d7de;
+
+  @apply dark:border-zinc-900;
 }
 
 .markdown table th {
   font-weight: 600;
+
+  @apply dark:text-zinc-400;
 }
 
 .markdown table tr:nth-child(2n) {
   background-color: #f6f8fa;
+
+  @apply dark:bg-zinc-600;
 }
 
 .markdown li.footnote-item {
@@ -218,3 +254,4 @@
 .markdown .footnotes-sep {
   height: 1px;
 }
+

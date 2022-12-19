@@ -26,8 +26,8 @@ export default function SearchResultItem({
       className={clsx(
         "p-2",
         "cursor-pointer",
-        "focus:outline-none focus:text-gray-600 focus:bg-gray-100",
-        "hover:text-gray-600 hover:bg-gray-100",
+        "focus:outline-none focus:text-gray-600 focus:bg-gray-100 dark:focus:text-zinc-400 dark:focus:bg-zinc-700",
+        "hover:text-gray-600 hover:bg-gray-100 dark:hover:text-zinc-400 dark:text-zinc-400 dark:hover:bg-zinc-700 rounded",
         "block w-full text-left"
       )}
     >

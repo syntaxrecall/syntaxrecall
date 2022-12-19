@@ -7,6 +7,7 @@ import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useDebounce } from "../hooks";
 import { Post } from "../interfaces";
 import { GetSearch } from "../api/search.api";
+import useClickOutside from "../hooks/useClickOutside";
 
 interface Props {
   items: Post[];
@@ -21,25 +22,13 @@ async function getSearchRecommendations(
 }
 
 export default function SearchBar({ items }: Props): React.ReactElement {
-  const ref = useRef(null);
+  const ref = useRef<HTMLInputElement>(null);
   const [showDropdown, setShowDropdown] = useState(false);
   const [resultIndex, setResultIndex] = useState(-1);
   const [searchText, setSearchText] = useState("");
   const debouncedSearchTerm = useDebounce(searchText.trim(), 500);
   const [searchRecommendations, setSearchRecommendations] = useState<Post[]>([]);
   const router = useRouter();
-
-  useEffect(() => {
-    if (debouncedSearchTerm) {
-      getSearchRecommendations(debouncedSearchTerm)
-      .then((value) => {
-        setSearchRecommendations(value);
-      })
-    } else {
-      setSearchRecommendations([]);
-    }
-    setResultIndex(-1);
-  }, [debouncedSearchTerm, items]);
 
   function reset() {
     setSearchText("");
@@ -80,11 +69,36 @@ export default function SearchBar({ items }: Props): React.ReactElement {
     setShowDropdown(true);
   }
 
+  const searchBarRef = useClickOutside({
+    onClickOutside: () => {
+      setShowDropdown(false);
+    }
+  });
+
+  useEffect(() => {
+    if (debouncedSearchTerm) {
+      getSearchRecommendations(debouncedSearchTerm)
+        .then((value) => {
+          setSearchRecommendations(value);
+        })
+    } else {
+      setSearchRecommendations([]);
+    }
+    setResultIndex(-1);
+  }, [debouncedSearchTerm, items]);
+
+  useEffect(() => {
+    if (ref) {
+      ref.current?.focus();
+    }
+  }, [ref]);
+
   return (
     <>
       <div
+        ref={searchBarRef}
         className={clsx(
-          "border-solid border shadow-sm relative py-3 px-6 text-xl border-gray-400 flex items-center bg-white",
+          "border-solid border shadow-sm relative py-3 px-6 text-xl dark:border-black border-gray-400 flex items-center dark:bg-zinc-700 bg-white",
           {
             "rounded-lg":
               debouncedSearchTerm === "" ||
@@ -99,7 +113,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
       >
         <FontAwesomeIcon
           icon={faSearch}
-          className="mr-6"
+          className="mr-6 dark:text-zinc-400"
           width="20"
           height="20"
         />
@@ -107,7 +121,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
           ref={ref}
           type="text"
           name="search"
-          className="focus:outline-none w-full"
+          className="focus:outline-none w-full dark:bg-zinc-700 dark:text-zinc-400"
           placeholder="Search..."
           autoComplete="off"
           value={searchText}
@@ -119,6 +133,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
         <FontAwesomeIcon
           icon={faTimes}
           className={clsx(
+            "dark:text-zinc-400",
             "cursor-pointer",
             "ml-6",
             { block: !!searchText },
@@ -132,7 +147,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
         {showDropdown &&
           searchRecommendations &&
           searchRecommendations.length > 0 && (
-            <div className="absolute top-12 -inset-x-px rounded-b-lg bg-white border border-gray-400">
+          <div className="absolute top-12 -inset-x-px rounded-b-lg dark:bg-zinc-700 bg-white border dark:border-zinc-800 border-gray-400">
               {searchRecommendations.map(
                 (searchRecommendation, searchRecommendationIndex) => (
                   <button
@@ -141,7 +156,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
                     className={clsx(
                       "cursor-pointer",
                       "p-2",
-                      "hover:text-gray-600 hover:bg-gray-100",
+                      "hover:text-gray-600 hover:bg-gray-100 dark:hover:text-zinc-400 dark:text-zinc-400 dark:hover:bg-zinc-600",
                       "focus:outline-none",
                       "block w-full text-left",
                       {
