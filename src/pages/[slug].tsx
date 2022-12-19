@@ -36,7 +36,7 @@ export default function Page({
             <button
               title='Go to top of page'
               type="button"
-              className="flex items-center justify-center hover:bg-gray-300 cursor-pointer rounded-full w-16 h-16 focus:outline-none"
+              className="flex items-center justify-center  hover:bg-gray-300 dark:text-zinc-400 dark:hover:bg-zinc-700 cursor-pointer rounded-full w-16 h-16 focus:outline-none"
               onClick={() => window.scrollTo(0, 0)}
             >
               <FontAwesomeIcon icon={faChevronUp} width="14" height="16" />
