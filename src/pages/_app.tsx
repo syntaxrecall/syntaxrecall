@@ -1,12 +1,6 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import React from "react";
-import { AppProps } from "next/app";
-import "../styles/global.css";
-import "prism-themes/themes/prism-darcula.css";
+import '../styles/global.css';
+import type { AppProps } from 'next/app'
 
-export default function Page({
-  Component,
-  pageProps,
-}: AppProps): React.ReactElement {
-  return <Component {...pageProps} />;
+export default function App({ Component, pageProps }: AppProps) {
+  return <div className='dark:bg-neutral-900 bg-gray-200'><Component {...pageProps} /></div>
 }

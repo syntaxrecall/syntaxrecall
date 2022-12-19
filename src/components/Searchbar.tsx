@@ -5,109 +5,35 @@ import { Key } from "ts-key-enum";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useDebounce } from "../hooks";
-import { Topic } from "../types";
+import { Post } from "../interfaces";
+import { GetSearch } from "../api/search.api";
+import useClickOutside from "../hooks/useClickOutside";
 
 interface Props {
-  items: Topic[];
+  items: Post[];
 }
 
-function getSearchRecommendations(
-  searchText: string,
-  topics: Topic[]
-): string[] {
-  const searchTextToLowercase = searchText.trim().toLowerCase();
-  const splitSearchResults = searchTextToLowercase.split(" ");
-  const filteredTopics = topics.filter((topic) => {
-    return splitSearchResults.every((searchTextValue) =>
-      topic.keywords.some((keyword) => keyword.startsWith(searchTextValue))
-    );
-  });
-
-  const keywords = filteredTopics.flatMap((value) => value.keywords);
-
-  const allSearchTextMatchesKeyword = splitSearchResults.every(
-    (value) => keywords.indexOf(value) !== -1
-  );
-
-  const searchTextToDisplay = splitSearchResults
-    .slice(0, splitSearchResults.length - 1)
-    .join(" ");
-
-  const results = keywords
-    .map((keyword, index) => {
-      const lastSearchResult =
-        splitSearchResults[splitSearchResults.length - 1];
-
-      const lastSearchTextContainsKeyword =
-        lastSearchResult.indexOf(keyword) !== -1;
-
-      const keywordStartsWith = keyword.startsWith(lastSearchResult);
-      let show = true;
-      let displayKeyword = keyword;
-
-      if (lastSearchTextContainsKeyword) {
-        displayKeyword = `${searchTextToLowercase}`;
-      } else if (keywordStartsWith) {
-        displayKeyword = `${searchTextToDisplay} ${keyword}`;
-      } else if (
-        allSearchTextMatchesKeyword &&
-        !searchTextToLowercase.includes(keyword)
-      ) {
-        if (searchTextToLowercase.includes(keyword)) {
-          show = false;
-        }
-        displayKeyword = `${searchTextToLowercase} ${keyword}`;
-      } else {
-        show = false;
-      }
-
-      return {
-        keyword: displayKeyword,
-        unique: keywords.indexOf(keyword) === index,
-        searchTextContainsKeyword: lastSearchTextContainsKeyword,
-        show,
-      };
-    })
-    .filter((value) => value.unique && value.show)
-    .sort((a) => {
-      if (a.searchTextContainsKeyword) {
-        return -1;
-      }
-      return 0;
-    })
-    .map((value) => value.keyword);
-
-  const r = results.filter((value, index) => results.indexOf(value) === index);
-  return r.splice(0, 8);
+async function getSearchRecommendations(
+  searchText: string
+): Promise<Post[]> {
+  const data = await GetSearch(searchText);
+  const tt = data?.hits || [];
+  return tt;
 }
 
 export default function SearchBar({ items }: Props): React.ReactElement {
-  const ref = useRef(null);
+  const ref = useRef<HTMLInputElement>(null);
   const [showDropdown, setShowDropdown] = useState(false);
   const [resultIndex, setResultIndex] = useState(-1);
   const [searchText, setSearchText] = useState("");
   const debouncedSearchTerm = useDebounce(searchText.trim(), 500);
-  const [searchRecommendations, setSearchRecommendations] = useState<
-    string[] | null
-  >(null);
+  const [searchRecommendations, setSearchRecommendations] = useState<Post[]>([]);
   const router = useRouter();
-
-  useEffect(() => {
-    if (debouncedSearchTerm) {
-      setSearchRecommendations(
-        getSearchRecommendations(debouncedSearchTerm, items)
-      );
-    } else {
-      setSearchRecommendations(null);
-    }
-    setResultIndex(-1);
-    ref.current.focus();
-  }, [debouncedSearchTerm, items]);
 
   function reset() {
     setSearchText("");
     setResultIndex(-1);
-    setSearchRecommendations(null);
+    setSearchRecommendations([]);
   }
 
   function onKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
@@ -127,7 +53,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
     } else if (event.key === Key.Enter) {
       let query = searchText.trim();
       if (resultIndex >= 0 && resultIndex < searchRecommendations.length) {
-        query = searchRecommendations[resultIndex].trim();
+        query = searchRecommendations[resultIndex]?.id?.trim();
       }
       router.push(`/search?q=${query}`);
     }
@@ -143,11 +69,36 @@ export default function SearchBar({ items }: Props): React.ReactElement {
     setShowDropdown(true);
   }
 
+  const searchBarRef = useClickOutside({
+    onClickOutside: () => {
+      setShowDropdown(false);
+    }
+  });
+
+  useEffect(() => {
+    if (debouncedSearchTerm) {
+      getSearchRecommendations(debouncedSearchTerm)
+        .then((value) => {
+          setSearchRecommendations(value);
+        })
+    } else {
+      setSearchRecommendations([]);
+    }
+    setResultIndex(-1);
+  }, [debouncedSearchTerm, items]);
+
+  useEffect(() => {
+    if (ref) {
+      ref.current?.focus();
+    }
+  }, [ref]);
+
   return (
     <>
       <div
+        ref={searchBarRef}
         className={clsx(
-          "border-solid border shadow-sm relative py-3 px-6 text-xl border-gray-400 flex items-center bg-white",
+          "border-solid border shadow-sm relative py-3 px-6 text-xl dark:border-black border-gray-400 flex items-center dark:bg-zinc-700 bg-white",
           {
             "rounded-lg":
               debouncedSearchTerm === "" ||
@@ -162,7 +113,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
       >
         <FontAwesomeIcon
           icon={faSearch}
-          className="mr-6"
+          className="mr-6 dark:text-zinc-400"
           width="20"
           height="20"
         />
@@ -170,7 +121,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
           ref={ref}
           type="text"
           name="search"
-          className="focus:outline-none w-full"
+          className="focus:outline-none w-full dark:bg-zinc-700 dark:text-zinc-400"
           placeholder="Search..."
           autoComplete="off"
           value={searchText}
@@ -182,6 +133,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
         <FontAwesomeIcon
           icon={faTimes}
           className={clsx(
+            "dark:text-zinc-400",
             "cursor-pointer",
             "ml-6",
             { block: !!searchText },
@@ -195,16 +147,16 @@ export default function SearchBar({ items }: Props): React.ReactElement {
         {showDropdown &&
           searchRecommendations &&
           searchRecommendations.length > 0 && (
-            <div className="absolute top-12 -inset-x-px rounded-b-lg bg-white border border-gray-400">
+          <div className="absolute top-12 -inset-x-px rounded-b-lg dark:bg-zinc-700 bg-white border dark:border-zinc-800 border-gray-400">
               {searchRecommendations.map(
                 (searchRecommendation, searchRecommendationIndex) => (
                   <button
                     type="button"
-                    key={searchRecommendation}
+                    key={searchRecommendation?.id}
                     className={clsx(
                       "cursor-pointer",
                       "p-2",
-                      "hover:text-gray-600 hover:bg-gray-100",
+                      "hover:text-gray-600 hover:bg-gray-100 dark:hover:text-zinc-400 dark:text-zinc-400 dark:hover:bg-zinc-600",
                       "focus:outline-none",
                       "block w-full text-left",
                       {
@@ -218,10 +170,10 @@ export default function SearchBar({ items }: Props): React.ReactElement {
                       }
                     )}
                     onClick={() =>
-                      onClickSearchRecommendation(searchRecommendation)
+                      onClickSearchRecommendation(searchRecommendation?.id)
                     }
                   >
-                    {searchRecommendation}
+                    {searchRecommendation?.id}
                   </button>
                 )
               )}

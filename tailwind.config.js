@@ -1,15 +1,10 @@
-/* eslint-disable global-require */
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: [
-    './src/**/*.tsx',
-    './src/**/*.ts',
-    './data/content/*.html'
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
   ],
-  darkMode: false,
   theme: {
-    extend: {},
-  },
-  variants: {
     extend: {},
   },
   plugins: [],

@@ -1,69 +1,12 @@
-import fs from "fs";
-import { join } from "path";
-import { Topic, TopicMeta } from "../types";
+import fs from 'fs';
+import path, { join } from 'path';
 
-const dataDir = join(process.cwd(), "data");
-const contentDir = join(process.cwd(), "data", "content");
+const dataDir = join(process.cwd(), 'data');
 
 export function getTopicSlugs(): string[] {
-  return fs.readdirSync(contentDir);
+  return fs.readdirSync(dataDir).map((fileName) => fileName.replace('.md', ''));
 }
 
-export function getTopicMetas(): TopicMeta[] {
-  const meta: TopicMeta[] = JSON.parse(
-    fs.readFileSync(join(dataDir, "meta.json"), "utf8")
-  );
-
-  return meta;
-}
-
-export function getTopicByTopicMeta(
-  topicMeta: TopicMeta,
-  fields: string[] = []
-): Topic {
-  const realSlug = topicMeta.filename;
-  const items: Topic = {};
-
-  fields.forEach((field) => {
-    switch (field) {
-      case "slug":
-        items[field] = realSlug || "";
-        break;
-
-      case "content": {
-        let fileContents = "";
-        if (realSlug) {
-          const fullPath = join(contentDir, `${realSlug}.html`);
-          fileContents = fs.readFileSync(fullPath, "utf8");
-        }
-        items[field] = fileContents;
-        break;
-      }
-
-      default:
-        items[field] = topicMeta[field] || "";
-        break;
-    }
-  });
-
-  return items;
-}
-
-export function getTopicBySlug(slug: string, fields: string[] = []): Topic {
-  const realSlug = slug.replace(/\.html$/, "");
-  const meta: TopicMeta[] = JSON.parse(
-    fs.readFileSync(join(dataDir, "meta.json"), "utf8")
-  );
-
-  const data = meta.find((m) => m.filename === realSlug);
-  const items: Topic = getTopicByTopicMeta(data, fields);
-  return items;
-}
-
-export function getAllTopics(fields: string[] = []): Topic[] {
-  const topicMetas = getTopicMetas();
-  const topics = topicMetas
-    .map((topicMeta) => getTopicByTopicMeta(topicMeta, fields))
-    .sort((a, b) => (a.name > b.name ? 1 : -1));
-  return topics;
+export function getMarkdown(slug: string) {
+  return fs.readFileSync(path.join(dataDir, `${slug}.md`), 'utf8');
 }
