@@ -13,8 +13,8 @@ export default function SearchResultItem({
   const router = useRouter();
 
   function onClickResultItem() {
-    if (item.id) {
-      router.push(item.id);
+    if (item.slug) {
+      router.push(item.slug);
     }
   }
 
@@ -36,7 +36,7 @@ export default function SearchResultItem({
           // "pb-1": !!item.description || !!item.metaDescription,
         })}
       >
-        {item.id}
+        {item.subject}: {item.topic}
         {/* {item.tags &&
           item.tags.map((tag) => {
             return <Tag key={tag} text={tag} className="ml-2" />;

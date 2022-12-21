@@ -51,16 +51,19 @@ export default function SearchBar({ items }: Props): React.ReactElement {
         )
       );
     } else if (event.key === Key.Enter) {
-      let query = searchText.trim();
       if (resultIndex >= 0 && resultIndex < searchRecommendations.length) {
-        query = searchRecommendations[resultIndex]?.id?.trim();
+        const selectedItem = searchRecommendations[resultIndex];
+        router.push(`/${selectedItem.slug}`);
+        return;
       }
+
+      const query = searchText.trim();
       router.push(`/search?q=${query}`);
     }
   }
 
-  function onClickSearchRecommendation(searchRecommendation: string) {
-    router.push(`/search?q=${searchRecommendation.trim()}`);
+  function onClickSearchRecommendation(searchRecommendation: Post) {
+    router.push(`/${searchRecommendation.slug}`);
     setShowDropdown(false);
   }
 
@@ -160,7 +163,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
                       "focus:outline-none",
                       "block w-full text-left",
                       {
-                        "bg-gray-100 text-gray-600":
+                        "bg-gray-100 text-gray-600 dark:bg-zinc-600 dark:text-zinc-400":
                           resultIndex === searchRecommendationIndex,
                       },
                       {
@@ -170,10 +173,10 @@ export default function SearchBar({ items }: Props): React.ReactElement {
                       }
                     )}
                     onClick={() =>
-                      onClickSearchRecommendation(searchRecommendation?.id)
+                      onClickSearchRecommendation(searchRecommendation)
                     }
                   >
-                    {searchRecommendation?.id}
+                    {searchRecommendation.subject}: {searchRecommendation.topic}
                   </button>
                 )
               )}

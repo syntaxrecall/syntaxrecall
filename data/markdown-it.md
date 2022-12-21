@@ -1,4 +1,8 @@
 ---
+id: 8b1e03a1-3b2e-4d82-a1c1-21fe826fd298
+---
+
+---
 __Advertisement :)__
 
 - __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image

@@ -1,4 +1,4 @@
-import { getMarkdown, getTopicSlugs } from "../api/api";
+import { getMarkdown, getTopicStaticPaths } from "../../api/api";
 import md from 'markdown-it';
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -50,12 +50,13 @@ export default function Page({
 
 interface StaticProps {
   params: {
-    slug: string;
+    subject: string;
+    topic: string;
   }
 }
 
-export async function getStaticProps({ params: { slug } }: StaticProps): Promise<any> {
-  const markdown = getMarkdown(slug);
+export async function getStaticProps({ params: { subject, topic } }: StaticProps): Promise<any> {
+  const markdown = getMarkdown(`${subject}/${topic}`, true);
   const parser = md({
     breaks: true,
     linkify: true,
@@ -72,11 +73,12 @@ export async function getStaticProps({ params: { slug } }: StaticProps): Promise
 }
 
 export function getStaticPaths(): any {
-  const slugs = getTopicSlugs();
+  const paths = getTopicStaticPaths();
   return {
-    paths: slugs.map((slug) => ({
+    paths: paths.map((obj) => ({
       params: {
-        slug, 
+        subject: obj.subject,
+        topic: obj.topic, 
       }
     })),
     fallback: false,
