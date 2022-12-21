@@ -16,6 +16,7 @@ specifiers:
   http-status-codes: ^2.2.0
   isomorphic-unfetch: ^3.1.0
   markdown-it: ^13.0.1
+  markdown-it-anchor: ^8.6.6
   markdown-it-emoji: ^2.0.2
   markdown-it-footnote: ^3.0.3
   next: 13.0.0
@@ -35,6 +36,7 @@ dependencies:
   http-status-codes: 2.2.0
   isomorphic-unfetch: 3.1.0
   markdown-it: 13.0.1
+  markdown-it-anchor: 8.6.6_ea7kj7wzjkld5jo2noyjqxi764
   markdown-it-emoji: 2.0.2
   markdown-it-footnote: 3.0.3
   next: 13.0.0_biqbaboplfbrettd7655fr4n2y
@@ -305,18 +307,15 @@ packages:
 
   /@types/linkify-it/3.0.2:
     resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==}
-    dev: true
 
   /@types/markdown-it/12.2.3:
     resolution: {integrity: sha512-GKMHFfv3458yYy+v/N8gjufHO6MSZKCOXpZc5GXIWWy8uldwfmPn98vp81gZ5f9SVw8YYBctgfJ22a2d7AOMeQ==}
     dependencies:
       '@types/linkify-it': 3.0.2
       '@types/mdurl': 1.0.2
-    dev: true
 
   /@types/mdurl/1.0.2:
     resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==}
-    dev: true
 
   /@types/node/18.11.8:
     resolution: {integrity: sha512-uGwPWlE0Hj972KkHtCDVwZ8O39GmyjfMane1Z3GUBGGnkZ2USDq7SxLpVIiIHpweY9DS0QTDH0Nw7RNBsAAZ5A==}
@@ -1614,6 +1613,16 @@ packages:
     dependencies:
       yallist: 4.0.0
     dev: true
+
+  /markdown-it-anchor/8.6.6_ea7kj7wzjkld5jo2noyjqxi764:
+    resolution: {integrity: sha512-jRW30YGywD2ESXDc+l17AiritL0uVaSnWsb26f+68qaW9zgbIIr1f4v2Nsvc0+s0Z2N3uX6t/yAw7BwCQ1wMsA==}
+    peerDependencies:
+      '@types/markdown-it': '*'
+      markdown-it: '*'
+    dependencies:
+      '@types/markdown-it': 12.2.3
+      markdown-it: 13.0.1
+    dev: false
 
   /markdown-it-emoji/2.0.2:
     resolution: {integrity: sha512-zLftSaNrKuYl0kR5zm4gxXjHaOI3FAOEaloKmRA5hijmJZvSjmxcokOLlzycb/HXlUFWzXqpIEoyEMCE4i9MvQ==}

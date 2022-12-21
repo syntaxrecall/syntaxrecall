@@ -77,7 +77,8 @@ export async function getStaticProps({
     linkify: true,
   })
     .use(require('markdown-it-emoji'))
-    .use(require('markdown-it-footnote'));
+    .use(require('markdown-it-footnote'))
+    .use(require('markdown-it-anchor'));
 
   const html = parser.render(markdown);
   
