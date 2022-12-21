@@ -33,7 +33,7 @@ export function getMarkdown(slug: string, stripFrontmatter: boolean = false) {
   let markdown = fs.readFileSync(path.join(dataDir, `${slug}.md`), 'utf8');
 
   if (stripFrontmatter) {
-    markdown = markdown.replace(/---[\n\r\W\D\S]*---/, '');
+    markdown = markdown.replace(/^---[\r\n\w\d\s\\\/.:-]+---/, '');
   }
 
   return markdown;
