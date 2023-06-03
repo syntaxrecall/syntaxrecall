@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 const fetch = require('isomorphic-unfetch');
+require('dotenv').config();
 
 const dataDir = path.join(process.cwd(), 'data');
 const posts = [];
@@ -61,19 +62,23 @@ const jsonData = JSON.stringify(posts);
 
 fetch(`${MEILISEARCH_URL}/indexes/posts/documents`, {
   method: 'DELETE',
+  headers: {
+    Authorization: `Bearer ${process.env.MEILISEARCH_API_KEY}`,
+  },
 })
-.then(() => {
-  console.log('successfully deleted documents');
-})
-.catch((err) => {
-  console.error('failed to delete documents');
-  console.error(err);
-});
+  .then(() => {
+    console.log('successfully deleted documents');
+  })
+  .catch((err) => {
+    console.error('failed to delete documents');
+    console.error(err);
+  });
 
 fetch(`${MEILISEARCH_URL}/indexes/posts/documents`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
+    Authorization: `Bearer ${process.env.MEILISEARCH_API_KEY}`,
   },
   body: jsonData,
 })

@@ -15,7 +15,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const response = await fetch(`${process.env.MEILISEARCH_URL}/indexes/posts/search`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${process.env.MEILISEARCH_API_KEY}`,
     },
     body: JSON.stringify({ 'q': q, 'attributesToRetrieve': ['id', 'subject', 'topic', 'slug'] })
   });
