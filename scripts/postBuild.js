@@ -12,36 +12,43 @@ const MEILISEARCH_URL = process.env.MEILISEARCH_URL || 'http://localhost:7700';
 console.log('Running generatePosts script...');
 
 function parseMarkdownFiles() {
-  fs.readdirSync(dataDir).forEach((folderName) => {
-    const folderPath = path.join(dataDir, folderName);
-    const isDirectory = fs.statSync(folderPath).isDirectory();
+  readDirectory(dataDir);
+}
 
+function readDirectory(dir) {
+  fs.readdirSync(dir).forEach((fileName) => {
+    const isDirectory = fs.statSync(path.join(dir, fileName)).isDirectory();
     if (isDirectory) {
-        fs.readdirSync(folderPath).forEach((fileName) => {
-        const filePath = path.join(folderPath, fileName);
-        const fileData = fs.readFileSync(filePath, 'utf8');
-        const jsonData = matter(fileData);
-
-        if (!jsonData.data?.id) {
-          throw Error(`file=${fileName} should have an id.`);
-        }
-
-        const subject = folderName.substring(0, 1).toUpperCase() + folderName.substring(1);
-        const topic = getTopicFromFileName(fileName);
-        const slug = `${folderName.toLowerCase()}/${removeFileExtension(fileName.toLowerCase())}`;
-        const id = jsonData.data.id;
-        const post = {
-          id,
-          subject,
-          topic,
-          slug,
-          markdown: jsonData.content,
-        };
-
-        posts.push(post);
-      });
+      readDirectory(path.join(dir, fileName));
+      return;
     }
+
+    readFile(dir, fileName);
   });
+}
+
+function readFile(dirName, fileName) {
+  const filePath = path.join(dirName, fileName);
+  const fileData = fs.readFileSync(filePath, 'utf8');
+  const jsonData = matter(fileData);
+
+  if (!jsonData.data?.id) {
+    throw Error(`file=${fileName} should have an id.`);
+  }
+
+  const slug = `${dirName.replace(dataDir, '').toLowerCase()}/${removeFileExtension(
+    fileName.toLowerCase()
+  )}`;
+  const id = jsonData.data.id;
+  const post = {
+    id,
+    slug,
+    title: jsonData.data.title,
+    description: jsonData.data.description,
+    markdown: jsonData.content,
+  };
+
+  posts.push(post);
 }
 
 function getTopicFromFileName(fileName) {

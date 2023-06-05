@@ -1,5 +1,7 @@
 ---
 id: e32250d5-ee1f-44e5-a5c1-3f967b81b7c8
+title: Linux APT Commands
+description: A cheatsheet for APT
 ---
 
 #linux

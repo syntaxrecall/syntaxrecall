@@ -1,5 +1,7 @@
 ---
 id: e04bcdea-ab0f-4629-a756-7c46d7b110ec
+title: Python Loops
+description: A cheatsheet for python loops
 ---
 
 ## For loop

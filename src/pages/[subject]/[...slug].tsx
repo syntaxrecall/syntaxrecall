@@ -9,9 +9,10 @@ import Head from 'next/head';
 interface Props {
   markdown: string;
   title: string;
+  slug: string;
 }
 
-export default function Page({ markdown, title }: Props) {
+export default function Page({ markdown, title, slug }: Props) {
   return (
     <>
     <Head>
@@ -31,6 +32,8 @@ export default function Page({ markdown, title }: Props) {
                 </div>
               </Link>
             </div>
+
+            {slug}
 
             <article
               className={clsx('markdown px-2 sm:px-0 my-16 flex-grow relative')}
@@ -58,7 +61,7 @@ export default function Page({ markdown, title }: Props) {
 interface StaticProps {
   params: {
     subject: string;
-    topic: string;
+    slug: string[];
   };
 }
 
@@ -69,9 +72,10 @@ function getTitle(subject: string, topic: string): string {
 }
 
 export async function getStaticProps({
-  params: { subject, topic },
+  params: { slug, subject },
 }: StaticProps): Promise<any> {
-  const markdown = getMarkdown(`${subject}/${topic}`, true);
+  const s = `${subject}/${slug.join('/')}`;
+  const markdown = getMarkdown(s, true);
   const parser = md({
     breaks: true,
     linkify: true,
@@ -84,7 +88,8 @@ export async function getStaticProps({
   return {
     props: {
       markdown: html,
-      title: getTitle(subject, topic),
+      title: '',
+      slug: '',
     },
   };
 }
@@ -94,8 +99,9 @@ export function getStaticPaths(): any {
   return {
     paths: paths.map((obj) => ({
       params: {
-        subject: obj.subject,
-        topic: obj.topic,
+        title: obj.title,
+        slug: obj.slug,
+        subject: obj.subject
       },
     })),
     fallback: false,

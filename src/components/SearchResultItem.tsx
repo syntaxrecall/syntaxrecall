@@ -36,7 +36,13 @@ export default function SearchResultItem({
           // "pb-1": !!item.description || !!item.metaDescription,
         })}
       >
-        {item.subject}: {item.topic}
+        <div>
+          {item.title}
+        </div>
+        <small>
+          {item.description}
+        </small>
+
         {/* {item.tags &&
           item.tags.map((tag) => {
             return <Tag key={tag} text={tag} className="ml-2" />;

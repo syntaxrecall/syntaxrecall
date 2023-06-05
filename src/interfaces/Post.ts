@@ -1,7 +1,7 @@
 export interface Post {
   id: string;
-  subject: string;
-  topic: string;
+  title: string;
+  description?: string;
   slug: string;
   markdown?: string;
 }

@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${process.env.MEILISEARCH_API_KEY}`,
     },
-    body: JSON.stringify({ 'q': q, 'attributesToRetrieve': ['id', 'subject', 'topic', 'slug'] })
+    body: JSON.stringify({ 'q': q, 'attributesToRetrieve': ['id', 'title', 'description', 'slug'] })
   });
 
   if (response.ok) {

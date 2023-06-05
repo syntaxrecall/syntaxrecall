@@ -1,5 +1,7 @@
 ---
 id: cb7f1b7b-918f-4ff4-b8d8-8643cb39b0dc
+title: Lua Arrays
+description: A cheatsheet for lua arrays
 ---
 
 - Arrays are called "tables" in Lua

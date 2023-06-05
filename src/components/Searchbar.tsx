@@ -176,7 +176,12 @@ export default function SearchBar({ items }: Props): React.ReactElement {
                       onClickSearchRecommendation(searchRecommendation)
                     }
                   >
-                    {searchRecommendation.subject}: {searchRecommendation.topic}
+                    <div>
+                      {searchRecommendation.title}
+                    </div>
+                    <small>
+                      {searchRecommendation.description}
+                    </small>
                   </button>
                 )
               )}
