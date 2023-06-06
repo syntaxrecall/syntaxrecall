@@ -9,7 +9,8 @@
     "start": "next start",
     "export": "next export",
     "lint": "next lint",
-    "search": "cd db && ./meilisearch --master-key=\"aSampleMasterKey\""
+    "search": "cd db && ./meilisearch --master-key=\"aSampleMasterKey\"",
+    "template": "ts-node scripts/template.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "6.4.0",
@@ -31,6 +32,7 @@
     "ts-key-enum": "2.0.12"
   },
   "devDependencies": {
+    "@inquirer/prompts": "^2.1.0",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "20.2.5",
     "@types/react": "18.2.8",
@@ -41,6 +43,7 @@
     "eslint-config-next": "13.4.4",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.2",
+    "ts-node": "^10.9.1",
     "typescript": "5.1.3"
   }
 }
