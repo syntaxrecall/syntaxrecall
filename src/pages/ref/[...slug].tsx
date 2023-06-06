@@ -74,7 +74,9 @@ export async function getStaticProps({
     linkify: true,
   })
     .use(require('markdown-it-emoji'))
-    .use(require('markdown-it-footnote'));
+    .use(require('markdown-it-footnote'))
+    .use(require("markdown-it-anchor"), { permalink: true, permalinkBefore: true, permalinkSymbol: '#' })
+    .use(require("markdown-it-toc-done-right"));
 
   const html = parser.render(markdown);
   

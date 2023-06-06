@@ -4,6 +4,9 @@ title: Git
 description: A cheatsheet for git
 ---
 
+Table of Contents
+[[toc]]
+
 # Setup
 - git config --global user.name "[firstname lastname]"
 - git config --global user.email "[valid-email]"
