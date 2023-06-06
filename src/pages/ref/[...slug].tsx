@@ -19,7 +19,7 @@ export default function Page({ markdown, title, slug }: Props) {
       <title>{title}</title>
     </Head>
       <div className="grid grid-cols-12">
-        <div className="col-span-12 sm:col-start-2 sm:col-span-10 md:col-start-3 md:col-span-8 min-h-screen">
+        <div className="col-span-12 sm:col-start-2 sm:col-span-10 md:col-start-4 md:col-span-6 2xl:col-start-5 2xl:col-span-4 min-h-screen">
           <div className="flex flex-col min-h-full">
             <div className="mt-4">
               <Link href="/">
