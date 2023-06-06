@@ -23,7 +23,7 @@ export default function Home() {
             </h1>
             <Searchbar items={[]} />
             <p className="text-sm text-center mt-4 dark:text-gray-400">
-              Search for developer cheatsheets...
+              Quick references for developers...
             </p>
           </div>
         </div>
