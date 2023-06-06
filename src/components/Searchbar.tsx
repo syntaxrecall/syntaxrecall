@@ -63,7 +63,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
   }
 
   function onClickSearchRecommendation(searchRecommendation: Post) {
-    router.push(`/${searchRecommendation.slug}`);
+    router.push(`/ref${searchRecommendation.slug}`);
     setShowDropdown(false);
   }
 

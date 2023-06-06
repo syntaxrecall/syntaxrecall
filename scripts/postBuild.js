@@ -36,23 +36,20 @@ function readFile(dirName, fileName) {
     throw Error(`file=${fileName} should have an id.`);
   }
 
-  const slug = `${dirName.replace(dataDir, '').toLowerCase()}/${removeFileExtension(
-    fileName.toLowerCase()
-  )}`;
+  const fileNameWithoutExtension = removeFileExtension(fileName.toLowerCase());
+  const filePathWithoutExtension = path.join(dirName, fileNameWithoutExtension);
+  const slug = filePathWithoutExtension.replace(dataDir, '').toLowerCase().split('/');
+
   const id = jsonData.data.id;
   const post = {
     id,
-    slug,
+    slug: slug.join('/'),
     title: jsonData.data.title,
     description: jsonData.data.description,
     markdown: jsonData.content,
   };
 
   posts.push(post);
-}
-
-function getTopicFromFileName(fileName) {
-  return removeFileExtension(fileName.substring(0, 1).toUpperCase() + fileName.substring(1)).replace('-', ' ');
 }
 
 function removeFileExtension(fileName) {

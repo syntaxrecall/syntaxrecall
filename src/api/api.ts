@@ -3,43 +3,45 @@ import path, { join } from 'path';
 
 const dataDir = join(process.cwd(), 'data');
 
-export interface TopicStaticPath {
+export interface QuickRefMetadata {
   title: string;
   slug: string;
-  subject: string;
 }
 
-export function getTopicStaticPaths(): TopicStaticPath[] {
-  const staticPaths = readDirectory(dataDir);
-  return staticPaths;
+export function getAllMetadata(): QuickRefMetadata[] {
+  return getMetadataFromDirectory(dataDir);
 }
 
-function readDirectory(dir: string): TopicStaticPath[] {
-  const staticPaths: TopicStaticPath[] = [];
+function getMetadataFromDirectory(dir: string): QuickRefMetadata[] {
+  const metadatas: QuickRefMetadata[] = [];
   fs.readdirSync(dir).forEach((fileName) => {
     const filePath = join(dir, fileName);
     const isDirectory = fs.statSync(filePath).isDirectory();
     if (isDirectory) {
-      readDirectory(filePath);
+      metadatas.push(...getMetadataFromDirectory(filePath));
       return;
     }
 
-    staticPaths.push(readFile(dir, fileName));
+    metadatas.push(getMetadataFromFile(dir, fileName));
   });
 
-  return staticPaths;
+  return metadatas;
 }
 
-function readFile(dirPath: string, fileName: string): TopicStaticPath {
-  const fileNameWithoutExtension = fileName.toLowerCase().replace('.md', '');
+function getMetadataFromFile(dirPath: string, fileName: string): QuickRefMetadata {
+  let fileNameWithoutExtension = fileName.toLowerCase().replace('.md', '');
+
+  if (fileNameWithoutExtension === 'index') {
+    fileNameWithoutExtension = '';
+  }
+
   let tempPath = dirPath.replace(dataDir, '');
-  const staticPath: TopicStaticPath = {
+  const metadata: QuickRefMetadata = {
     title: fileNameWithoutExtension,
     slug: join(tempPath, fileNameWithoutExtension),
-    subject: tempPath,
   };
 
-  return staticPath;
+  return metadata;
 }
 
 export function getMarkdown(slug: string, stripFrontmatter: boolean = false) {
