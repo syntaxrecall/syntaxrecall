@@ -65,12 +65,6 @@ interface StaticProps {
   };
 }
 
-function getTitle(subject: string, topic: string): string {
-  const subjectFormatted = subject.substring(0, 1).toUpperCase() + subject.substring(1).toLowerCase();
-  const topicFormatted = (topic.substring(0, 1).toUpperCase() + topic.substring(1).toLowerCase()).replace('-', ' ');
-  return `${subjectFormatted} - ${topicFormatted}`;
-}
-
 export async function getStaticProps({
   params: { slug },
 }: StaticProps): Promise<any> {
