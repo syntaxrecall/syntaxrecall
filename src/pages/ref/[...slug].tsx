@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import Head from 'next/head';
+import hljs from 'highlight.js';
+import mdUtils from 'markdown-it/lib/common/utils';
+import 'highlight.js/styles/atom-one-dark.css';
 
 interface Props {
   markdown: string;
@@ -72,6 +75,19 @@ export async function getStaticProps({
   const parser = md({
     breaks: true,
     linkify: true,
+    highlight: function (str, lang) {
+      if (lang && hljs.getLanguage(lang)) {
+        try {
+          return (
+            '<pre class="hljs"><code>' +
+            hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+            '</code></pre>'
+          );
+        } catch (__) { /* empty */ }
+      }
+
+      return '<pre class="hljs"><code>' + mdUtils.escapeHtml(str) + '</code></pre>';
+    }
   })
     .use(require('markdown-it-emoji'))
     .use(require('markdown-it-footnote'))
