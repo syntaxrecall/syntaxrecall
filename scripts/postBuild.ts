@@ -1,13 +1,27 @@
-const fs = require('fs');
-const path = require('path');
-const matter = require('gray-matter');
-const fetch = require('isomorphic-unfetch');
-require('dotenv').config();
+import matter from 'gray-matter';
+import fs from 'fs';
+import path from 'path';
+import { config } from 'dotenv';
+import algoliasearch from 'algoliasearch';
+
+config();
+
+type Post = {
+  objectID: any;
+  slug: string;
+  title: string;
+  description: string;
+  markdown: string;
+};
 
 const dataDir = path.join(process.cwd(), 'data');
-const posts = [];
+const posts: Post[] = [];
 
-const MEILISEARCH_URL = process.env.MEILISEARCH_URL || 'http://localhost:7700';
+const ALGOLIA_APP_ID = process.env.ALGOLIA_APP_ID || '';
+const ALGOLIA_API_KEY = process.env.ALGOLIA_ADMIN_API_KEY || '';
+
+const algoliaClient = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_API_KEY);
+const searchIndex = algoliaClient.initIndex('cheatsheet_index');
 
 console.log('Running generatePosts script...');
 
@@ -15,7 +29,7 @@ function parseMarkdownFiles() {
   readDirectory(dataDir);
 }
 
-function readDirectory(dir) {
+function readDirectory(dir: string) {
   fs.readdirSync(dir).forEach((fileName) => {
     const isDirectory = fs.statSync(path.join(dir, fileName)).isDirectory();
     if (isDirectory) {
@@ -27,7 +41,7 @@ function readDirectory(dir) {
   });
 }
 
-function readFile(dirName, fileName) {
+function readFile(dirName: string, fileName: string) {
   const filePath = path.join(dirName, fileName);
   const fileData = fs.readFileSync(filePath, 'utf8');
   const jsonData = matter(fileData);
@@ -41,8 +55,8 @@ function readFile(dirName, fileName) {
   const slug = filePathWithoutExtension.replace(dataDir, '').toLowerCase().split('/');
 
   const id = jsonData.data.id;
-  const post = {
-    id,
+  const post: Post = {
+    objectID: id,
     slug: slug.join('/'),
     title: jsonData.data.title,
     description: jsonData.data.description,
@@ -52,7 +66,7 @@ function readFile(dirName, fileName) {
   posts.push(post);
 }
 
-function removeFileExtension(fileName) {
+function removeFileExtension(fileName: string) {
   return fileName.substring(0, fileName.lastIndexOf('.'));
 }
 
@@ -62,34 +76,11 @@ function run() {
 
 run();
 
-const jsonData = JSON.stringify(posts);
-
-fetch(`${MEILISEARCH_URL}/indexes/posts/documents`, {
-  method: 'DELETE',
-  headers: {
-    Authorization: `Bearer ${process.env.MEILISEARCH_API_KEY}`,
-  },
+searchIndex.saveObjects(posts)
+.then((result) => {
+  console.log(`Saved ${result.objectIDs.length} items.`);
+  console.log('Done!');
 })
-  .then(() => {
-    console.log('successfully deleted documents');
-  })
-  .catch((err) => {
-    console.error('failed to delete documents');
-    console.error(err);
-  });
-
-fetch(`${MEILISEARCH_URL}/indexes/posts/documents`, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${process.env.MEILISEARCH_API_KEY}`,
-  },
-  body: jsonData,
-})
-  .then(() => {
-    console.log('successfully added or updated documents');
-  })
-  .catch((err) => {
-    console.log('failed to add or update documents.');
-    console.log(err);
-  });
+.catch((err) => {
+  console.error(err);
+});
