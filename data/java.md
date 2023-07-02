@@ -17,3 +17,38 @@ public class HelloWorld {
     }
 }
 ```
+
+# Loops
+
+## For loop
+
+```java
+String[] names = {"foo", "bar"};
+for (int i = 0; i < array.length; i++) {
+    System.out.println(names[i]);
+}
+```
+
+Output
+```
+foo
+bar
+```
+
+## For each loop
+```java
+String[] names = {"foo", "bar"};
+
+for (String name : names) {
+    System.out.println(name);
+}
+```
+
+Output
+```
+foo
+bar
+```
+
+
+
