@@ -7,7 +7,6 @@ import {
   faChevronLeft,
   faChevronUp,
   faClose,
-  faHamburger,
 } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import Head from 'next/head';
@@ -25,7 +24,7 @@ interface Props {
   toc?: string;
 }
 
-export default function Page({ markdown, title, slug, toc }: Props) {
+export default function Page({ markdown, title, toc }: Props) {
   const [showTOC, setTOC] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
