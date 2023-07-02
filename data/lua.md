@@ -1,8 +1,10 @@
 ---
-id: cb7f1b7b-918f-4ff4-b8d8-8643cb39b0dc
-title: Lua Arrays
-description: A cheatsheet for lua arrays
+id: f0181320-c403-4cdf-b5db-2a9e5b11ba64
+title: Lua
+description: A cheatsheet for Lua
 ---
+
+# Arrays
 
 - Arrays are called "tables" in Lua
 - Index starts at 1 not 0 like most languages.
@@ -75,4 +77,16 @@ print(array[2])
     1
     I am a new element!
  ]]
+```
+
+# Comments
+
+```lua
+-- single line
+
+--[[
+    multi
+    line
+    comments
+--]]
 ```
