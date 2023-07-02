@@ -1,4 +1,4 @@
-import { getMarkdown, getAllMetadata } from '../../api/api';
+import { getAllMetadata, getData } from '../../api/api';
 import md from 'markdown-it';
 import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,11 +20,12 @@ import { Show } from '../../components/Show';
 interface Props {
   markdown: string;
   title: string;
+  description: string;
   slug: string;
   toc?: string;
 }
 
-export default function Page({ markdown, title, toc }: Props) {
+export default function Page({ markdown, title, description, toc }: Props) {
   const [showTOC, setTOC] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -64,6 +65,9 @@ export default function Page({ markdown, title, toc }: Props) {
                 </div>
               </Link>
             </div>
+
+            <h1 className="dark:text-gray-300 text-2xl text-center">{title}</h1>
+            <small className="dark:text-gray-400 text-lg text-center">{description}</small>
 
             <Show when={!!toc}>
               <div className="hidden md:block fixed right-0 top-0 bottom-0 p-4 dark:bg-neutral-900 bg-gray-200 z-10">
@@ -129,7 +133,7 @@ interface StaticProps {
 export async function getStaticProps({
   params: { slug },
 }: StaticProps): Promise<any> {
-  const markdown = getMarkdown(slug.join('/'), true);
+  const fileData = getData(slug.join('/'));
   const parser = md({
     breaks: true,
     linkify: true,
@@ -161,7 +165,7 @@ export async function getStaticProps({
     })
     .use(require('markdown-it-toc-done-right'));
 
-  const html = parser.render(markdown);
+  const html = parser.render(fileData.markdown);
   const parsedHtml = htmlParser(html);
   const tocData = parsedHtml
     .querySelector('.table-of-contents')?.outerHTML || '';
@@ -173,7 +177,8 @@ export async function getStaticProps({
   return {
     props: {
       markdown: modifiedHtml,
-      title: '',
+      title: fileData.data.title,
+      description: fileData.data.description,
       slug: '',
       toc: tocData,
     },

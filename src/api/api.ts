@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path, { join } from 'path';
+import matter from 'gray-matter';
 
 const dataDir = join(process.cwd(), 'data');
 
@@ -52,4 +53,20 @@ export function getMarkdown(slug: string, stripFrontmatter: boolean = false) {
   }
 
   return markdown;
+}
+
+export type MarkdownFileMetadata = {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export function getData(slug: string): { markdown: string, data: MarkdownFileMetadata } {
+    const fileData = fs.readFileSync(`${path.join(dataDir, slug)}.md`, 'utf8');
+    const jsonData = matter(fileData);
+    const metaData = jsonData.data as MarkdownFileMetadata;
+    return {
+      markdown: jsonData.content,
+      data: metaData,
+    }
 }
