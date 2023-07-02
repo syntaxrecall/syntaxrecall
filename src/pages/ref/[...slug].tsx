@@ -2,25 +2,59 @@ import { getMarkdown, getAllMetadata } from '../../api/api';
 import md from 'markdown-it';
 import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBars,
+  faChevronLeft,
+  faChevronUp,
+  faClose,
+  faHamburger,
+} from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import Head from 'next/head';
 import hljs from 'highlight.js';
 import mdUtils from 'markdown-it/lib/common/utils';
 import 'highlight.js/styles/atom-one-dark.css';
+import { parse as htmlParser } from 'node-html-parser';
+import { useEffect, useRef, useState } from 'react';
 
 interface Props {
   markdown: string;
   title: string;
   slug: string;
+  toc: TocData[];
 }
 
-export default function Page({ markdown, title, slug }: Props) {
+type TocData = {
+  href?: string;
+  text: string;
+};
+
+export default function Page({ markdown, title, slug, toc }: Props) {
+  const [showTOC, setTOC] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  function toggleTOC(): void {
+    setTOC(!showTOC);
+  }
+
+  useEffect(() => {
+    function handleClickOutside(event: any) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setTOC(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <>
-    <Head>
-      <title>{title}</title>
-    </Head>
+      <Head>
+        <title>{title}</title>
+      </Head>
       <div className="grid grid-cols-12">
         <div className="col-span-12 sm:col-start-2 sm:col-span-10 md:col-start-4 md:col-span-6 2xl:col-start-5 2xl:col-span-4 min-h-screen">
           <div className="flex flex-col min-h-full">
@@ -36,7 +70,54 @@ export default function Page({ markdown, title, slug }: Props) {
               </Link>
             </div>
 
-            {slug}
+            <div className="hidden md:block fixed right-0 top-0 bottom-0 p-4 dark:bg-neutral-900 bg-gray-200 z-10">
+              <h2 className="text-gray-300 text-xl text-center">TOC</h2>
+              {toc.map((link) => {
+                return (
+                  <div key={link.href} className="p-2">
+                    <a
+                      href={link.href}
+                      className="text-gray-300 hover:underline"
+                    >
+                      {link.text}
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div ref={ref} className="block md:hidden fixed bottom-0 p-4 dark:bg-neutral-900 bg-gray-200 z-10 w-full">
+              {showTOC
+                ? toc.map((link) => {
+                    return (
+                      <a
+                        href={link.href}
+                        className="text-gray-300 hover:underline"
+                        key={link.href}
+                        onClick={() => setTOC(false)}
+                      >
+                        <div className="p-2">{link.text}</div>
+                      </a>
+                    );
+                  })
+                : null}
+
+              <div className="relative">
+                <h2 className="text-gray-300 text-xl">Table of contents</h2>
+
+                <button
+                  className="absolute right-0 top-0 bottom-0"
+                  onClick={toggleTOC}
+                  title="Show TOC"
+                >
+                  <FontAwesomeIcon
+                    icon={showTOC ? faClose : faBars}
+                    className="mr-6 dark:text-zinc-400"
+                    size="2x"
+                  />
+                </button>
+              </div>
+            </div>
 
             <article
               className={clsx('markdown px-2 sm:px-0 my-16 flex-grow relative')}
@@ -80,27 +161,54 @@ export async function getStaticProps({
         try {
           return (
             '<pre class="hljs"><code>' +
-            hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+            hljs.highlight(str, { language: lang, ignoreIllegals: true })
+              .value +
             '</code></pre>'
           );
-        } catch (__) { /* empty */ }
+        } catch (__) {
+          /* empty */
+        }
       }
 
-      return '<pre class="hljs"><code>' + mdUtils.escapeHtml(str) + '</code></pre>';
-    }
+      return (
+        '<pre class="hljs"><code>' + mdUtils.escapeHtml(str) + '</code></pre>'
+      );
+    },
   })
     .use(require('markdown-it-emoji'))
     .use(require('markdown-it-footnote'))
-    .use(require("markdown-it-anchor"), { permalink: true, permalinkBefore: true, permalinkSymbol: '#' })
-    .use(require("markdown-it-toc-done-right"));
+    .use(require('markdown-it-anchor'), {
+      permalink: true,
+      permalinkBefore: true,
+      permalinkSymbol: '#',
+    })
+    .use(require('markdown-it-toc-done-right'));
 
   const html = parser.render(markdown);
-  
+  const parsedHtml = htmlParser(html);
+
+  const tocData = parsedHtml
+    .querySelectorAll('.table-of-contents a')
+    .map((el) => {
+      const href = el.getAttribute('href');
+      const text = el.textContent;
+
+      return {
+        href,
+        text,
+      };
+    });
+
+  parsedHtml.querySelector('p')?.remove();
+  parsedHtml.querySelector('.table-of-contents')?.remove();
+  const modifiedHtml = parsedHtml.toString();
+
   return {
     props: {
-      markdown: html,
+      markdown: modifiedHtml,
       title: '',
       slug: '',
+      toc: tocData,
     },
   };
 }
