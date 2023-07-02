@@ -164,11 +164,8 @@ export async function getStaticProps({
 
   const html = parser.render(markdown);
   const parsedHtml = htmlParser(html);
-
-  console.log(parsedHtml);
-
   const tocData = parsedHtml
-    .querySelector('.table-of-contents')?.outerHTML;
+    .querySelector('.table-of-contents')?.outerHTML || '';
 
   parsedHtml.querySelector('p')?.remove();
   parsedHtml.querySelector('.table-of-contents')?.remove();
