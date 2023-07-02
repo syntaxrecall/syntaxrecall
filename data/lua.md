@@ -4,6 +4,9 @@ title: Lua
 description: A cheatsheet for Lua
 ---
 
+Table of Contents
+[[toc]]
+
 # Arrays
 
 - Arrays are called "tables" in Lua
