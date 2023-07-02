@@ -16,6 +16,7 @@ import mdUtils from 'markdown-it/lib/common/utils';
 import 'highlight.js/styles/atom-one-dark.css';
 import { parse as htmlParser } from 'node-html-parser';
 import { useEffect, useRef, useState } from 'react';
+import { Show } from '../../components/Show';
 
 interface Props {
   markdown: string;
@@ -70,25 +71,26 @@ export default function Page({ markdown, title, slug, toc }: Props) {
               </Link>
             </div>
 
-            <div className="hidden md:block fixed right-0 top-0 bottom-0 p-4 dark:bg-neutral-900 bg-gray-200 z-10">
-              <h2 className="text-gray-300 text-xl text-center">TOC</h2>
-              {toc.map((link) => {
-                return (
-                  <div key={link.href} className="p-2">
-                    <a
-                      href={link.href}
-                      className="text-gray-300 hover:underline"
-                    >
-                      {link.text}
-                    </a>
-                  </div>
-                );
-              })}
-            </div>
+            <Show when={toc.length > 0}>
+              <div className="hidden md:block fixed right-0 top-0 bottom-0 p-4 dark:bg-neutral-900 bg-gray-200 z-10">
+                <h2 className="text-gray-300 text-xl text-center">TOC</h2>
+                {toc.map((link) => {
+                  return (
+                    <div key={link.href} className="p-2">
+                      <a
+                        href={link.href}
+                        className="text-gray-300 hover:underline"
+                      >
+                        {link.text}
+                      </a>
+                    </div>
+                  );
+                })}
+              </div>
 
-            <div ref={ref} className="block md:hidden fixed bottom-0 p-4 dark:bg-neutral-900 bg-gray-200 z-10 w-full">
-              {showTOC
-                ? toc.map((link) => {
+              <div ref={ref} className="block md:hidden fixed bottom-0 p-4 dark:bg-neutral-900 bg-gray-200 z-10 w-full">
+                {showTOC
+                  ? toc.map((link) => {
                     return (
                       <a
                         href={link.href}
@@ -100,24 +102,25 @@ export default function Page({ markdown, title, slug, toc }: Props) {
                       </a>
                     );
                   })
-                : null}
+                  : null}
 
-              <div className="relative">
-                <h2 className="text-gray-300 text-xl">Table of contents</h2>
+                <div className="relative">
+                  <h2 className="text-gray-300 text-xl">Table of contents</h2>
 
-                <button
-                  className="absolute right-0 top-0 bottom-0"
-                  onClick={toggleTOC}
-                  title="Show TOC"
-                >
-                  <FontAwesomeIcon
-                    icon={showTOC ? faClose : faBars}
-                    className="mr-6 dark:text-zinc-400"
-                    size="2x"
-                  />
-                </button>
+                  <button
+                    className="absolute right-0 top-0 bottom-0"
+                    onClick={toggleTOC}
+                    title="Show TOC"
+                  >
+                    <FontAwesomeIcon
+                      icon={showTOC ? faClose : faBars}
+                      className="mr-6 dark:text-zinc-400"
+                      size="2x"
+                    />
+                  </button>
+                </div>
               </div>
-            </div>
+            </Show>
 
             <article
               className={clsx('markdown px-2 sm:px-0 my-16 flex-grow relative')}
