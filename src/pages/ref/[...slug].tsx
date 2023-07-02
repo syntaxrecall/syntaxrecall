@@ -22,13 +22,8 @@ interface Props {
   markdown: string;
   title: string;
   slug: string;
-  toc: TocData[];
+  toc?: string;
 }
-
-type TocData = {
-  href?: string;
-  text: string;
-};
 
 export default function Page({ markdown, title, slug, toc }: Props) {
   const [showTOC, setTOC] = useState(false);
@@ -71,37 +66,17 @@ export default function Page({ markdown, title, slug, toc }: Props) {
               </Link>
             </div>
 
-            <Show when={toc.length > 0}>
+            <Show when={!!toc}>
               <div className="hidden md:block fixed right-0 top-0 bottom-0 p-4 dark:bg-neutral-900 bg-gray-200 z-10">
                 <h2 className="text-gray-300 text-xl text-center">TOC</h2>
-                {toc.map((link) => {
-                  return (
-                    <div key={link.href} className="p-2">
-                      <a
-                        href={link.href}
-                        className="text-gray-300 hover:underline"
-                      >
-                        {link.text}
-                      </a>
-                    </div>
-                  );
-                })}
+                <div dangerouslySetInnerHTML={{ __html: toc || '' }}></div>
               </div>
 
               <div ref={ref} className="block md:hidden fixed bottom-0 p-4 dark:bg-neutral-900 bg-gray-200 z-10 w-full">
                 {showTOC
-                  ? toc.map((link) => {
-                    return (
-                      <a
-                        href={link.href}
-                        className="text-gray-300 hover:underline"
-                        key={link.href}
-                        onClick={() => setTOC(false)}
-                      >
-                        <div className="p-2">{link.text}</div>
-                      </a>
-                    );
-                  })
+                  ? (
+                    <div dangerouslySetInnerHTML={{ __html: toc || '' }}></div>
+                  )
                   : null}
 
                 <div className="relative">
@@ -190,17 +165,10 @@ export async function getStaticProps({
   const html = parser.render(markdown);
   const parsedHtml = htmlParser(html);
 
-  const tocData = parsedHtml
-    .querySelectorAll('.table-of-contents a')
-    .map((el) => {
-      const href = el.getAttribute('href');
-      const text = el.textContent;
+  console.log(parsedHtml);
 
-      return {
-        href,
-        text,
-      };
-    });
+  const tocData = parsedHtml
+    .querySelector('.table-of-contents')?.outerHTML;
 
   parsedHtml.querySelector('p')?.remove();
   parsedHtml.querySelector('.table-of-contents')?.remove();
