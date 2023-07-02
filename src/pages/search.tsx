@@ -16,7 +16,7 @@ export default function Page(): React.ReactElement {
       const { q } = router.query;
       const searchText = q?.toString() || '';
       const result = await GetSearch(searchText);
-      setPosts(result.hits);
+      setPosts(result);
     }
 
     onLoad();

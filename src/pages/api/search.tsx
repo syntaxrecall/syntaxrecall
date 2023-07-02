@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return;
   }
 
-  const results = await index.search(q, {
+  const results = await index.search(q.toString(), {
     attributesToRetrieve: ['id', 'title', 'description', 'slug']
   });
 
