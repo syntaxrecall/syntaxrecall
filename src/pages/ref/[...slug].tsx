@@ -55,8 +55,8 @@ export default function Page({ markdown, title, description, toc }: Props) {
         <div className="col-span-12 sm:col-start-2 sm:col-span-10 md:col-start-4 md:col-span-6 2xl:col-start-5 2xl:col-span-4 min-h-screen">
           <div className="flex flex-col min-h-full">
             <div className="mt-4">
-              <Link href="/">
-                <div className="rounded-full h-16 w-16 flex items-center justify-center hover:bg-gray-300 dark:text-zinc-400 dark:hover:bg-zinc-700 cursor-pointer">
+              <Link href="/" className="inline-block">
+                <div className="rounded-full h-16 w-16 inline-flex items-center justify-center hover:bg-gray-300 dark:text-zinc-400 dark:hover:bg-zinc-700 cursor-pointer">
                   <FontAwesomeIcon
                     icon={faChevronLeft}
                     width="10"
