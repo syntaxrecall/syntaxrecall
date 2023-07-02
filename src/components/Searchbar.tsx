@@ -17,7 +17,7 @@ async function getSearchRecommendations(
   searchText: string
 ): Promise<Post[]> {
   const data = await GetSearch(searchText);
-  const tt = data?.hits || [];
+  const tt = data || [];
   return tt;
 }
 

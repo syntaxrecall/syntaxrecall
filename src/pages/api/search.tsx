@@ -1,8 +1,9 @@
 import { StatusCodes } from "http-status-codes";
 import { NextApiRequest, NextApiResponse } from "next";
-import fetch from 'isomorphic-unfetch';
-import { MeiliPostSearchResult } from "../../interfaces/MeilisearchResult";
-import { Post } from "../../interfaces/Post";
+import agoliasearch from 'algoliasearch';
+
+const algoliaClient = agoliasearch(process.env.ALGOLIA_APP_ID || '', process.env.ALGOLIA_API_KEY || '');
+const index = algoliaClient.initIndex('cheatsheet_index');
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void> {
   const { q } = req.query;
@@ -12,18 +13,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return;
   }
 
-  const response = await fetch(`${process.env.MEILISEARCH_URL}/indexes/posts/search`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${process.env.MEILISEARCH_API_KEY}`,
-    },
-    body: JSON.stringify({ 'q': q, 'attributesToRetrieve': ['id', 'title', 'description', 'slug'] })
+  const results = await index.search(q, {
+    attributesToRetrieve: ['id', 'title', 'description', 'slug']
   });
 
-  if (response.ok) {
-    const data = await response.json() as MeiliPostSearchResult<Post>
-    res.status(StatusCodes.OK).json(data);
+  if (results.hits) {
+    res.status(StatusCodes.OK).json(results.hits);
     return;
   }
 

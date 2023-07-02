@@ -1,7 +1,6 @@
 import { Post } from '../interfaces/Post';
-import { MeiliPostSearchResult } from './../interfaces/MeilisearchResult';
 
-export async function GetSearch(searchText: string): Promise<MeiliPostSearchResult<Post>> {
+export async function GetSearch(searchText: string): Promise<Post[]> {
   const params = new URLSearchParams();
   params.set('q', searchText);
   const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/search?${params.toString()}`, {
@@ -10,7 +9,7 @@ export async function GetSearch(searchText: string): Promise<MeiliPostSearchResu
 
   try {
   if (response.ok) {
-    const data = (await response.json()) as MeiliPostSearchResult<Post>;
+    const data = (await response.json()) as Post[];
     return data;
   }
     return Promise.reject('Invalid search');
