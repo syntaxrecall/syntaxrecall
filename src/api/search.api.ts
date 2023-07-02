@@ -3,7 +3,7 @@ import { Post } from '../interfaces/Post';
 export async function GetSearch(searchText: string): Promise<Post[]> {
   const params = new URLSearchParams();
   params.set('q', searchText);
-  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/search?${params.toString()}`, {
+  const response = await fetch(`api/search?${params.toString()}`, {
     method: 'GET',
   });
 
