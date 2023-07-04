@@ -52,6 +52,39 @@ export default function Page({ markdown, title, description, toc }: Props) {
         <title>{title}</title>
       </Head>
       <div className="grid grid-cols-12">
+        <div className="col-span-12 sm:col-span-1 md:col-span-3 2xl:col-span-4">
+          <Show when={!!toc}>
+            <div className="hidden md:block sticky right-0 top-0 bottom-0 p-4 dark:bg-neutral-900 bg-gray-200 z-10">
+              <h2 className="text-gray-300 text-xl mb-2">Table of Contents</h2>
+              <div dangerouslySetInnerHTML={{ __html: toc || '' }}></div>
+            </div>
+
+            <div ref={ref} className="block md:hidden fixed bottom-0 p-4 dark:bg-neutral-900 bg-gray-200 z-10 w-full">
+              {showTOC
+                ? (
+                  <div dangerouslySetInnerHTML={{ __html: toc || '' }}></div>
+                )
+                : null}
+
+              <div className="relative">
+                <h2 className="text-gray-300 text-xl">Table of contents</h2>
+
+                <button
+                  className="absolute right-0 top-0 bottom-0"
+                  onClick={toggleTOC}
+                  title="Show TOC"
+                >
+                  <FontAwesomeIcon
+                    icon={showTOC ? faClose : faBars}
+                    className="mr-6 dark:text-zinc-400"
+                    size="2x"
+                  />
+                </button>
+              </div>
+            </div>
+          </Show>
+        </div>
+
         <div className="col-span-12 sm:col-start-2 sm:col-span-10 md:col-start-4 md:col-span-6 2xl:col-start-5 2xl:col-span-4 min-h-screen">
           <div className="flex flex-col min-h-full">
             <div className="mt-4">
@@ -68,37 +101,6 @@ export default function Page({ markdown, title, description, toc }: Props) {
 
             <h1 className="dark:text-gray-300 text-2xl text-center">{title}</h1>
             <small className="dark:text-gray-400 text-lg text-center">{description}</small>
-
-            <Show when={!!toc}>
-              <div className="hidden md:block fixed right-0 top-0 bottom-0 p-4 dark:bg-neutral-900 bg-gray-200 z-10">
-                <h2 className="text-gray-300 text-xl text-center">TOC</h2>
-                <div dangerouslySetInnerHTML={{ __html: toc || '' }}></div>
-              </div>
-
-              <div ref={ref} className="block md:hidden fixed bottom-0 p-4 dark:bg-neutral-900 bg-gray-200 z-10 w-full">
-                {showTOC
-                  ? (
-                    <div dangerouslySetInnerHTML={{ __html: toc || '' }}></div>
-                  )
-                  : null}
-
-                <div className="relative">
-                  <h2 className="text-gray-300 text-xl">Table of contents</h2>
-
-                  <button
-                    className="absolute right-0 top-0 bottom-0"
-                    onClick={toggleTOC}
-                    title="Show TOC"
-                  >
-                    <FontAwesomeIcon
-                      icon={showTOC ? faClose : faBars}
-                      className="mr-6 dark:text-zinc-400"
-                      size="2x"
-                    />
-                  </button>
-                </div>
-              </div>
-            </Show>
 
             <article
               className={clsx('markdown px-2 sm:px-0 my-16 flex-grow relative')}
