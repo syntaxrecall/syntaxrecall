@@ -4,6 +4,9 @@ title: Go
 description: A cheatsheet for Go
 ---
 
+Table of Contents
+[[toc]]
+
 # Hello world
 
 hello.go
