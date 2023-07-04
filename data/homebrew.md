@@ -4,6 +4,9 @@ title: Homebrew
 description: A cheatsheet for Homebrew
 ---
 
+Table of Contents
+[[toc]]
+
 | Command | Description |
 | --- | --- |
 | `brew --version` | Display the version of Homebrew |
