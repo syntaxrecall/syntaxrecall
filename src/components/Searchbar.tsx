@@ -53,7 +53,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
     } else if (event.key === Key.Enter) {
       if (resultIndex >= 0 && resultIndex < searchRecommendations.length) {
         const selectedItem = searchRecommendations[resultIndex];
-        router.push(`/${selectedItem.slug}`);
+        router.push(`/ref/${selectedItem.slug}`);
         return;
       }
 
