@@ -4,6 +4,9 @@ title: Sass
 description: A cheatsheet for Sass
 ---
 
+Table of Contents
+[[toc]]
+
 # Variables
 
 - Variables are declared with a `$` sign and can store values like colors, fonts, numbers, etc.
