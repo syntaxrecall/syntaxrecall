@@ -4,6 +4,9 @@ title: Angular
 description: A cheatsheet for Angular
 ---
 
+Table of contents
+[[toc]]
+
 # Components
 
 - A component is a class with a template and a decorator that defines its metadata.
