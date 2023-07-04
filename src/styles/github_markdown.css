@@ -134,8 +134,9 @@
   padding: 0.2em 0.4em;
   margin: 0;
   font-size: 85%;
-  background-color: rgba(175, 184, 193, 0.2);
   border-radius: 6px;
+  @apply bg-zinc-700;
+  @apply text-zinc-400;
 }
 
 .markdown tt,
@@ -213,13 +214,14 @@
   overflow: auto;
   border-spacing: 0;
   border-collapse: collapse;
+  margin: auto;
 }
 
 .markdown table tr {
   background-color: #ffffff;
   border-top: 1px solid hsla(210, 18%, 87%, 1);
 
-  @apply dark:bg-zinc-700;
+  @apply dark:bg-zinc-800;
 }
 
 .markdown table th,
@@ -228,6 +230,10 @@
   border: 1px solid #d0d7de;
 
   @apply dark:border-zinc-900;
+}
+
+.markdown table td {
+  @apply text-zinc-500;
 }
 
 .markdown table th {
@@ -239,7 +245,7 @@
 .markdown table tr:nth-child(2n) {
   background-color: #f6f8fa;
 
-  @apply dark:bg-zinc-600;
+  @apply dark:bg-zinc-800;
 }
 
 .markdown li.footnote-item {
