@@ -1,6 +1,6 @@
 ---
 id: 544e99c7-6452-4320-a535-43425bde06cc
-title: Css
+title: CSS
 description: A cheatsheet for CSS
 ---
 
