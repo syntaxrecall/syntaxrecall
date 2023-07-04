@@ -184,7 +184,7 @@
   background-color: #f6f8fa;
   border-radius: 6px;
 
-  @apply dark:bg-zinc-700;
+  @apply dark:bg-zinc-800;
   @apply dark:text-zinc-400;
 }
 
