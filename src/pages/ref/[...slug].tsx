@@ -160,6 +160,15 @@ export async function getStaticProps({
   })
     .use(require('markdown-it-emoji'))
     .use(require('markdown-it-footnote'))
+    .use(require("markdown-it-link-attributes"), {
+      matcher(href: any) {
+        return href.startsWith("https:");
+      },
+      attrs: {
+        target: "_blank",
+        rel: "noopener",
+      },
+    })
     .use(require('markdown-it-anchor'), {
       permalink: true,
       permalinkBefore: true,
