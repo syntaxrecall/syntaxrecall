@@ -4,6 +4,9 @@ title: React
 description: A cheatsheet for React
 ---
 
+Table of Contents
+[[toc]]
+
 # Importing React
 
 ```jsx

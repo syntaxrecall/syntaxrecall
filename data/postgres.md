@@ -4,6 +4,9 @@ title: Postgres
 description: A cheatsheet for Postgres
 ---
 
+Table of Contents
+[[toc]]
+
 # Data Types
 
 | Data Type | Description | Example |

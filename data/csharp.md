@@ -4,6 +4,9 @@ title: C#
 description: A cheatsheet for C#
 ---
 
+Table of Contents
+[[toc]]
+
 # Variables and Data Types
 
 ```csharp

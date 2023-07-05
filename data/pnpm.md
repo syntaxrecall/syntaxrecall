@@ -4,6 +4,11 @@ title: Pnpm
 description: A cheatsheet for pnpm
 ---
 
+Table of Contents
+[[toc]]
+
+# Commands
+
 | pnpm command | Description |
 | ------------ | ----------- |
 | pnpm install | Install package.json dependencies |

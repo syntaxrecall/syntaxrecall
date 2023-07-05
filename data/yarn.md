@@ -4,7 +4,8 @@ title: Yarn
 description: A cheatsheet for yarn
 ---
 
-Sure, I can help you with that. Here is a cheatsheet for some of the most common yarn commands in markdown table format:
+Table of Contents
+[[toc]]
 
 | Command | Description |
 | --- | --- |

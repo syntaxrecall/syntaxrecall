@@ -4,6 +4,11 @@ title: Npm
 description: Npm command cheatsheet
 ---
 
+Table of Contents
+[[toc]]
+
+# Commands
+
 | Command | Description |
 | --- | --- |
 | `npm install` | Install package.json dependencies |
