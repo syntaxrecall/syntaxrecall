@@ -4,6 +4,9 @@ title: Regex
 description: A cheatsheet for Regex
 ---
 
+Table of contents
+[[toc]]
+
 # Basics
 
 | REGEX BASICS | DESCRIPTION |
