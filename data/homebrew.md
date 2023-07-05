@@ -7,6 +7,8 @@ description: A cheatsheet for Homebrew
 Table of Contents
 [[toc]]
 
+# Commands
+
 | Command | Description |
 | --- | --- |
 | `brew --version` | Display the version of Homebrew |
