@@ -20,6 +20,7 @@ async function main(): Promise<void> {
   }
 
   headerArray.push('---');
+  headerArray.push('\nTable of contents\n[[toc]]');
 
   fs.writeFile(join(dataDir, fileName.toLowerCase() + '.md'), headerArray.join('\n') + '\n');
 }
