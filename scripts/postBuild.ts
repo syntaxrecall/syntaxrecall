@@ -11,7 +11,6 @@ type Post = {
   slug: string;
   title: string;
   description: string;
-  markdown: string;
 };
 
 const dataDir = path.join(process.cwd(), 'data');
@@ -34,6 +33,8 @@ function readDirectory(dir: string) {
     const isDirectory = fs.statSync(path.join(dir, fileName)).isDirectory();
     if (isDirectory) {
       readDirectory(path.join(dir, fileName));
+      return;
+    } else if (!fileName.endsWith('.md')) {
       return;
     }
 
@@ -60,7 +61,6 @@ function readFile(dirName: string, fileName: string) {
     slug: slug.join('/'),
     title: jsonData.data.title,
     description: jsonData.data.description,
-    markdown: jsonData.content,
   };
 
   posts.push(post);
