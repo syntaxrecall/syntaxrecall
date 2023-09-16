@@ -53,7 +53,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
     } else if (event.key === Key.Enter) {
       if (resultIndex >= 0 && resultIndex < searchRecommendations.length) {
         const selectedItem = searchRecommendations[resultIndex];
-        router.push(`/ref/${selectedItem.slug}`);
+        router.push(`/docs/${selectedItem.slug}`);
         return;
       }
 
@@ -63,7 +63,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
   }
 
   function onClickSearchRecommendation(searchRecommendation: Post) {
-    router.push(`/ref${searchRecommendation.slug}`);
+    router.push(`/docs${searchRecommendation.slug}`);
     setShowDropdown(false);
   }
 

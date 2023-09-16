@@ -14,7 +14,7 @@ export default function SearchResultItem({
 
   function onClickResultItem() {
     if (item.slug) {
-      router.push(`/ref${item.slug}`);
+      router.push(`/docs${item.slug}`);
     }
   }
 
