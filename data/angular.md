@@ -2,6 +2,7 @@
 id: de7e5729-81e3-4936-9210-f15aed5e5967
 title: Angular
 description: A cheatsheet for Angular
+keywords: ["angular"]
 ---
 
 Table of contents

@@ -2,6 +2,7 @@
 id: 544e99c7-6452-4320-a535-43425bde06cc
 title: CSS
 description: A cheatsheet for CSS
+keywords: ["css"]
 ---
 
 Table of Contents

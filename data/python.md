@@ -2,6 +2,7 @@
 id: dce81984-0e9f-42ea-aa52-95eeae0f88c3
 title: Python
 description: A cheatsheet for Python
+keywords: ["python"]
 ---
 
 Table of contents

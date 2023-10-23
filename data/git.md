@@ -2,6 +2,7 @@
 id: a34c8de2-5bb2-4d52-bfbc-b84bda1ab24b
 title: Git
 description: A cheatsheet for git
+keywords: ["git", "cli"]
 ---
 
 Table of Contents

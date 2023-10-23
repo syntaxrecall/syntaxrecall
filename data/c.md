@@ -2,6 +2,7 @@
 id: 6671b7c6-f143-48d7-820a-b77bd0a6dfaa
 title: C
 description: A cheatsheet for the C language
+keywords: ["c", "clang"]
 ---
 
 Table of contents

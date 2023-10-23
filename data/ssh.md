@@ -2,6 +2,7 @@
 id: 2e11137f-4b9b-40a8-b116-ad9e50fe74b4
 title: SSH
 description: A cheatsheet for SSH
+keywords: ["ssh", "cli"]
 ---
 
 Table of contents

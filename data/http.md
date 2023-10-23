@@ -2,6 +2,7 @@
 id: 049a36f1-718f-49bf-b607-e955c770b8bf
 title: HTTP
 description: A cheatsheet for HTTP
+keywords: ["http"]
 ---
 
 Table of contents

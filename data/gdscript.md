@@ -2,6 +2,7 @@
 id: fdb9f42c-4f6d-491b-954e-1fcad2a5c9ed
 title: GDScript
 description: A cheatsheet for GDScript
+keywords: ["gdscript", "godot"]
 ---
 
 Table of contents

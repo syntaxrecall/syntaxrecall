@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useDebounce } from "../hooks";
 import { Post } from "../interfaces";
-import { GetSearch } from "../api/search.api";
+import { GetSearch, PageData } from "../api/search.api";
 import useClickOutside from "../hooks/useClickOutside";
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
 
 async function getSearchRecommendations(
   searchText: string
-): Promise<Post[]> {
+): Promise<PageData[]> {
   const data = await GetSearch(searchText);
   const tt = data || [];
   return tt;
@@ -27,7 +27,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
   const [resultIndex, setResultIndex] = useState(-1);
   const [searchText, setSearchText] = useState("");
   const debouncedSearchTerm = useDebounce(searchText.trim(), 500);
-  const [searchRecommendations, setSearchRecommendations] = useState<Post[]>([]);
+  const [searchRecommendations, setSearchRecommendations] = useState<PageData[]>([]);
   const router = useRouter();
 
   function reset() {
@@ -62,7 +62,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
     }
   }
 
-  function onClickSearchRecommendation(searchRecommendation: Post) {
+  function onClickSearchRecommendation(searchRecommendation: PageData) {
     router.push(`/docs${searchRecommendation.slug}`);
     setShowDropdown(false);
   }
@@ -155,7 +155,7 @@ export default function SearchBar({ items }: Props): React.ReactElement {
                 (searchRecommendation, searchRecommendationIndex) => (
                   <button
                     type="button"
-                    key={searchRecommendation?.id}
+                    key={searchRecommendation?.objectID}
                     className={clsx(
                       "cursor-pointer",
                       "p-2",

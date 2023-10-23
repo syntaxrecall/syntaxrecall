@@ -2,6 +2,7 @@
 id: 4c547e15-2531-4fe3-86ff-8d4c4b703947
 title: C++
 description: A cheatsheet for C++
+keywords: ["c++", "cpp"]
 ---
 
 Table of contents

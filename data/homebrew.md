@@ -2,6 +2,7 @@
 id: 0be40f54-8467-459a-8fe7-36d75e303804
 title: Homebrew
 description: A cheatsheet for Homebrew
+keywords: ["homebrew", "mac", "cli"]
 ---
 
 Table of Contents

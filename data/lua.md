@@ -2,6 +2,7 @@
 id: f0181320-c403-4cdf-b5db-2a9e5b11ba64
 title: Lua
 description: A cheatsheet for Lua
+keywords: ["lua"]
 ---
 
 Table of Contents

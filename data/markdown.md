@@ -2,6 +2,7 @@
 id: ebba0ba5-d058-4c6c-9c48-e5a622aed203
 title: Markdown
 description: A cheatsheet for Markdown
+keywords: ["markdown"]
 ---
 
 Table of Contents

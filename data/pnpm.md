@@ -2,6 +2,7 @@
 id: 38fefc9d-a886-40a1-b251-5da0d4f05696
 title: Pnpm
 description: A cheatsheet for pnpm
+keywords: ["pnpm"]
 ---
 
 Table of Contents

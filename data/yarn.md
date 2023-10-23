@@ -2,6 +2,7 @@
 id: afcd46ea-9e3f-460a-ac3a-a5c48e9525bb
 title: Yarn
 description: A cheatsheet for yarn
+keywords: ["yarn", "cli"]
 ---
 
 Table of Contents

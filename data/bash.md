@@ -2,6 +2,7 @@
 id: bea4619b-3223-459b-8975-4d049a869937
 title: Bash
 description: A cheatsheet for Bash
+keywords: ["bash"]
 ---
 
 Table of contents

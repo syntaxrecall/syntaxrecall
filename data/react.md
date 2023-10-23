@@ -2,6 +2,7 @@
 id: 8ff61974-5c20-49ca-a097-66c7f512a26d
 title: React
 description: A cheatsheet for React
+keywords: ["react"]
 ---
 
 Table of Contents

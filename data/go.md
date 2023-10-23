@@ -2,6 +2,7 @@
 id: 0c18092c-ca29-4929-b31f-14db34317df3
 title: Go
 description: A cheatsheet for Go
+keywords: ["go", "golang"]
 ---
 
 Table of Contents

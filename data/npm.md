@@ -2,6 +2,7 @@
 id: 8f248ffc-ae1e-486e-9c77-061d8b9bfe28
 title: Npm
 description: Npm command cheatsheet
+keywords: ["npm"]
 ---
 
 Table of Contents

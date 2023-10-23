@@ -2,6 +2,7 @@
 id: 2e497da9-98a1-4eb3-b5f9-e36d6741f17b
 title: Python Comments
 description: A cheatsheet for python comments
+keywords: ["python","comments"]
 ---
 
 # Single line comments

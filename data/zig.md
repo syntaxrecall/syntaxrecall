@@ -2,6 +2,7 @@
 id: 45624403-d849-4988-97b9-11ddff751166
 title: Zig
 description: A cheatsheet for Zig
+keywords: ["zig", "ziglang"]
 ---
 
 Table of contents

@@ -2,6 +2,7 @@
 id: 162f0a28-6f69-4581-88ae-55f24aef51fd
 title: Less
 description: A cheatsheet for Less CSS
+keywords: ["less", "css"]
 ---
 
 Table of Contents

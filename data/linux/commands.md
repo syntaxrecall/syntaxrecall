@@ -2,6 +2,7 @@
 id: 2c494a61-fc9b-4c76-9692-9161f4882e62
 title: Linux Commands
 description: A cheatsheet for Linux Commands
+keywords: ["linux", "apt", "ubuntu", "debian", "commands"]
 ---
 
 Table of contents

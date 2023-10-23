@@ -2,6 +2,7 @@
 id: cd4bdd45-560a-43d0-888c-97ccaf40bca6
 title: Docker
 description: A cheatsheet for Docker
+keywords: ["docker"]
 ---
 
 Table of contents

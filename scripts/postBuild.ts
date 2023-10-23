@@ -2,7 +2,6 @@ import matter from 'gray-matter';
 import fs from 'fs';
 import path from 'path';
 import { config } from 'dotenv';
-import algoliasearch from 'algoliasearch';
 
 config();
 
@@ -11,16 +10,11 @@ type Post = {
   slug: string;
   title: string;
   description: string;
+  keywords: string[];
 };
 
 const dataDir = path.join(process.cwd(), 'data');
 const posts: Post[] = [];
-
-const ALGOLIA_APP_ID = process.env.ALGOLIA_APP_ID || '';
-const ALGOLIA_API_KEY = process.env.ALGOLIA_ADMIN_API_KEY || '';
-
-const algoliaClient = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_API_KEY);
-const searchIndex = algoliaClient.initIndex('cheatsheet_index');
 
 console.log('Running generatePosts script...');
 
@@ -61,6 +55,7 @@ function readFile(dirName: string, fileName: string) {
     slug: slug.join('/'),
     title: jsonData.data.title,
     description: jsonData.data.description,
+    keywords: jsonData.data.keywords || [],
   };
 
   posts.push(post);
@@ -72,15 +67,17 @@ function removeFileExtension(fileName: string) {
 
 function run() {
   parseMarkdownFiles();
+  write();
+}
+
+function write() {
+  const json = JSON.stringify(posts);
+
+  const outputDir = path.join(process.cwd(), 'public');
+  // write this to a file
+  fs.writeFileSync(path.join(outputDir, 'data.json'), json);
+  console.log(`Saved ${posts.length} items.`);
+  console.log('Done!');
 }
 
 run();
-
-searchIndex.saveObjects(posts)
-.then((result) => {
-  console.log(`Saved ${result.objectIDs.length} items.`);
-  console.log('Done!');
-})
-.catch((err) => {
-  console.error(err);
-});

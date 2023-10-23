@@ -39,3 +39,5 @@ next-env.d.ts
 
 # meilisearch
 /db
+
+/public/data.json

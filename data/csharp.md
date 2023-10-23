@@ -2,6 +2,7 @@
 id: 31a2f261-3f8d-432f-a33a-5e3185e3cb25
 title: C#
 description: A cheatsheet for C#
+keywords: ["c#", "csharp"]
 ---
 
 Table of Contents

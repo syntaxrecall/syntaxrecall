@@ -2,6 +2,7 @@
 id: 8b1e03a1-3b2e-4d82-a1c1-21fe826fd298
 title: Markdown-it
 description: A cheatsheet for markdown-it
+keywords: ["markdown", "markdown-it"]
 ---
 
 ---

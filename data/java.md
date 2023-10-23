@@ -2,6 +2,7 @@
 id: c808edcc-a6f8-4b48-afba-fc0102d4def9
 title: Java
 description: A quick reference for Java
+keywords: ["java"]
 ---
 
 Table of contents

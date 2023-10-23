@@ -2,6 +2,7 @@
 id: 09f55193-1d16-4f81-b1cb-6d6833553339
 title: Sass
 description: A cheatsheet for Sass
+keywords: ["sass", "css"]
 ---
 
 Table of Contents

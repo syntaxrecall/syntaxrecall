@@ -2,6 +2,7 @@
 id: 44a142eb-838d-4fd7-9a1a-73bbabec4d04
 title: Regex
 description: A cheatsheet for Regex
+keywords: ["regex"]
 ---
 
 Table of contents

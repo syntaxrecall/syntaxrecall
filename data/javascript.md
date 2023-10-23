@@ -2,6 +2,7 @@
 id: e7812377-66f1-4cae-8739-bd0d608b2d46
 title: JavaScript
 description: A cheatsheet for JavaScript
+keywords: ["javascript", "js"]
 ---
 
 Table of Contents

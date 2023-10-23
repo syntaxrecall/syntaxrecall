@@ -2,6 +2,7 @@
 id: af18caf1-d422-4d0a-97fb-4414e03e5451
 title: Postgres
 description: A cheatsheet for Postgres
+keywords: ["postgres", "postgresql"]
 ---
 
 Table of Contents
