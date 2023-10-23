@@ -2,7 +2,7 @@
 id: 3bd43789-d1da-4d90-b1fd-7fda5f0336e7
 title: Vim
 description: A cheatsheet for Vim
-keywords: ['vim']
+keywords: ["vim"]
 ---
 
 Table of contents
@@ -20,66 +20,58 @@ To enter insert mode from normal mode, press `i`. To exit insert mode and return
 
 In normal mode, you can use the following keys to move the cursor around:
 
-| Key      | Action                            |
-| -------- | --------------------------------- |
-| `h`      | move left                         |
-| `j`      | move down                         |
-| `k`      | move up                           |
-| `l`      | move right                        |
-| `w`      | move to the next word             |
-| `b`      | move to the previous word         |
-| `0`      | move to the beginning of the line |
-| `$`      | move to the end of the line       |
-| `G`      | move to the end of the file       |
-| `gg`     | move to the beginning of the file |
-| `Ctrl+f` | move forward one page             |
-| `Ctrl+b` | move backward one page            |
+- `h` : move left
+- `j` : move down
+- `k` : move up
+- `l` : move right
+- `w` : move to the next word
+- `b` : move to the previous word
+- `0` : move to the beginning of the line
+- `$` : move to the end of the line
+- `G` : move to the end of the file
+- `gg` : move to the beginning of the file
+- `Ctrl+f` : move forward one page
+- `Ctrl+b` : move backward one page
 
 ## Searching
 
 In normal mode, you can use the following commands to search for a pattern in the file:
 
-| Command    | Action                                           |
-| ---------- | ------------------------------------------------ |
-| `/pattern` | search forward for `pattern`                     |
-| `?pattern` | search backward for `pattern`                    |
-| `n`        | repeat the last search in the same direction     |
-| `N`        | repeat the last search in the opposite direction |
+- `/pattern` : search forward for `pattern`
+- `?pattern` : search backward for `pattern`
+- `n` : repeat the last search in the same direction
+- `N` : repeat the last search in the opposite direction
 
 ## Editing
 
 In normal mode, you can use the following commands to edit the text:
 
-| Command                  | Action                                                   |
-| ------------------------ | -------------------------------------------------------- |
-| `x`                      | delete the character under the cursor                    |
-| `dd`                     | delete the current line                                  |
-| `dw`                     | delete from the cursor to the end of the word            |
-| `db`                     | delete from the cursor to the beginning of the word      |
-| `d0`                     | delete from the cursor to the beginning of the line      |
-| `d$`                     | delete from the cursor to the end of the line            |
-| `dG`                     | delete from the cursor to the end of the file            |
-| `dgg`                    | delete from the cursor to the beginning of the file      |
-| `u`                      | undo the last change                                     |
-| `Ctrl+r`                 | redo the last change                                     |
-| `y`                      | copy (yank) the text under the cursor                    |
-| `yy`                     | copy (yank) the current line                             |
-| `yw`                     | copy (yank) from the cursor to the end of the word       |
-| `yb`                     | copy (yank) from the cursor to the beginning of the word |
-| `y0`                     | copy (yank) from the cursor to the beginning of the line |
-| `y$`                     | copy (yank) from the cursor to the end of the line       |
-| `yG`                     | copy (yank) from the cursor to the end of the file       |
-| `ygg`                    | copy (yank) from the cursor to the beginning of the file |
-| `p`                      | paste (put) after the cursor                             |
-| `P` : paste (put) before |
+- `x` : delete the character under the cursor
+- `dd` : delete the current line
+- `dw` : delete from the cursor to the end of the word
+- `db` : delete from the cursor to the beginning of the word
+- `d0` : delete from the cursor to the beginning of the line
+- `d$` : delete from the cursor to the end of the line
+- `dG` : delete from the cursor to the end of the file
+- `dgg` : delete from the cursor to the beginning of the file
+- `u` : undo the last change
+- `Ctrl+r` : redo the last change
+- `y` : copy (yank) the text under the cursor
+- `yy` : copy (yank) the current line
+- `yw` : copy (yank) from the cursor to the end of the word
+- `yb` : copy (yank) from the cursor to the beginning of the word
+- `y0` : copy (yank) from the cursor to the beginning of the line
+- `y$` : copy (yank) from the cursor to the end of the line
+- `yG` : copy (yank) from the cursor to the end of the file
+- `ygg` : copy (yank) from the cursor to the beginning of the file
+- `p` : paste (put) after the cursor
+- `P` : paste (put) before the cursor
 
 ## Saving and quitting
 
-In normal mode, you can use these commands to save and quit:
+In normal mode, you can use the following commands to save and quit:
 
-| Command       | Action                  |
-| ------------- | ----------------------- |
-| `:w`          | save (write) file       |
-| `:q`          | quit (quit) vim         |
-| `:wq` or `:x` | save and quit vim       |
-| `:q!`         | quit vim without saving |
+- `:w` : save (write) the file
+- `:q` : quit (quit) vim
+- `:wq` or `:x`: save and quit vim
+- `:q!`: quit vim without saving
