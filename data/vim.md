@@ -1,14 +1,12 @@
 ---
 id: 3bd43789-d1da-4d90-b1fd-7fda5f0336e7
 title: Vim
-keywords: ['vim']
 description: A cheatsheet for Vim
+keywords: ['vim']
 ---
 
 Table of contents
 [[toc]]
-
-# Vim Cheatsheet
 
 Vim is a powerful text editor that can be used to edit, create, and manipulate files. Vim has many commands and modes that can help you work efficiently and productively. Here are some of the most common and useful ones:
 
