@@ -5,6 +5,9 @@ description: A cheatsheet for python loops
 keywords: ["python", "loops"]
 ---
 
+Table of Contents
+[[toc]]
+
 ## For loop
 ```python
 array = ['Foo', 'Bar']

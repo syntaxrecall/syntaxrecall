@@ -3,13 +3,12 @@ import Link from "next/link";
 import Head from "next/head";
 import Searchbar from "../components/Searchbar";
 import SearchResultItem from "../components/SearchResultItem";
-import { GetSearch } from "../api/search.api";
-import { Post } from '../interfaces';
+import { GetSearch, PageData } from "../api/search.api";
 import { useRouter } from "next/router";
 
 export default function Page(): React.ReactElement {
   const router = useRouter();
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<PageData[]>([]);
 
   useEffect(() => {
     async function onLoad() {
@@ -57,7 +56,7 @@ export default function Page(): React.ReactElement {
                 <Searchbar items={posts} />
                 <div className="mt-4">
                   {posts.map((post) => (
-                    <div key={post.id}>
+                    <div key={post.objectID}>
                       <SearchResultItem item={post} />
                     </div>
                   ))}

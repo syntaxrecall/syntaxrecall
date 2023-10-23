@@ -3,12 +3,12 @@
 import React from "react";
 import { useRouter } from "next/router";
 import clsx from "clsx";
-import { Post } from "../interfaces";
+import { PageData } from "../api/search.api";
 
 export default function SearchResultItem({
   item,
 }: {
-  item: Post;
+  item: PageData;
 }): React.ReactElement {
   const router = useRouter();
 
@@ -21,7 +21,7 @@ export default function SearchResultItem({
   return (
     <button
       type="button"
-      key={item.id}
+      key={item.objectID}
       onClick={() => onClickResultItem()}
       className={clsx(
         "p-2",

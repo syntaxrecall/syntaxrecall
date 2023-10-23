@@ -5,6 +5,9 @@ description: A cheatsheet for python comments
 keywords: ["python","comments"]
 ---
 
+Table of Contents
+[[toc]]
+
 # Single line comments
 - Start with a hash mark (#) and a space
 
