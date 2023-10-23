@@ -13,6 +13,7 @@ async function main(): Promise<void> {
     '---',
     `id: ${crypto.randomUUID()}`,
     `title: ${title}`,
+    `keywords: ["${title.toLowerCase()}"]`
   ];
 
   if (description) {
